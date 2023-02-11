@@ -83,7 +83,7 @@ playlists
 						mp_lf_township 0
 						mp_lf_uma 0
 						mp_relic02 0
-						mp_wargames 0
+						mp_wargames 1
 						mp_rise 0
 						mp_coliseum 0
 						mp_coliseum_column 0
