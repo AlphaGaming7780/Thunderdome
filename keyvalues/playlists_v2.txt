@@ -1,0 +1,95 @@
+playlists
+{
+    Gamemodes
+    {
+        TBR
+        {
+            inherit defaults
+            vars
+            {
+                name #PL_TBR
+                lobbytitle #PL_TBR_lobby
+                description #PL_TBR_desc
+                hint #PL_TBR_hint
+                abbreviation #PL_TBR_abbr
+				
+                max_players 20
+				max_teams 20
+
+				min_players 2
+				waitingPlayerTime 30
+
+                classic_mp 1
+
+				TBR_EnableDevMod 1
+				TBR_canSpawnTitan 0
+				TBR_canUseBoost 0
+
+				TBR_IntroLength 1
+				TBR_NumChest 20
+
+				TBR_SpawnWithMainWeapon 0
+				TBR_SpawnWithSecondaryWeapon 1
+				TBR_SpawnWithAntiTitanWeapon 0
+
+				TBR_SpawnMainWeapon empty
+				TBR_SpawnSecondaryWeapon mp_weapon_autopistol
+				TBR_SpawnAntiTitanWeapon empty
+
+                gamemode_score_hint #GAMEMODE_SCORE_HINT_TDM
+            }
+        }
+    }
+    Playlists
+    {
+        TBR
+		{
+			inherit defaults
+			vars
+			{
+				name #PL_TBR
+				lobbytitle #PL_TBR_lobby
+				description #PL_TBR_desc
+				abbreviation #PL_TBR_abbr
+				image ffa
+				//mixtape_slot 7
+				mixtape_timeout 120
+				visible 0
+				TBR_spawnInTitan 1
+			}
+			gamemodes
+			{
+				TBR
+				{
+					maps
+					{
+						mp_forwardbase_kodai 1
+						mp_grave 0
+						mp_homestead 0
+						mp_thaw 0
+						mp_black_water_canal 0
+						mp_eden 0
+						mp_drydock 0
+						mp_crashsite3 0
+						mp_complex3 0
+						mp_angel_city 1
+						mp_colony02 0
+						mp_glitch 0
+						mp_lf_stacks 0
+						mp_lf_stacks 0
+						mp_lf_deck 0
+						mp_lf_meadow 0
+						mp_lf_traffic 0
+						mp_lf_township 0
+						mp_lf_uma 0
+						mp_relic02 0
+						mp_wargames 0
+						mp_rise 0
+						mp_coliseum 0
+						mp_coliseum_column 0
+					}
+				}
+			}
+		}
+    }
+}

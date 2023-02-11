@@ -1,17 +1,36 @@
 {
-   "Name": "Example.Mod",
-   "Description": "A cool mod that does cool stuff",
-   "Version": "1.0.0",
-   "DownloadLink": "https://northstar.thunderstore.io/package/download/Example/Mod/",
-
-   "LoadPriority": 0,
-   "ConVars": [],
-   "Scripts": [{
-      "Path": "example.nut",
-      "RunOn": "(CLIENT || SERVER) && MP"
-      "ClientCallback": {
-         "Before":"example_callback"
-      }
-   }],
-   "Localisation": []
+    "Name" : "Titanfall Legends",
+    "Description" : "Add a Battle Royale gamemode to Titanfall 2.",
+    "Version": "0.0.1 Alpha",
+    "LoadPriority": 1,
+    "Scripts": [
+    {
+        "Path": "gamemodes/_gamemode_TBR.nut",
+        "RunOn": "SERVER && MP"
+    },
+    {
+        "Path": "gamemodes/cl_gamemode_TBR.nut",
+        "RunOn": "CLIENT && MP"
+    },
+    {
+        "Path": "gamemodes/sh_gamemode_TBR.nut",
+        "RunOn": "(CLIENT || SERVER) && MP",
+        "ClientCallback": {
+            "Before": "TBR_init"
+        },
+        "ServerCallback": {
+            "Before": "TBR_init"
+        }
+    },
+    {
+        "Path": "ui/menu_endgame.nut",
+        "RunOn": "UI",
+        "UICallback": {
+            "Before": "TBR_Init"
+        }
+    }
+],
+    "Localisation": [
+        "resource/TBR_localisation_%language%.txt"
+    ]
 }
