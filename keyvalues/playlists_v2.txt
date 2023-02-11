@@ -21,11 +21,11 @@ playlists
 
                 classic_mp 1
 
-				TBR_EnableDevMod 1
+				TBR_EnableDevMod 0
 				TBR_canSpawnTitan 0
 				TBR_canUseBoost 0
 
-				TBR_IntroLength 1
+				TBR_IntroLength 10
 				TBR_NumChest 20
 
 				TBR_SpawnWithMainWeapon 0
@@ -36,7 +36,7 @@ playlists
 				TBR_SpawnSecondaryWeapon mp_weapon_autopistol
 				TBR_SpawnAntiTitanWeapon empty
 
-                gamemode_score_hint #GAMEMODE_SCORE_HINT_TDM
+                gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
             }
         }
     }

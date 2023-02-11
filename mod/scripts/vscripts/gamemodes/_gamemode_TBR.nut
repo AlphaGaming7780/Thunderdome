@@ -409,10 +409,7 @@ ClServer_MessageStruct function MyChatCommande(ClServer_MessageStruct message)
                 AddCallback_OnUseEntity(chest, OnChestUsed)
             }
         }
-    } /*else if(message.message.find("!sui") != null) {
-        Chat_ServerPrivateMessage(message.player, "L'UI a été afficher", true, true)
-        Remote_CallFunction_NonReplay( message.player, "cl_OpenEndGameMenu")
-    }*/ else if(message.message.find("!spawn") != null) {
+    } else if(message.message.find("!spawn") != null) {
         if(message.message.find("weapon")) {
             if(message.message.find("*") != null) {
                 foreach(string weapon in mainWeapons)

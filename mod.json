@@ -1,5 +1,5 @@
 {
-    "Name" : "Titanfall Legends",
+    "Name" : "Titanfall-Legends",
     "Description" : "Add a Battle Royale gamemode to Titanfall 2.",
     "Version": "0.0.1 Alpha",
     "LoadPriority": 1,
@@ -20,13 +20,6 @@
         },
         "ServerCallback": {
             "Before": "TBR_init"
-        }
-    },
-    {
-        "Path": "ui/menu_endgame.nut",
-        "RunOn": "UI",
-        "UICallback": {
-            "Before": "TBR_Init"
         }
     }
 ],
