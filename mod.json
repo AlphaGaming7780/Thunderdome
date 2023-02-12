@@ -1,7 +1,7 @@
 {
     "Name" : "Titanfall-Legends",
     "Description" : "Add a Battle Royale gamemode to Titanfall 2.",
-    "Version": "0.0.1 Alpha",
+    "Version": "1.0.0",
     "LoadPriority": 1,
     "Scripts": [
     {
