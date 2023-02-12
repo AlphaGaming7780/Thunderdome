@@ -15,7 +15,6 @@ It is possible to customize the game mode, by executing a commands when starting
 ```
 
 | PlaylistOverrides | Accepted Values | Default Value | Description |
-| :---------------- | :-------------- | :------------ | :---------- |
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server |
 | :-------- | :--------| :------------------------- |
 | :-------- | :------- | :-------------------------------- |
