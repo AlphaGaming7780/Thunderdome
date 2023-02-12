@@ -5,7 +5,6 @@ A Titanfall Northstar mod, that add a battle royal game mode to the game
 
 
 ## Documentation
-
 It is possible to customize the game mode, by executing a command when starting the server, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides)
 
 Please don't use PlaylistOverrides that aren't in listed [here](https://github.com/AlphaGaming7780/Titanfall-Legends/blob/main/README.md#playlistoverrides)
@@ -17,7 +16,6 @@ Please don't use PlaylistOverrides that aren't in listed [here](https://github.c
 ```
 
 #### PlaylistOverrides
-
 | PlaylistOverrides | Accepted Values | Default Value | Description |
 | :---------------- | :-------------- | :------------ | :---------- |
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server |
