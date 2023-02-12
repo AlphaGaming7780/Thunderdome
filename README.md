@@ -12,7 +12,7 @@ Please don't use PlaylistOverrides that aren't in listed [here](https://github.c
 #### Exemple:
 
 ```
-  +setplaylistvaroverrides "max_players 10 max_teams 10 TBR_NumChest 40 TBR_SpawnWithMainWeapon 1 TBR_SpawnMainWeapon mp_weapon_car"
++setplaylistvaroverrides "max_players 10 max_teams 10 TBR_NumChest 40 TBR_SpawnWithMainWeapon 1 TBR_SpawnMainWeapon mp_weapon_car"
 ```
 
 #### PlaylistOverrides
