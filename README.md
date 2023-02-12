@@ -20,10 +20,8 @@ It is possible to customize the game mode, by executing a commands when starting
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`|
 | `min_players` | `Int` | `2` | The min player needed to start the game (try to don't change, don't know what would append) |
 | `waitingPlayerTime` | `Int` | `30` | The time the server wait for player, befor the allow them to spawn |
-| `TBR_canSpawnTitan` | `Int` | `0` | Allowed player to summon their titan \n `0` : False \n `1` : True |
-| `TBR_canUseBoost` | `Int` | `0` | Allowed player to use their boost 
- `0` : False
- `1` : True |
+| `TBR_canSpawnTitan` | `Int` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
+| `TBR_canUseBoost` | `Int` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 
 #### add(num1, num2)
 
