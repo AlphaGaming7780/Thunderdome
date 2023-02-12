@@ -91,11 +91,11 @@ void function GamemodeTBR_Init()
 
     NumChest = GetCurrentPlaylistVarInt("TBR_NumChest", 20)
 
-    SetShouldUseRoundWinningKillReplay( true )
+    //SetShouldUseRoundWinningKillReplay( true ) //Not sur it's working because Round Winning and I don't use round
     SetSpawnpointGamemodeOverride( FFA )
-    SetRespawnsEnabled( false )
     SetLoadoutGracePeriodEnabled( false )
     SetWeaponDropsEnabled( true )
+    SetRespawnsEnabled( true )
 
     if ( GetCurrentPlaylistVarInt( "TBR_EnableDevMod", 0 ) == 1 ) {
         AddCallback_OnReceivedSayTextMessage(MyChatCommande)
@@ -170,6 +170,7 @@ void function PBRIntroStart()
         PBROnClientConnect( player )
         if(GetPlayerArray().len() >= minPlayer) {
             NSDeleteStatusMessageOnPlayer(player, "TBR_ConnectedPlayerID")
+            SetRespawnsEnabled( false )
         }
     }
 }
@@ -224,7 +225,10 @@ void function PBRStartPlaying() {
             RemoveCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
         }
         TryGameModeAnnouncement( player )
-        NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
+        if(AtStartNumAlivePlayer >= minPlayer) {
+            SetRespawnsEnabled( false )
+            NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
+        }
     }
     if ( GetCurrentPlaylistVarInt( "TBR_EnableDevMod", 0 ) == 1 ) {
         thread PBRPlaying()
@@ -278,18 +282,6 @@ void function PBROnClientConnect( entity player )
 	
 }
 
-void function TBR_Spawn_Player_Threaded( entity player )
-{
-    AddCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
-	ScreenFadeFromBlack( player, 0.5, 0.5 )
-	
-	if ( !IsValid( player ) ) // if player leaves during the intro sequence
-		return
-    RespawnAsPilot(player)
-    GiveStartWeapon( player )
-    player.FreezeControlsOnServer()
-}
-
 void function PBROnClientDisconnect( entity player ) {
     if( GetGameState() == eGameState.WaitingForPlayers) {
         //Chat_ServerBroadcast( "\x1b[113m["+GetPlayerArray().len().tostring()+"/"+minPlayer+"] "+"#TBR_ConnectedPlayerDesc" )
@@ -305,7 +297,11 @@ void function PBROnClientDisconnect( entity player ) {
             }
         }
     } else if( GetGameState() == eGameState.Playing ) {
-        if(IsAlive(player)) {
+        if(GetPlayerArray().len() < minPlayer && AtStartNumAlivePlayer < minPlayer) {
+            foreach ( entity player in GetPlayerArray() ) {
+                NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#TBR_ConnectedPlayerDesc", "TBR_ConnectedPlayerID")
+            }
+        } else if(IsAlive(player)) {
             NumAlivePlayer--
             foreach(entity player in GetPlayerArray()) {
                 if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
@@ -317,31 +313,42 @@ void function PBROnClientDisconnect( entity player ) {
                 }
             }
         }
-        if(GetPlayerArray().len() < minPlayer && AtStartNumAlivePlayer < minPlayer) {
-            foreach ( entity player in GetPlayerArray() ) {
-                NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#TBR_ConnectedPlayerDesc", "TBR_ConnectedPlayerID")
-            }
-        }
     }
 }
 
 void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
     if(GetGameState() == eGameState.Playing) {
-        NumAlivePlayer--
-        foreach(entity player in GetPlayerArray()) {
-            if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
-                Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", NumAlivePlayer )
+        if(GetPlayerArray().len() < minPlayer && AtStartNumAlivePlayer < minPlayer) {
+            RespawnAsPilot(victim)
+        } else {
+            NumAlivePlayer--
+            foreach(entity player in GetPlayerArray()) {
+                if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
+                    Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", NumAlivePlayer )
+                }
+                if(IsAlive(player)) {
+                    AddTeamScore( player.GetTeam(), 1 )
+                    player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
+                }
+                NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
             }
-            if(IsAlive(player)) {
-                AddTeamScore( player.GetTeam(), 1 )
-                player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
+            if(NumAlivePlayer <= 1) {
+                SetWinner(attacker.GetTeam())
             }
-            NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
-        }
-        if(NumAlivePlayer <= 1) {
-            SetWinner(attacker.GetTeam())
         }
     }
+}
+
+void function TBR_Spawn_Player_Threaded( entity player )
+{
+    AddCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
+	ScreenFadeFromBlack( player, 0.5, 0.5 )
+	
+	if ( !IsValid( player ) ) // if player leaves during the intro sequence
+		return
+    RespawnAsPilot(player)
+    GiveStartWeapon( player )
+    player.FreezeControlsOnServer()
 }
 
 var function OnChestUsed(var ent, var player) {

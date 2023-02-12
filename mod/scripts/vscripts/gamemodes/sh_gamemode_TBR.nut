@@ -12,6 +12,7 @@ void function CreateGamemodeTBR()
     GameMode_Create( GAMEMODE_TBR)
     GameMode_SetName( GAMEMODE_TBR, "#GAMEMODE_TBR" )
     GameMode_SetDesc( GAMEMODE_TBR, "#PL_TBR_desc" )
+    GameMode_SetIcon( GAMEMODE_TBR, $"vgui/burncards/burncard_group_icon_weapons" ) //FFA_MODE_ICON
     GameMode_SetGameModeAnnouncement( GAMEMODE_TBR, "ffa_modeDesc" )
     GameMode_SetDefaultTimeLimits( GAMEMODE_TBR, 100, 0.0 )
     GameMode_AddScoreboardColumnData( GAMEMODE_TBR, "#SCOREBOARD_SCORE", PGS_ASSAULT_SCORE, 2 )

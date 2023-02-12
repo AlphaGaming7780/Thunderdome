@@ -55,7 +55,6 @@ playlists
 				//mixtape_slot 7
 				mixtape_timeout 120
 				visible 0
-				TBR_spawnInTitan 1
 			}
 			gamemodes
 			{
