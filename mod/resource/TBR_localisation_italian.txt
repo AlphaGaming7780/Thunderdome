@@ -1,0 +1,28 @@
+"lang"
+{
+    "Language" "italian"
+    "Tokens"
+    {       
+        "PL_TBR" "Battle Royale"
+        "TBR_EnableDevMod" "Modalità sviluppatore"
+        "TBR_canSpawnTitan" "Consenti l'abbattimento del Titano"
+        "TBR_canUseBoost" "Consenti l'uso del boost"
+        "TBR_IntroLength" "Lunghezza introduzione"
+        "TBR_NumChest" "Numero di casse"
+        "TBR_SpawnWithMainWeapon" "Spawn con arma principale"
+        "TBR_SpawnWithSecondaryWeapon" "Spawn con arma secondaria"
+        "TBR_SpawnWithAntiTitanWeapon" "Spawn con arma anti-titano"
+        "TBR_SpawnMainWeapon" "Arma di spawn principale"
+        "TBR_SpawnSecondaryWeapon" "Arma di spawn secondaria"
+        "TBR_SpawnAntiTitanWeapon" "Arma di spawn anti-titano"
+        "PL_TBR_lobby" "Battle Royale"
+        "PL_TBR_desc" "Sei stato lasciato cadere in un'arena, devi trovare armi per combattere contro altri giocatori e essere l'ultimo sopravvissuto."
+        "PL_TBR_hint" "Trova le casse degli armamenti e combatti gli altri giocatori!"
+        "PL_TBR_abbr" "BR"
+        "GAMEMODE_TBR" "Battle Royal"
+        "TBR_GameNumPlayerLeftAnnouncement" "Solo %s1 giocatori rimasti!"
+        "TBR_PlayerLeftPannelDesc" "giocatori rimanenti."
+        "TBR_ConnectedPlayerDesc" "giocatore connesso."
+        "TBR_WaitingTimeLeft" "%s1 secondi rimanenti."
+    }
+}

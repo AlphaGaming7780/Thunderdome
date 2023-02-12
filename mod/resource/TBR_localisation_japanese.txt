@@ -1,0 +1,28 @@
+"lang"
+{
+    "Language" "japanese"
+    "Tokens"
+    {       
+        "PL_TBR" "バトルロワイアル"
+        "TBR_EnableDevMod" "開発者モード"
+        "TBR_canSpawnTitan" "タイタンドロップを許可"
+        "TBR_canUseBoost" "ブーストの使用を許可"
+        "TBR_IntroLength" "イントロの長さ"
+        "TBR_NumChest" "チェストの数"
+        "TBR_SpawnWithMainWeapon" "主武器でスポーン"
+        "TBR_SpawnWithSecondaryWeapon" "副武器でスポーン"
+        "TBR_SpawnWithAntiTitanWeapon" "アンチタイタン武器でスポーン"
+        "TBR_SpawnMainWeapon" "主要なスポーン武器"
+        "TBR_SpawnSecondaryWeapon" "副次のスポーン武器"
+        "TBR_SpawnAntiTitanWeapon" "アンチタイタンスポーン武器"
+        "PL_TBR_lobby" "バトルロワイアル"
+        "PL_TBR_desc" "アリーナに落とされ、他のプレイヤーと戦い、最後の生存者になるための武器を見つけなければなりません。"
+        "PL_TBR_hint" "武器のチェストを見つけて他のプレイヤーと戦いましょう！"
+        "PL_TBR_abbr" "BR"
+        "GAMEMODE_TBR" "バトルロワイアル"
+        "TBR_GameNumPlayerLeftAnnouncement" "残り%s1人のプレイヤー！"
+        "TBR_PlayerLeftPannelDesc" "プレイヤーが残っています。"
+        "TBR_ConnectedPlayerDesc" "接続プレイヤー。"
+        "TBR_WaitingTimeLeft" "%s1秒残ります。"
+    }
+}

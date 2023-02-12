@@ -49,18 +49,6 @@ void function GameNumPlayerLeftAnnouncement(int NumPlayer)
     AnnouncementFromClass( GetLocalViewPlayer(), announcement )
 }
 
-void function GameStartAnnouncement()
-{
-    AnnouncementData announcement = Announcement_Create( "#TBR_Start" )
-    Announcement_SetSubText( announcement, "#TBR_Start_DESC" )
-    Announcement_SetTitleColor( announcement, <0,0,1> )
-    Announcement_SetPurge( announcement, true )
-    Announcement_SetPriority( announcement, 200 ) //Be higher priority than Titanfall ready indicator etc
-    Announcement_SetSoundAlias( announcement, SFX_HUD_ANNOUNCE_QUICK )
-    Announcement_SetStyle( announcement, ANNOUNCEMENT_STYLE_QUICK )
-    AnnouncementFromClass( GetLocalViewPlayer(), announcement )
-}
-
 void function cl_OpenEndGameMenu() {
     //DisplayPostMatchTop3()
     /*foreach ( entity player in GetPlayerArray() )

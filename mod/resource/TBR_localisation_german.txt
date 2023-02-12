@@ -1,0 +1,28 @@
+"lang"
+{
+    "Language" "german"
+    "Tokens"
+    {       
+        "PL_TBR" "Battle Royale"
+        "TBR_EnableDevMod" "Entwicklermodus"
+        "TBR_canSpawnTitan" "Titan-Absprung erlauben"
+        "TBR_canUseBoost" "Boost-Nutzung erlauben"
+        "TBR_IntroLength" "Introlänge"
+        "TBR_NumChest" "Anzahl an Truhen"
+        "TBR_SpawnWithMainWeapon" "Mit primärer Waffe spawnen"
+        "TBR_SpawnWithSecondaryWeapon" "Mit sekundärer Waffe spawnen"
+        "TBR_SpawnWithAntiTitanWeapon" "Mit Anti-Titan-Waffe spawnen"
+        "TBR_SpawnMainWeapon" "Primäre Spawn-Waffe"
+        "TBR_SpawnSecondaryWeapon" "Sekundäre Spawn-Waffe"
+        "TBR_SpawnAntiTitanWeapon" "Anti-Titan-Spawn-Waffe"
+        "PL_TBR_lobby" "Battle Royale"
+        "PL_TBR_desc" "Du wirst in eine Arena fallen gelassen, du musst Waffen finden, um gegen andere Spieler zu kämpfen und der letzte Überlebende zu sein."
+        "PL_TBR_hint" "Finde Waffentruhen und kämpfe gegen andere Spieler!"
+        "PL_TBR_abbr" "BR"
+        "GAMEMODE_TBR" "Battle Royale"
+        "TBR_GameNumPlayerLeftAnnouncement" "Nur noch %s1 Spieler übrig!"
+        "TBR_PlayerLeftPannelDesc" "verbleibende Spieler."
+        "TBR_ConnectedPlayerDesc" "verbundener Spieler."
+        "TBR_WaitingTimeLeft" "%s1 Sekunden verbleibend."
+    }
+}

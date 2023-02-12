@@ -21,12 +21,20 @@ void function CreateGamemodeTBR()
 
     AddPrivateMatchMode( GAMEMODE_TBR)
 
-    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_EnableDevMod", ["#SETTING_DISABLED", "#SETTING_ENABLED"], "0")
-    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_canSpawnTitan", ["#SETTING_DISABLED", "#SETTING_ENABLED"], "0") //GetCurrentPlaylistVarInt( "TBR_canSpawnTitan", 0 ).tostring()
-    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_canUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], "0") //GetCurrentPlaylistVarInt( "TBR_canUseBoost", 0 ).tostring()
+    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_EnableDevMod", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_EnableDevMod", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_canSpawnTitan", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_canSpawnTitan", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_canUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_canUseBoost", 0).tostring())
 
-    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_SpawnWithSecondaryWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], "0")
+    AddPrivateMatchModeSettingArbitrary("#PL_TBR", "TBR_IntroLength", GetCurrentPlaylistVarInt("TBR_IntroLength", 0).tostring())
+    AddPrivateMatchModeSettingArbitrary("#PL_TBR", "TBR_NumChest", GetCurrentPlaylistVarInt("TBR_NumChest", 0).tostring())
+
+    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_SpawnWithMainWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_SpawnWithMainWeapon", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_SpawnWithSecondaryWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_SpawnWithSecondaryWeapon", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TBR", "TBR_SpawnWithAntiTitanWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_SpawnWithAntiTitanWeapon", 0).tostring())
+
+    AddPrivateMatchModeSettingArbitrary("#PL_TBR", "TBR_SpawnMainWeapon", GetCurrentPlaylistVarString("TBR_SpawnMainWeapon", ""))
     AddPrivateMatchModeSettingArbitrary("#PL_TBR", "TBR_SpawnSecondaryWeapon", GetCurrentPlaylistVarString("TBR_SpawnSecondaryWeapon", ""))
+    AddPrivateMatchModeSettingArbitrary("#PL_TBR", "TBR_SpawnAntiTitanWeapon", GetCurrentPlaylistVarString("TBR_SpawnAntiTitanWeapon", ""))
 
     GameMode_SetDefaultScoreLimits( GAMEMODE_TBR, 1000, 0 )
 
