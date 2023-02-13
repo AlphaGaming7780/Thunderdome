@@ -1,24 +1,24 @@
 playlists
 {
-    Gamemodes
-    {
-        TBR
-        {
-            inherit defaults
-            vars
-            {
-                name #PL_TBR
-                lobbytitle #PL_TBR
-                description #PL_TBR_desc
-                hint #PL_TBR_hint
-                abbreviation #PL_TBR_abbr
-				
-                max_players 20
+	Gamemodes
+	{
+		TBR
+		{
+		    	inherit defaults
+			vars
+			{
+				name #PL_TBR
+				lobbytitle #PL_TBR
+				description #PL_TBR_desc
+				hint #PL_TBR_hint
+				abbreviation #PL_TBR_abbr
+
+				max_players 20
 				max_teams 20
 
 				min_players 2
 
-                classic_mp 1
+				classic_mp 1
 
 				TBR_EnableDevMod 0
 				TBR_canSpawnTitan 0
@@ -35,34 +35,34 @@ playlists
 				TBR_SpawnSecondaryWeapon mp_weapon_autopistol
 				TBR_SpawnAntiTitanWeapon empty
 
-                gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
-            }
-        }
+                		gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
+            		}
+        	}
 
 		TBR_LOBBY
 		{
 			inherit defaults
-            vars
-            {
-                name #PL_TBR_LOBBY
-                lobbytitle #PL_TBR_LOBBY
-                description #PL_TBR_LOBBY_desc
-                hint #PL_TBR_LOBBY_hint
-                abbreviation #PL_TBR_LOBBY_abbr
-                max_players 20
-                max_teams 20
-                classic_mp 1
+           		vars
+            		{
+				name #PL_TBR_LOBBY
+				lobbytitle #PL_TBR_LOBBY
+				description #PL_TBR_LOBBY_desc
+				hint #PL_TBR_LOBBY_hint
+				abbreviation #PL_TBR_LOBBY_abbr
+				max_players 20
+				max_teams 20
+				classic_mp 1
 
 				min_players 2
 				WaitingVoteTime 30
 
-                gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
-            }
+                		gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
+            		}
 		}
-    }
-    Playlists
-    {
-        TBR
+    	}
+    	Playlists
+    	{
+        	TBR
 		{
 			inherit defaults
 			vars
@@ -157,5 +157,5 @@ playlists
 				}
 			}
 		}
-    }
+	}
 }
