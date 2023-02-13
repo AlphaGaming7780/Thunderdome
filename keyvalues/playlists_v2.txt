@@ -4,7 +4,7 @@ playlists
 	{
 		TBR
 		{
-		    	inherit defaults
+		    inherit defaults
 			vars
 			{
 				name #PL_TBR
@@ -35,15 +35,15 @@ playlists
 				TBR_SpawnSecondaryWeapon mp_weapon_autopistol
 				TBR_SpawnAntiTitanWeapon empty
 
-                		gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
-            		}
-        	}
+                gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
+            }
+        }
 
 		TBR_LOBBY
 		{
 			inherit defaults
-           		vars
-            		{
+           	vars
+            {
 				name #PL_TBR_LOBBY
 				lobbytitle #PL_TBR_LOBBY
 				description #PL_TBR_LOBBY_desc
@@ -56,13 +56,13 @@ playlists
 				min_players 2
 				WaitingVoteTime 30
 
-                		gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
-            		}
+                gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
+            }
 		}
-    	}
-    	Playlists
-    	{
-        	TBR
+    }
+    Playlists
+    {
+        TBR
 		{
 			inherit defaults
 			vars
