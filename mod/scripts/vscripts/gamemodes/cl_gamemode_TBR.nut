@@ -1,9 +1,8 @@
 global function ClGamemodeTBR_Init
+global function ClGamemodeTBR_Lobby_Init
 global function GameNumPlayerLeftAnnouncement
-global function cl_OpenEndGameMenu
-global function WriteInGameChat
-global function Cl_OnWaitingPlayer
-global function Cl_ConnectedPlayer
+global function Cl_OnWaitingVote
+global function Cl_EnoughPlayerToStart
 
 void function ClGamemodeTBR_Init()
 {
@@ -30,12 +29,12 @@ void function ClGamemodeTBR_Init()
     AddCallback_GameStateEnter( eGameState.Postmatch, DisplayPostMatchTop3 )
 }
 
-void function Cl_OnWaitingPlayer(int TimeToWait) {
-    Chat_GameWriteLine("\x1b[113m" + Localize("#TBR_WaitingTimeLeft", TimeToWait ))
+void function Cl_OnWaitingVote(float TimeToWait) {
+    Chat_GameWriteLine("\x1b[113m" + Localize("#TBR_WaitingVoteTimeLeft", TimeToWait ))
 }
 
-void function Cl_ConnectedPlayer(int NumPlayer, int minPlayer) {
-    Chat_GameWriteLine("\x1b[113m["+NumPlayer+"/"+minPlayer+"] " + Localize("#TBR_ConnectedPlayerDesc"))
+void function Cl_EnoughPlayerToStart(float TimeBeforeStart) {
+    Chat_GameWriteLine("\x1b[113m" + Localize("#TBR_GameStartChatAnnouncement", TimeBeforeStart ))
 }
 
 void function GameNumPlayerLeftAnnouncement(int NumPlayer)
@@ -49,19 +48,27 @@ void function GameNumPlayerLeftAnnouncement(int NumPlayer)
     AnnouncementFromClass( GetLocalViewPlayer(), announcement )
 }
 
-void function cl_OpenEndGameMenu() {
-    //DisplayPostMatchTop3()
-    /*foreach ( entity player in GetPlayerArray() )
-        ScreenFadeToBlackForever( player, 2.0 )*/
+void function ClGamemodeTBR_Lobby_Init()
+{
+    ClGameState_RegisterGameStateAsset( $"ui/gamestate_info_ffa.rpak" )
 
-    //wait 2.0
-    /*if( GetGameState() != eGameState.Postmatch )
-        SetGameState( eGameState.Postmatch )*/
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_INTRO, "music_mp_freeagents_intro", TEAM_IMC )
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_INTRO, "music_mp_freeagents_intro", TEAM_MILITIA )
 
-    Chat_GameWriteLine("Ui SPAWN")
-    //RunUIScript("TBR_GetActiveMenu")
-}
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_WIN, "music_mp_freeagents_outro_win", TEAM_IMC )
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_WIN, "music_mp_freeagents_outro_win", TEAM_MILITIA )
 
-void function WriteInGameChat(string text) {
-    Chat_GameWriteLine(text)
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_DRAW, "music_mp_freeagents_outro_lose", TEAM_IMC )
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_DRAW, "music_mp_freeagents_outro_lose", TEAM_MILITIA )
+
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_LOSS, "music_mp_freeagents_outro_lose", TEAM_IMC )
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_LOSS, "music_mp_freeagents_outro_lose", TEAM_MILITIA )
+
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_THREE_MINUTE, "music_mp_freeagents_almostdone", TEAM_IMC )
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_THREE_MINUTE, "music_mp_freeagents_almostdone", TEAM_MILITIA )
+
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_LAST_MINUTE, "music_mp_freeagents_lastminute", TEAM_IMC )
+    RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_LAST_MINUTE, "music_mp_freeagents_lastminute", TEAM_MILITIA )
+
+    AddCallback_GameStateEnter( eGameState.Postmatch, DisplayPostMatchTop3 )
 }

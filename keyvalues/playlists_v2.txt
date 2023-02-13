@@ -8,7 +8,7 @@ playlists
             vars
             {
                 name #PL_TBR
-                lobbytitle #PL_TBR_lobby
+                lobbytitle #PL_TBR
                 description #PL_TBR_desc
                 hint #PL_TBR_hint
                 abbreviation #PL_TBR_abbr
@@ -17,7 +17,6 @@ playlists
 				max_teams 20
 
 				min_players 2
-				waitingPlayerTime 30
 
                 classic_mp 1
 
@@ -39,6 +38,24 @@ playlists
                 gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
             }
         }
+
+		TBR_LOBBY
+		{
+			inherit defaults
+            vars
+            {
+                name #PL_TBR_LOBBY
+                lobbytitle #PL_TBR_LOBBY
+                description #PL_TBR_LOBBY_desc
+                hint #PL_TBR_LOBBY_hint
+                abbreviation #PL_TBR_LOBBY_abbr
+                max_players 20
+                max_teams 20
+                classic_mp 1
+
+                gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
+            }
+		}
     }
     Playlists
     {
@@ -48,7 +65,7 @@ playlists
 			vars
 			{
 				name #PL_TBR
-				lobbytitle #PL_TBR_lobby
+				lobbytitle #PL_TBR
 				description #PL_TBR_desc
 				abbreviation #PL_TBR_abbr
 				image ffa
@@ -75,7 +92,6 @@ playlists
 						mp_colony02 0
 						mp_glitch 0
 						mp_lf_stacks 0
-						mp_lf_stacks 0
 						mp_lf_deck 0
 						mp_lf_meadow 0
 						mp_lf_traffic 0
@@ -83,6 +99,54 @@ playlists
 						mp_lf_uma 0
 						mp_relic02 0
 						mp_wargames 1
+						mp_rise 0
+						mp_coliseum 0
+						mp_coliseum_column 0
+					}
+				}
+			}
+		}
+		        
+		TBR_LOBBY
+		{
+			inherit defaults
+			vars
+			{
+				name #PL_TBR_LOBBY
+				lobbytitle #PL_TBR_LOBBY
+				description #PL_TBR_LOBBY_desc
+				abbreviation #PL_TBR_LOBBY_abbr
+				image ffa
+				//mixtape_slot 7
+				mixtape_timeout 120
+				visible 0
+			}
+			gamemodes
+			{
+				TBR_LOBBY
+				{
+					maps
+					{
+						mp_forwardbase_kodai 0
+						mp_grave 0
+						mp_homestead 0
+						mp_thaw 0
+						mp_black_water_canal 0
+						mp_eden 0
+						mp_drydock 0
+						mp_crashsite3 0
+						mp_complex3 0
+						mp_angel_city 0
+						mp_colony02 0
+						mp_glitch 0
+						mp_lf_stacks 1
+						mp_lf_deck 1
+						mp_lf_meadow 1
+						mp_lf_traffic 1
+						mp_lf_township 1
+						mp_lf_uma 1
+						mp_relic02 0
+						mp_wargames 0
 						mp_rise 0
 						mp_coliseum 0
 						mp_coliseum_column 0

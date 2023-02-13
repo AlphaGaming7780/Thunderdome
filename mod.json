@@ -21,7 +21,12 @@
         "ServerCallback": {
             "Before": "TBR_init"
         }
+    },
+    {
+        "Path": "TBR_Utils.nut",
+        "RunOn": "SERVER && MP"
     }
+
 ],
     "Localisation": [
         "resource/TBR_localisation_%language%.txt"
