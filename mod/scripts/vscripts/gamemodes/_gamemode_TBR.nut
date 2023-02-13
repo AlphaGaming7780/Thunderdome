@@ -10,7 +10,7 @@ string spawnMainWeapon = ""
 string spawnSecondaryWeapon = ""
 string spawnAntiTitanWeapon = ""
 
-const int minPlayer = 2
+int minPlayer = 2
 
 const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_grave",
@@ -120,6 +120,8 @@ void function GamemodeTBR_Init()
 {
     #if SERVER
     ClassicMP_ForceDisableEpilogue( true )
+
+    minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
 
     TBRIntroLength = GetCurrentPlaylistVarFloat("TBR_IntroLength", 0)
     spawnWithMainWeapon =  GetCurrentPlaylistVarInt("TBR_SpawnWithMainWeapon", 0) == 1
@@ -433,6 +435,8 @@ void function GamemodeTBR_Lobby_Init()
 	SetWeaponDropsEnabled( true )
 	Riff_ForceTitanAvailability( eTitanAvailability.Never )
 
+    minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
+
     AddCallback_OnClientConnected( TBR_LOBBY_OnClientConnect )
 }
 
@@ -448,7 +452,7 @@ void function TBR_LOBBY_OnClientConnect( entity player ) {
 }
 
 void function EnoughtPlayerToStart() {
-    float WaitingVoteTime = 30
+    float WaitingVoteTime = GetCurrentPlaylistVarFloat("waitingvotetime", 30.0)
     foreach(entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay(player, "Cl_EnoughPlayerToStart", WaitingVoteTime)
     }

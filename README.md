@@ -20,8 +20,8 @@ Please don't use PlaylistOverrides that aren't in listed [here](https://github.c
 | :---------------- | :-------------- | :------------ | :---------- |
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server |
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max.|
-| `min_players` | `Int` | `2` | The min player needed to start the game (try to don't change, don't know what would append) |
-| `waitingPlayerTime` | `Int` | `30` | The time the server wait for player, befor they allow them to spawn |
+| `min_players` | `Int` | `2` | The min player needed to start a game |
+| `WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote in the lobby, before it load the map the player vote. |
 | `TBR_canSpawnTitan` | `Int` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `TBR_canUseBoost` | `Int` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `TBR_IntroLength` | `Int` | `10` | Time the of the prematch state in seconde |
