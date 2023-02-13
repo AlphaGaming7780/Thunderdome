@@ -53,8 +53,8 @@ playlists
                 max_teams 20
                 classic_mp 1
 
-		min_players 2
-		WaitingVoteTime 30
+				min_players 2
+				WaitingVoteTime 30
 
                 gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
             }
