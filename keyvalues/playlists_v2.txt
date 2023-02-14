@@ -90,7 +90,7 @@ playlists
 						mp_eden 0
 						mp_drydock 0
 						mp_crashsite3 0
-						mp_complex3 0
+						mp_complex3 1
 						mp_angel_city 1
 						mp_colony02 0
 						mp_glitch 0

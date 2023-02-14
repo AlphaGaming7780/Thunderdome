@@ -11,7 +11,7 @@
         "PL_TBR_LOBBY" "Battle Royale Lobby"
         "GAMEMODE_TBR_LOBBY" "Battle Royale Lobby"
         "PL_TBR_LOBBY_desc" "Wo Sie auf andere Spieler warten, bevor Sie eine Battle Royale-Partie starten."
-        "PL_TBR_LOBBY_hint" "Warten Sie und stimmen Sie für Ihre bevorzugte Karte ab, wenn genug Spieler beigetreten sind."
+        "PL_TBR_LOBBY_hint" "Warten Sie und stimmen Sie für die Karte ab, auf der Sie spielen möchten, wenn genug Spieler beigetreten sind."
         "PL_TBR_LOBBY_abbr" "BRL"
         "BR_EnableDevMod" "Entwicklermodus"
         "BR_canSpawnTitan" "Titan-Absprung erlauben"
@@ -29,5 +29,6 @@
         "TBR_ConnectedPlayerDesc" "verbundener Spieler."
         "TBR_WaitingVoteTimeLeft" "%s1 Sekunden verbleibend."
         "TBR_GameStartChatAnnouncement" "Es gibt genug Spieler, um das Spiel zu starten, es wird in %s1 Sekunden beginnen. Stimmen Sie für die Karte ab, auf der Sie spielen möchten."
+        "TBR_MapVoteTitle" "Wähle die Karte aus, auf der du spielen möchtest!"
     }
 }

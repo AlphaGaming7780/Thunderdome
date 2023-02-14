@@ -20,7 +20,7 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_eden",
     //"mp_drydock",
     //"mp_crashsite3",
-    //"mp_complex3",
+    "mp_complex3",
     "mp_angel_city",
     //"mp_colony02",
     //"mp_glitch",
@@ -473,7 +473,7 @@ void function EnoughtPlayerToStart() {
 
 void function CreateMapVotePoll(array<string> options, float time = 30) {
     foreach(entity player in GetPlayerArray())
-        NSCreatePollOnPlayer(player, "Vote for The BR map !", options, time)
+        NSCreatePollOnPlayer(player, "#TBR_MapVoteTitle", options, time)
 }
 
 int function GetMapVoteWinner() {

@@ -39,3 +39,26 @@ And if they start with nothin before, It mean that variable are used for both ga
 | `BR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `empty` = random weapon |
 | `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `empty` = random weapon |
 | `BR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `empty` = random weapon |
+
+## Special Thanks
+
+### For Helping me on discord
+
+    - Spoon#1812
+    - uniboi#5786
+    - Neinguar / NoCatt (NoCatt#8128)
+    - [UK]The peepeepoopoo man (The peepeepoopoo man#3301)
+    - BobTheBob#1150
+
+### For the translation
+
+    | English | |
+    | French | |
+    | German | |
+    | Italian | |
+    | Japanese | |
+    | Portuguese| |
+    | Russian | spoon#0407 |
+    | Spanish | |
+    | Traditional Chinese | |
+

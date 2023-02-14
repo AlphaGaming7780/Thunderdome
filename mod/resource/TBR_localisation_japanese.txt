@@ -11,7 +11,7 @@
         "PL_TBR_LOBBY" "バトルロイヤルロビー"
         "GAMEMODE_TBR_LOBBY" "バトルロイヤルロビー"
         "PL_TBR_LOBBY_desc" "バトルロイヤルマッチを開始する前に他のプレイヤーを待つ場所。"
-        "PL_TBR_LOBBY_hint" "十分なプレイヤーが参加したときに、お好みのマップに投票して待つ。"
+        "PL_TBR_LOBBY_hint" "待って、十分なプレーヤーが参加したら、あなたがプレイしたいマップに投票してください。"
         "PL_TBR_LOBBY_abbr" "BRL"
         "BR_EnableDevMod" "開発者モード"
         "BR_canSpawnTitan" "タイタンドロップを許可"
@@ -29,5 +29,6 @@
         "TBR_ConnectedPlayerDesc" "接続プレイヤー。"
         "TBR_WaitingVoteTimeLeft" "%s1秒残ります。"
         "TBR_GameStartChatAnnouncement" "ゲームを開始するために十分なプレイヤーがいます、%s1秒で開始されます。プレイしたいマップに投票してください。"
+        "TBR_MapVoteTitle" "あなたがプレイしたいマップを選んで投票してください！"
     }
 }

@@ -11,7 +11,7 @@
         "PL_TBR_LOBBY" "Lobby Battle Royale"
         "GAMEMODE_TBR_LOBBY" "Lobby Battle Royale"
         "PL_TBR_LOBBY_desc" "Dove aspetti altri giocatori prima di iniziare una partita di Battle Royale."
-        "PL_TBR_LOBBY_hint" "Aspetta e vota per la tua mappa preferita quando ci sono abbastanza giocatori."
+        "PL_TBR_LOBBY_hint" "Aspetta e vota per la mappa su cui vuoi giocare quando abbastanza giocatori hanno aderito."
         "PL_TBR_LOBBY_abbr" "LBR"
         "BR_EnableDevMod" "Modalità sviluppatore"
         "BR_canSpawnTitan" "Consenti l'abbattimento del Titano"
@@ -29,5 +29,6 @@
         "TBR_ConnectedPlayerDesc" "giocatore connesso."
         "TBR_WaitingVoteTimeLeft" "%s1 secondi rimanenti."
         "TBR_GameStartChatAnnouncement" "Ci sono abbastanza giocatori per iniziare la partita, inizierà in %s1 secondi. Vota per la mappa sulla quale vuoi giocare."
+        "TBR_MapVoteTitle" "Vota per la mappa sulla quale vuoi giocare!"
     }
 }
