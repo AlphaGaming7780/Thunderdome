@@ -5,7 +5,7 @@ Titanfall Legends is a mod for Northstar (Titanfall 2), this mod adds a new game
 
 Players will join a lobby and once the minimum required number of players has been reached, a vote for the map (of the Battle Royale) will take place. Once this vote has ended, the Battle Royale game will begin. The lobby is a classic FFA mod.
 
-#### **This mod is required on both the client and server sides.**
+### **This mod is required on both the client and server sides.**
 
 
 ## Documentation
