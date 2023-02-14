@@ -7,9 +7,9 @@ A Titanfall Northstar mod, that add a battle royal game mode to the game
 ## Documentation
 It is possible to customize the game mode, by executing a command when starting the server, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlistvars)
 
-Please don't use PlaylistOverrides that aren't in listed [here](https://github.com/AlphaGaming7780/Titanfall-Legends/blob/main/README.md#playlistoverrides)
+Please don't use PlaylistOverrides that aren't in listed [here](https://github.com/AlphaGaming7780/Titanfall_Legends/blob/main/README.md#playlistvars)
 
-But if you want you can also edit [PlayLits_v2.txt](https://github.com/AlphaGaming7780/Titanfall_Legends/blob/main/keyvalues/playlists_v2.txt) file, this file contains all PlayLists Var that can be edited, only edit var mentioned [here](https://github.com/AlphaGaming7780/Titanfall-Legends/blob/main/README.md#playlistoverrides).
+But if you want you can also edit [PlayLits_v2.txt](https://github.com/AlphaGaming7780/Titanfall_Legends/blob/main/keyvalues/playlists_v2.txt) file, this file contains all PlayLists Var that can be edited, only edit var mentioned [here](https://github.com/AlphaGaming7780/Titanfall_Legends/blob/main/README.md#playlistvars).
 
 #### Exemple:
 
