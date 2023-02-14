@@ -32,7 +32,7 @@ playlists
 				BR_SpawnWithAntiTitanWeapon 0
 
 				BR_SpawnMainWeapon empty
-				BR_SpawnSecondaryWeapon mp_weapon_autopistol
+				BR_SpawnSecondaryWeapon mp_weapon_semipistol
 				BR_SpawnAntiTitanWeapon empty
 
 				gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA

@@ -37,5 +37,5 @@ And if they start with nothin before, It mean that variable are used for both ga
 | `BR_SpawnWithSecondaryWeapon` | `Int` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
 | `BR_SpawnWithAntiTitanWeapon` | `Int` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
 | `BR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `empty` = random weapon |
-| `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_autopistol` | The secondary weapon the player will spawn whit, `empty` = random weapon |
+| `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `empty` = random weapon |
 | `BR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `empty` = random weapon |

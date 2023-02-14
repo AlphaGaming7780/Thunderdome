@@ -98,7 +98,7 @@ const array<string> mainWeapons = ["mp_weapon_rspn101",
 
 const array<string> secondaryWeapons = ["mp_weapon_autopistol","mp_weapon_wingman","mp_weapon_semipistol"]
 const array<string> antiTitanWeapons = ["mp_weapon_rocket_launcher","mp_weapon_arc_launcher","mp_weapon_mgl"]
-const array<string> boostObject = ["mp_weapon_hard_cover","mp_weapon_deployable_cover","mp_weapon_satchel","mp_weapon_frag_drone","mp_weapon_frag_grenade","mp_weapon_grenade_electric_smoke","mp_weapon_grenade_emp","mp_weapon_grenade_gravity","mp_weapon_grenade_sonar"]
+const array<string> boostObject = ["melee_pilot_arena", "mp_weapon_hard_cover","mp_weapon_deployable_cover","mp_weapon_satchel","mp_weapon_frag_drone","mp_weapon_frag_grenade","mp_weapon_grenade_electric_smoke","mp_weapon_grenade_emp","mp_weapon_grenade_gravity","mp_weapon_grenade_sonar"]
 const asset ChestModelClose = $"models/containers/pelican_case_large_imc.mdl" //pelican_case_large_imc OR pelican_case_large
 const asset ChestModelOpen = $"models/containers/pelican_case_imc_open.mdl" // pelican_case_imc_open OR pelican_case_large_open
 int NumChest = 20

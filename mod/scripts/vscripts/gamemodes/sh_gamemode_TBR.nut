@@ -23,6 +23,8 @@ void function CreateGamemodeTBR()
 
     AddPrivateMatchMode( GAMEMODE_TBR)
 
+    AddPrivateMatchModeSettingArbitrary("#PL_TBR", "min_players", GetCurrentPlaylistVarInt("min_players", 2).tostring())
+
     AddPrivateMatchModeSettingEnum("#PL_TBR", "BR_EnableDevMod", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_EnableDevMod", 0).tostring())
     AddPrivateMatchModeSettingEnum("#PL_TBR", "BR_canSpawnTitan", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_canSpawnTitan", 0).tostring())
     AddPrivateMatchModeSettingEnum("#PL_TBR", "BR_canUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_canUseBoost", 0).tostring())
