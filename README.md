@@ -24,7 +24,7 @@ If the vars start with `LBR_`, It mean that variable are only used for the Lobby
 And if they start with nothin before, It mean that variable are used for both game mode.
 
 | PlaylistVars | Accepted Values | Default Value | Description |
-| :---------------- | :-------------- | :------------ | :---------- |
+| ----------------- | --------------- | ------------- | ----------- |
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server, **need to be the same value for both game mode.** |
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
 | `min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
