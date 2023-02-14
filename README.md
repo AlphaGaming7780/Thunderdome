@@ -62,7 +62,7 @@ And if they start with nothin before, It mean that variable are used for both ga
 | German |  |
 | Italian |  |
 | Japanese |  |
-| Portuguese|  |
+| Portuguese| Dartzinho_V#8820 |
 | Russian | spoon#0407 |
 | Spanish |  |
 | Traditional Chinese |  |
