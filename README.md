@@ -53,6 +53,7 @@ And if they start with nothin before, It mean that variable are used for both ga
 ### For the translation
 
 | English | ? |
+| :---------------- | :-------------- | :------------ | :---------- |
 | French | ? |
 | German | ? |
 | Italian | ? |
