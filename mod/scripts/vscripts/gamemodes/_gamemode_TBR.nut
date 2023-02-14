@@ -102,7 +102,7 @@ const array<string> boostObject = ["melee_pilot_arena", "mp_weapon_hard_cover","
 const asset ChestModelClose = $"models/containers/pelican_case_large_imc.mdl" //pelican_case_large_imc OR pelican_case_large
 const asset ChestModelOpen = $"models/containers/pelican_case_imc_open.mdl" // pelican_case_imc_open OR pelican_case_large_open
 int NumChest = 20
-const vector chestMainWeaponOffset = <(-3), -3, 30>
+const vector chestMainWeaponOffset = <(-3), -3, 35>
 const vector chestMainWeaponAngle = <0, 30, 90>
 
 bool ForceEndGame = false
@@ -310,10 +310,16 @@ void function TBR_Spawn_Player_Threaded( entity player )
 var function OnChestUsed(var ent, var player) {
     expect entity( ent )
     expect entity( player )
+    if(GetCurrentPlaylistVarInt( "BR_EnableDevMod", 0 ) == 1) {
+        printt(ent.GetOrigin())
+    }
     if(ent.GetModelName() == ChestModelClose) {
         ent.SetModel(ChestModelOpen)
         entity weapon = CreateWeaponEntityByNameWithPhysics( mainWeapons[ RandomInt( mainWeapons.len() ) ], ent.GetOrigin()+chestMainWeaponOffset, ent.GetAngles()+chestMainWeaponAngle )
         weapon.SetVelocity( <0,0,0> )
+        Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
+    } else if(ent.GetModelName() == ChestModelOpen) {
+        Remote_CallFunction_NonReplay( player, "Cl_CreateLight", (ent.GetOrigin()+chestMainWeaponOffset).x, (ent.GetOrigin()+chestMainWeaponOffset).y, (ent.GetOrigin()+chestMainWeaponOffset).z)
     }
 }
 

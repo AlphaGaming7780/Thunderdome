@@ -3,6 +3,9 @@ global function ClGamemodeTBR_Lobby_Init
 global function GameNumPlayerLeftAnnouncement
 global function Cl_OnWaitingVote
 global function Cl_EnoughPlayerToStart
+global function Cl_CreateLight
+
+entity light
 
 void function ClGamemodeTBR_Init()
 {
@@ -71,4 +74,14 @@ void function ClGamemodeTBR_Lobby_Init()
     RegisterLevelMusicForTeam( eMusicPieceID.LEVEL_LAST_MINUTE, "music_mp_freeagents_lastminute", TEAM_MILITIA )
 
     AddCallback_GameStateEnter( eGameState.Postmatch, DisplayPostMatchTop3 )
+}
+
+void function Cl_CreateLight( float x = 0, float y = 0, float z = 0) {
+
+    if(light != null) {
+        light.Destroy()
+    }
+
+    vector origin = <x,y,z+5>
+    light = CreateClientSideDynamicLight( origin, <0,0,0>, <1,1,1>, 50.0 )
 }

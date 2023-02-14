@@ -44,13 +44,13 @@ void function CreateGamemodeTBR()
 
     #if SERVER
             GameMode_AddServerInit( GAMEMODE_TBR, GamemodeTBR_Init )
-			GameMode_AddServerInit( GAMEMODE_TBR, GamemodeFFAShared_Init )
+			//GameMode_AddServerInit( GAMEMODE_TBR, GamemodeFFAShared_Init )
             GameMode_SetPilotSpawnpointsRatingFunc( GAMEMODE_TBR, RateSpawnpoints_Generic )
             GameMode_SetTitanSpawnpointsRatingFunc( GAMEMODE_TBR, RateSpawnpoints_Generic )
 
     #elseif CLIENT
             GameMode_AddClientInit( GAMEMODE_TBR, ClGamemodeTBR_Init )
-			GameMode_AddClientInit( GAMEMODE_TBR, GamemodeFFAShared_Init )
+			//GameMode_AddClientInit( GAMEMODE_TBR, GamemodeFFAShared_Init )
     #endif
 	#if !UI
 		GameMode_SetScoreCompareFunc( GAMEMODE_TBR, CompareAssaultScore )
@@ -95,6 +95,7 @@ void function TBRRegisterNetworkVars()
 {
     if ( GAMETYPE == GAMEMODE_TBR) {
         Remote_RegisterFunction( "GameNumPlayerLeftAnnouncement" )
+        Remote_RegisterFunction( "Cl_CreateLight" )
     }
     else if (GAMETYPE == GAMEMODE_TBR_LOBBY) {
         Remote_RegisterFunction( "Cl_OnWaitingVote" )
