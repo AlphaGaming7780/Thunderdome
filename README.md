@@ -31,7 +31,7 @@ And if they start with nothin before, It mean that variable are used for both ga
 | `WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
 | `BR_canSpawnTitan` | `Int` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `BR_canUseBoost` | `Int` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
-| `BR_IntroLength` | `Int` | `10` | Time the of the prematch state in seconde |
+| `BR_IntroLength` | `Int` | `10` | Time of the prematch state in seconde |
 | `BR_NumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
 | `BR_SpawnWithMainWeapon` | `Int` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
 | `BR_SpawnWithSecondaryWeapon` | `Int` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
