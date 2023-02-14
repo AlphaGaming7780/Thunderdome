@@ -18,19 +18,24 @@ But if you want you can also edit [PlayLits_v2.txt](https://github.com/AlphaGami
 ```
 
 #### PlaylistVars
+
+If the vars start with `BR_`, It mean that variable are only used for the Battle Royale game mode.
+If the vars start with `LBR_`, It mean that variable are only used for the Lobby Battle Royale game mode.
+And if they start with nothin before, It mean that variable are used for both game mode.
+
 | PlaylistVars | Accepted Values | Default Value | Description |
 | :---------------- | :-------------- | :------------ | :---------- |
-| `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server |
-| `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max.|
-| `min_players` | `Int` | `2` | The minimum player needed to start a game in the lobby, or the min player needed to stop the game and return the player to the lobby. |
-| `WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote in the lobby, before it load the map the player vote. |
-| `TBR_canSpawnTitan` | `Int` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
-| `TBR_canUseBoost` | `Int` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
-| `TBR_IntroLength` | `Int` | `10` | Time the of the prematch state in seconde |
-| `TBR_NumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
-| `TBR_SpawnWithMainWeapon` | `Int` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
-| `TBR_SpawnWithSecondaryWeapon` | `Int` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
-| `TBR_SpawnWithAntiTitanWeapon` | `Int` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
-| `TBR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `empty` = random weapon |
-| `TBR_SpawnSecondaryWeapon` | `String` | `mp_weapon_autopistol` | The secondary weapon the player will spawn whit, `empty` = random weapon |
-| `TBR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `empty` = random weapon |
+| `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server, **need to be the same value for both game mode.** |
+| `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
+| `min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
+| `WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
+| `BR_canSpawnTitan` | `Int` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
+| `BR_canUseBoost` | `Int` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
+| `BR_IntroLength` | `Int` | `10` | Time the of the prematch state in seconde |
+| `BR_NumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
+| `BR_SpawnWithMainWeapon` | `Int` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
+| `BR_SpawnWithSecondaryWeapon` | `Int` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
+| `BR_SpawnWithAntiTitanWeapon` | `Int` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
+| `BR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `empty` = random weapon |
+| `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_autopistol` | The secondary weapon the player will spawn whit, `empty` = random weapon |
+| `BR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `empty` = random weapon |

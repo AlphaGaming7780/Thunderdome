@@ -20,20 +20,20 @@ playlists
 
 				classic_mp 1
 
-				TBR_EnableDevMod 0
-				TBR_canSpawnTitan 0
-				TBR_canUseBoost 0
+				BR_EnableDevMod 0
+				BR_canSpawnTitan 0
+				BR_canUseBoost 0
 
-				TBR_IntroLength 10
-				TBR_NumChest 20
+				BR_IntroLength 10
+				BR_NumChest 20
 
-				TBR_SpawnWithMainWeapon 0
-				TBR_SpawnWithSecondaryWeapon 1
-				TBR_SpawnWithAntiTitanWeapon 0
+				BR_SpawnWithMainWeapon 0
+				BR_SpawnWithSecondaryWeapon 1
+				BR_SpawnWithAntiTitanWeapon 0
 
-				TBR_SpawnMainWeapon empty
-				TBR_SpawnSecondaryWeapon mp_weapon_autopistol
-				TBR_SpawnAntiTitanWeapon empty
+				BR_SpawnMainWeapon empty
+				BR_SpawnSecondaryWeapon mp_weapon_autopistol
+				BR_SpawnAntiTitanWeapon empty
 
 				gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
 			}
@@ -109,7 +109,7 @@ playlists
 				}
 			}
 		}
-		
+
 		TBR_LOBBY
 		{
 			inherit defaults

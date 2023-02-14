@@ -123,16 +123,16 @@ void function GamemodeTBR_Init()
 
     minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
 
-    TBRIntroLength = GetCurrentPlaylistVarFloat("TBR_IntroLength", 0)
-    spawnWithMainWeapon =  GetCurrentPlaylistVarInt("TBR_SpawnWithMainWeapon", 0) == 1
-    spawnWithSecondaryWeapon =  GetCurrentPlaylistVarInt("TBR_SpawnWithSecondaryWeapon", 0) == 1
-    spawnWithAntiTitanWeapon = GetCurrentPlaylistVarInt("TBR_SpawnWithAntiTitanWeapon", 0) == 1
+    TBRIntroLength = GetCurrentPlaylistVarFloat("BR_IntroLength", 0)
+    spawnWithMainWeapon =  GetCurrentPlaylistVarInt("BR_SpawnWithMainWeapon", 0) == 1
+    spawnWithSecondaryWeapon =  GetCurrentPlaylistVarInt("BR_SpawnWithSecondaryWeapon", 0) == 1
+    spawnWithAntiTitanWeapon = GetCurrentPlaylistVarInt("BR_SpawnWithAntiTitanWeapon", 0) == 1
 
-    spawnMainWeapon = GetCurrentPlaylistVarString("TBR_SpawnMainWeapon", "") //empty for random weapon in mainWeapons
-    spawnSecondaryWeapon = GetCurrentPlaylistVarString("TBR_SpawnSecondaryWeapon", "") //"mp_weapon_autopistol" // empty for random weapon in secondaryWeapons
-    spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("TBR_SpawnAntiTitanWeapon", "") // empty for random weapon in antiTitanWeapons
+    spawnMainWeapon = GetCurrentPlaylistVarString("BR_SpawnMainWeapon", "") //empty for random weapon in mainWeapons
+    spawnSecondaryWeapon = GetCurrentPlaylistVarString("BR_SpawnSecondaryWeapon", "") //"mp_weapon_autopistol" // empty for random weapon in secondaryWeapons
+    spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("BR_SpawnAntiTitanWeapon", "") // empty for random weapon in antiTitanWeapons
 
-    NumChest = GetCurrentPlaylistVarInt("TBR_NumChest", 20)
+    NumChest = GetCurrentPlaylistVarInt("BR_NumChest", 20)
 
     //SetShouldUseRoundWinningKillReplay( true ) //Not sur it's working because Round Winning and I don't use round
     SetSpawnpointGamemodeOverride( FFA )
@@ -142,13 +142,13 @@ void function GamemodeTBR_Init()
 
     AddCallback_OnReceivedSayTextMessage(ChatMessageFilter)
 
-    if ( GetCurrentPlaylistVarInt( "TBR_EnableDevMod", 0 ) == 1 ) {
+    if ( GetCurrentPlaylistVarInt( "BR_EnableDevMod", 0 ) == 1 ) {
         AddCallback_OnReceivedSayTextMessage(DevChatCommande)
     }
-    if( GetCurrentPlaylistVarInt("TBR_canSpawnTitan", 0) == 0) {
+    if( GetCurrentPlaylistVarInt("BR_canSpawnTitan", 0) == 0) {
         Riff_ForceTitanAvailability( eTitanAvailability.Never )
     }
-    if( GetCurrentPlaylistVarInt("TBR_canUseBoost", 0) == 0) {
+    if( GetCurrentPlaylistVarInt("BR_canUseBoost", 0) == 0) {
         Riff_ForceBoostAvailability( eBoostAvailability.Disabled )
     }
 
@@ -452,7 +452,7 @@ void function TBR_LOBBY_OnClientConnect( entity player ) {
 }
 
 void function EnoughtPlayerToStart() {
-    float WaitingVoteTime = GetCurrentPlaylistVarFloat("waitingvotetime", 30.0)
+    float WaitingVoteTime = GetCurrentPlaylistVarFloat("WaitingVoteTime", 30.0)
     foreach(entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay(player, "Cl_EnoughPlayerToStart", WaitingVoteTime)
     }
