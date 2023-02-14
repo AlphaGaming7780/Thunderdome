@@ -46,7 +46,7 @@ And if they start with nothin before, It mean that variable are used for both ga
 
 ## Special Thanks
 
-### For answering my questions on [Discord](https://discord.gg/northstar)
+### For answering my questions on the [Northstar discord](https://discord.gg/northstar)
 
     - Spoon#1812
     - uniboi#5786
