@@ -51,15 +51,15 @@ And if they start with nothin before, It mean that variable are used for both ga
     - BobTheBob#1150
 
 ### For the translation
-
-| English | ? |
-| :---------------- | :-------------- | :------------ | :---------- |
-| French | ? |
-| German | ? |
-| Italian | ? |
-| Japanese | ? |
-| Portuguese| ? |
+| Languag | Contributor |
+| ------- | ----------- |
+| English | |
+| French | |
+| German | |
+| Italian | |
+| Japanese | |
+| Portuguese| |
 | Russian | spoon#0407 |
-| Spanish | ? |
-| Traditional Chinese | ? |
+| Spanish | |
+| Traditional Chinese | |
 
