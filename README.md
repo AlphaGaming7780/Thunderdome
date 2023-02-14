@@ -1,7 +1,11 @@
 
 # Titanfall Legends
 
-A Titanfall Northstar mod, that add a battle royal game mode to the game
+Titanfall Legends is a mod for Northstar (Titanfall 2), this mod adds a new game mode: Battle Royale.
+
+Players will join a lobby and once the minimum required number of players has been reached, a vote for the map (of the Battle Royale) will take place. Once this vote has ended, the Battle Royale game will begin. The lobby is a classic FFA mod.
+
+#### **This mod is required on both the client and server sides.**
 
 
 ## Documentation
@@ -42,7 +46,7 @@ And if they start with nothin before, It mean that variable are used for both ga
 
 ## Special Thanks
 
-### For Helping me on discord
+### For answering my questions on [Discord](https://discord.gg/northstar)
 
     - Spoon#1812
     - uniboi#5786
@@ -50,16 +54,16 @@ And if they start with nothin before, It mean that variable are used for both ga
     - [UK]The peepeepoopoo man (The peepeepoopoo man#3301)
     - BobTheBob#1150
 
-### For the translation
+### For translations
 | Languag | Contributor |
 | ------- | ----------- |
-| English | |
-| French | |
-| German | |
-| Italian | |
-| Japanese | |
-| Portuguese| |
+| English |  |
+| French | ᚖ 𝔸𝕝𝕡𝕙𝕒 𝔾𝕒𝕞𝕚𝕟𝕘 ᚖ#5720 (ME) |
+| German |  |
+| Italian |  |
+| Japanese |  |
+| Portuguese|  |
 | Russian | spoon#0407 |
-| Spanish | |
-| Traditional Chinese | |
+| Spanish |  |
+| Traditional Chinese |  |
 
