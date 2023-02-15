@@ -23,9 +23,9 @@ But if you want you can also edit [PlayLits_v2.txt](https://github.com/AlphaGami
 
 #### PlaylistVars
 
-If the vars start with `BR_`, It mean that variable are only used for the Battle Royale game mode,
-If the vars start with `LBR_`, It mean that variable are only used for the Lobby Battle Royale game mode,
-And if they start with nothing before, It mean that variable are used for both game mode.
+If the vars start with `BR_`, it mean that variable are only used for the Battle Royale game mode,
+if the vars start with `LBR_`, it mean that variable are only used for the Lobby Battle Royale game mode,
+and if they start with nothing before, it mean that variable are used for both game mode.
 
 | PlaylistVars | Accepted Values | Default Value | Description |
 | ----------------- | --------------- | ------------- | ----------- |
