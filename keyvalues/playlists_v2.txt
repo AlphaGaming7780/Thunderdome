@@ -84,7 +84,7 @@ playlists
 					{
 						mp_forwardbase_kodai 1
 						mp_grave 0
-						mp_homestead 0
+						mp_homestead 1
 						mp_thaw 0
 						mp_black_water_canal 0
 						mp_eden 0
@@ -92,7 +92,7 @@ playlists
 						mp_crashsite3 0
 						mp_complex3 1
 						mp_angel_city 1
-						mp_colony02 0
+						mp_colony02 1
 						mp_glitch 0
 						mp_lf_stacks 0
 						mp_lf_deck 0

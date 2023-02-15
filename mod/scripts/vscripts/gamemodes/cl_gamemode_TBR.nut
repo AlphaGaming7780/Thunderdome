@@ -4,6 +4,7 @@ global function GameNumPlayerLeftAnnouncement
 global function Cl_OnWaitingVote
 global function Cl_EnoughPlayerToStart
 global function Cl_CreateLight
+global function Cl_TEST
 
 entity light
 
@@ -77,11 +78,19 @@ void function ClGamemodeTBR_Lobby_Init()
 }
 
 void function Cl_CreateLight( float x = 0, float y = 0, float z = 0) {
+    
+    vector origin = <x,y,z+5>
 
-    if(light != null) {
-        light.Destroy()
+    if(light == null) {
+        light = CreateClientSideDynamicLight( origin, <0,0,0>, <1,1,1>, 50.0 )
+    } else { 
+        light.SetOrigin(origin)
     }
 
-    vector origin = <x,y,z+5>
-    light = CreateClientSideDynamicLight( origin, <0,0,0>, <1,1,1>, 50.0 )
+}
+
+void function Cl_TEST() {
+    //printt(ClGameState_GetRui())
+    //RuiSetColorAlpha(ClGameState_GetRui(), "overrideColor", <1.0,1.0,1.0>, 0.0 )
+    //RuiDestroyIfAlive(ClGameState_GetRui())
 }

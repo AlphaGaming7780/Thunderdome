@@ -14,7 +14,7 @@ int minPlayer = 2
 
 const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_grave",
-    //"mp_homestead",
+    "mp_homestead",
     //"mp_thaw",
     //"mp_black_water_canal",
     //"mp_eden",
@@ -22,7 +22,7 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_crashsite3",
     "mp_complex3",
     "mp_angel_city",
-    //"mp_colony02",
+    "mp_colony02",
     //"mp_glitch",
     //"mp_lf_stacks",
     //"mp_lf_deck",
@@ -193,14 +193,14 @@ void function TBRIntroStartThreaded() {
 	
     if(GetSpawnPointForChest().len() <= NumChest) {
         //throw "Map not compatible, using player spawn point for chest spawn point !!!!"
-        Chat_ServerBroadcast("Map not compatible, using player spawn point for chest spawn point !!!!")
+        Chat_ServerBroadcast("Map : "+ GetMapName() +" not compatible, using player spawn point for chest spawn point !!!!")
         array<entity> spawns = GetEntArrayByClass_Expensive( "info_spawnpoint_human" ) //info_spawnpoint_human_start
         for(int i = 0; i<NumChest;i++) {
             do {
                 spawnPositionChoice = RandomInt(spawns.len())
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
             spawnPositionAlreadyChoice.push(spawnPositionChoice)
-            chest = CreatePropDynamic(ChestModelClose, spawns[spawnPositionChoice].GetOrigin(), spawns[spawnPositionChoice].GetAngles()+<0,-90,0>, 6)
+            chest = CreatePropDynamicLightweight(ChestModelClose, spawns[spawnPositionChoice].GetOrigin(), spawns[spawnPositionChoice].GetAngles()+<0,-90,0>, 6)
             chest.SetUsable()
             chest.Solid()
             AddCallback_OnUseEntity(chest, OnChestUsed)
@@ -213,7 +213,7 @@ void function TBRIntroStartThreaded() {
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
             spawnPositionAlreadyChoice.push(spawnPositionChoice)
             ChestSpawnPoint = GetSpawnPointForChest()[spawnPositionChoice]
-            chest = CreatePropDynamic(ChestModelClose,ChestSpawnPoint[0], ChestSpawnPoint[1], 6)
+            chest = CreatePropDynamicLightweight(ChestModelClose,ChestSpawnPoint[0], ChestSpawnPoint[1], 6)
             chest.SetUsable()
             chest.Solid()
             AddCallback_OnUseEntity(chest, OnChestUsed)
@@ -367,7 +367,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
         if(playerChest != null) {
             playerChest.Destroy()
         }
-        playerChest = CreatePropDynamic(ChestModelClose,message.player.GetOrigin(), message.player.GetAngles()+<0,-90,0>)
+        playerChest = CreatePropDynamicLightweight(ChestModelClose,message.player.GetOrigin(), message.player.GetAngles()+<0,-90,0>)
         Chat_ServerPrivateMessage(message.player, "Player Position : " + message.player.GetOrigin(), true, true)
         Chat_ServerPrivateMessage(message.player, "Player Angle : " + (message.player.GetAngles()+<0,-90,0>), true, true)
         Chat_ServerPrivateMessage(message.player, "Code line : [" + playerChest.GetOrigin() + ", "+playerChest.GetAngles()+"],", true, true)
@@ -385,7 +385,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
             if(spawnPositionAlreadyChoice.find(i) == -1) {
                 spawnPositionAlreadyChoice.push(i)
                 ChestSpawnPoint = GetSpawnPointForChest()[i]
-                chest = CreatePropDynamic(ChestModelClose,ChestSpawnPoint[0], ChestSpawnPoint[1], 6)
+                chest = CreatePropDynamicLightweight(ChestModelClose,ChestSpawnPoint[0], ChestSpawnPoint[1], 6)
                 chest.SetUsable()
                 chest.Solid()
                 AddCallback_OnUseEntity(chest, OnChestUsed)
@@ -424,6 +424,8 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
                 }
             }
         }
+    } else if( message.message.find("!cltest") != null) {
+        Remote_CallFunction_NonReplay( message.player ,"Cl_TEST")
     }
 
     return message

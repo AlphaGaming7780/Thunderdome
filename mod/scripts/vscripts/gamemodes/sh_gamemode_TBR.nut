@@ -50,7 +50,7 @@ void function CreateGamemodeTBR()
 
     #elseif CLIENT
             GameMode_AddClientInit( GAMEMODE_TBR, ClGamemodeTBR_Init )
-			//GameMode_AddClientInit( GAMEMODE_TBR, GamemodeFFAShared_Init )
+			GameMode_AddClientInit( GAMEMODE_TBR, GamemodeFFAShared_Init )
     #endif
 	#if !UI
 		GameMode_SetScoreCompareFunc( GAMEMODE_TBR, CompareAssaultScore )
@@ -101,5 +101,6 @@ void function TBRRegisterNetworkVars()
         Remote_RegisterFunction( "Cl_OnWaitingVote" )
         Remote_RegisterFunction( "Cl_EnoughPlayerToStart" )
     }
+    Remote_RegisterFunction("Cl_TEST")
 }
 
