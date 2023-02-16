@@ -4,31 +4,111 @@
     "RequiredOnClient": true,
     "Version": "1.0.0",
     "LoadPriority": 1,
-    "Scripts": [
-    {
-        "Path": "gamemodes/_gamemode_TBR.nut",
-        "RunOn": "SERVER && MP"
-    },
-    {
-        "Path": "gamemodes/cl_gamemode_TBR.nut",
-        "RunOn": "CLIENT && MP"
-    },
-    {
-        "Path": "gamemodes/sh_gamemode_TBR.nut",
-        "RunOn": "(CLIENT || SERVER) && MP",
-        "ClientCallback": {
-            "Before": "BR_init"
+    "ConVars": [
+        {
+            "Name": "TBR_min_players",
+            "DefaultValue": "2",
+            "Flags": "64",
+            "HelpString": "The Minimum required Player"
         },
-        "ServerCallback": {
-            "Before": "BR_init"
+        {
+            "Name": "BR_canSpawnTitan",
+            "DefaultValue": "0",
+            "Flags": "64",
+            "HelpString": "Allow Titan Drop"
+        },
+        {
+            "Name": "BR_canUseBoost",
+            "DefaultValue": "0",
+            "Flags": "64",
+            "HelpString": "Allow Boost Usage"
+        },
+        {
+            "Name": "BR_IntroLength",
+            "DefaultValue": "10",
+            "Flags": "64",
+            "HelpString": "Intro Length"
+        },
+        {
+            "Name": "BR_MinNumChest",
+            "DefaultValue": "20",
+            "Flags": "64",
+            "HelpString": "The Minimum Number of Chests"
+        },
+        {
+            "Name": "BR_SpawnWithMainWeapon",
+            "DefaultValue": "0",
+            "Flags": "64",
+            "HelpString": "Spawn with Primary Weapon"
+        },
+        {
+            "Name": "BR_SpawnWithSecondaryWeapon",
+            "DefaultValue": "1",
+            "Flags": "64",
+            "HelpString": "Spawn with Secondary Weapon"
+        },
+        {
+            "Name": "BR_SpawnWithAntiTitanWeapon",
+            "DefaultValue": "0",
+            "Flags": "64",
+            "HelpString": "Spawn with Anti-Titan Weapon"
+        },
+        {
+            "Name": "BR_SpawnMainWeapon",
+            "DefaultValue": "",
+            "Flags": "64",
+            "HelpString": "Primary Spawn Weapon"
+        },
+        {
+            "Name": "BR_SpawnSecondaryWeapon",
+            "DefaultValue": "mp_weapon_semipistol",
+            "Flags": "64",
+            "HelpString": "Secondary Spawn Weapon"
+        },
+        {
+            "Name": "BR_SpawnAntiTitanWeapon",
+            "DefaultValue": "",
+            "Flags": "64",
+            "HelpString": "Anti-Titan Spawn Weapon"
+        },
+        {
+            "Name": "BR_LOBBY_WaitingVoteTime",
+            "DefaultValue": "30",
+            "Flags": "64",
+            "HelpString": ""
+        },
+        {
+            "Name": "TBR_EnableDevMod",
+            "DefaultValue": "0",
+            "Flags": "64",
+            "HelpString": "Enable Developer Mode"
         }
-    },
-    {
-        "Path": "TBR_Utils.nut",
-        "RunOn": "SERVER && MP"
-    }
+    ],
+    "Scripts": [
+        {
+            "Path": "gamemodes/_gamemode_TBR.nut",
+            "RunOn": "SERVER && MP"
+        },
+        {
+            "Path": "gamemodes/cl_gamemode_TBR.nut",
+            "RunOn": "CLIENT && MP"
+        },
+        {
+            "Path": "gamemodes/sh_gamemode_TBR.nut",
+            "RunOn": "(CLIENT || SERVER) && MP",
+            "ClientCallback": {
+                "Before": "TBR_init"
+            },
+            "ServerCallback": {
+                "Before": "TBR_init"
+            }
+        },
+        {
+            "Path": "TBR_Utils.nut",
+            "RunOn": "SERVER && MP"
+        }
+    ],
 
-],
     "Localisation": [
         "resource/TBR_localisation_%language%.txt"
     ]

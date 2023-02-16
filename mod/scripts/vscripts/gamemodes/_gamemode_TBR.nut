@@ -1,16 +1,10 @@
-global function GamemodeBR_Init
-global function GamemodeBR_Lobby_Init
+global function GamemodeBR_SOLO_Init
+global function GamemodeBR_LOBBY_Init
 
-float BRIntroLength = 10
-bool spawnWithMainWeapon = false
-bool spawnWithSecondaryWeapon = false
-bool spawnWithAntiTitanWeapon = false
 
 string spawnMainWeapon = ""
 string spawnSecondaryWeapon = ""
 string spawnAntiTitanWeapon = ""
-
-int minPlayer = 2
 
 const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_grave",
@@ -101,7 +95,6 @@ const array<string> antiTitanWeapons = ["mp_weapon_rocket_launcher","mp_weapon_a
 const array<string> boostObject = ["melee_pilot_arena", "mp_weapon_hard_cover","mp_weapon_deployable_cover","mp_weapon_satchel","mp_weapon_frag_drone","mp_weapon_frag_grenade","mp_weapon_grenade_electric_smoke","mp_weapon_grenade_emp","mp_weapon_grenade_gravity","mp_weapon_grenade_sonar"]
 const asset ChestModelClose = $"models/containers/pelican_case_large_imc.mdl" //pelican_case_large_imc OR pelican_case_large
 const asset ChestModelOpen = $"models/containers/pelican_case_imc_open.mdl" // pelican_case_imc_open OR pelican_case_large_open
-int NumChest = 20
 const vector chestMainWeaponOffset = <(-3), -3, 35>
 const vector chestMainWeaponAngle = <0, 30, 90>
 
@@ -116,23 +109,10 @@ entity chest = null
 entity playerChest = null
 array< array< vector > > spawnChestList = []
 
-void function GamemodeBR_Init()
+void function GamemodeBR_SOLO_Init()
 {
     #if SERVER
     ClassicMP_ForceDisableEpilogue( true )
-
-    minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
-
-    BRIntroLength = GetCurrentPlaylistVarFloat("BR_IntroLength", 0)
-    spawnWithMainWeapon =  GetCurrentPlaylistVarInt("BR_SpawnWithMainWeapon", 0) == 1
-    spawnWithSecondaryWeapon =  GetCurrentPlaylistVarInt("BR_SpawnWithSecondaryWeapon", 0) == 1
-    spawnWithAntiTitanWeapon = GetCurrentPlaylistVarInt("BR_SpawnWithAntiTitanWeapon", 0) == 1
-
-    spawnMainWeapon = GetCurrentPlaylistVarString("BR_SpawnMainWeapon", "") //empty for random weapon in mainWeapons
-    spawnSecondaryWeapon = GetCurrentPlaylistVarString("BR_SpawnSecondaryWeapon", "") //"mp_weapon_autopistol" // empty for random weapon in secondaryWeapons
-    spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("BR_SpawnAntiTitanWeapon", "") // empty for random weapon in antiTitanWeapons
-
-    NumChest = GetCurrentPlaylistVarInt("BR_NumChest", 20)
 
     //SetShouldUseRoundWinningKillReplay( true ) //Not sur it's working because Round Winning and I don't use round
     SetSpawnpointGamemodeOverride( FFA )
@@ -142,30 +122,36 @@ void function GamemodeBR_Init()
 
     AddCallback_OnReceivedSayTextMessage(ChatMessageFilter)
 
-    if ( GetCurrentPlaylistVarInt( "BR_EnableDevMod", 0 ) == 1 ) {
+    if ( GetConVarBool( "TBR_EnableDevMod" ) ) {
         AddCallback_OnReceivedSayTextMessage(DevChatCommande)
     }
-    if( GetCurrentPlaylistVarInt("BR_canSpawnTitan", 0) == 0) {
+    if( !GetConVarBool( "BR_canSpawnTitan" ) ) {
         Riff_ForceTitanAvailability( eTitanAvailability.Never )
     }
-    if( GetCurrentPlaylistVarInt("BR_canUseBoost", 0) == 0) {
+    if( !GetConVarBool( "BR_canUseBoost" ) ) {
         Riff_ForceBoostAvailability( eBoostAvailability.Disabled )
     }
 
     PrecacheModel( ChestModelClose )
     PrecacheModel( ChestModelOpen )
 
-    if(spawnMainWeapon == "" || spawnMainWeapon == "empty") {
+    if(GetConVarString("BR_SpawnMainWeapon") == "") {
         spawnMainWeapon = mainWeapons[ RandomInt( mainWeapons.len() ) ]
+    } else {
+        spawnMainWeapon = GetConVarString("BR_SpawnMainWeapon")
     }
-    if(spawnSecondaryWeapon == "" || spawnSecondaryWeapon == "empty") {
+    if(GetConVarString("BR_SpawnSecondaryWeapon") == "") {
         spawnSecondaryWeapon = secondaryWeapons[ RandomInt( secondaryWeapons.len() ) ]
+    } else {
+        spawnSecondaryWeapon = GetConVarString("BR_SpawnSecondaryWeapon")
     }
-    if(spawnAntiTitanWeapon == "" || spawnAntiTitanWeapon == "empty") {
+    if(GetConVarString("BR_SpawnAntiTitanWeapon") == "") {
         spawnAntiTitanWeapon = antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ]
+    } else {
+        spawnAntiTitanWeapon =  GetConVarString("BR_SpawnAntiTitanWeapon")
     }
 
-    ClassicMP_SetCustomIntro( BRIntroSetup, BRIntroLength )
+    ClassicMP_SetCustomIntro( BRIntroSetup, GetConVarFloat("BR_IntroLength") )
     #endif
 }
 
@@ -191,11 +177,11 @@ void function BRIntroStartThreaded() {
 
 	ClassicMP_OnIntroStarted()
 	
-    if(GetSpawnPointForChest().len() <= NumChest) {
+    if(GetSpawnPointForChest().len() <= GetConVarInt("BR_MinNumChest")) {
         //throw "Map not compatible, using player spawn point for chest spawn point !!!!"
         Chat_ServerBroadcast("Map : "+ GetMapName() +" not compatible, using player spawn point for chest spawn point !!!!")
         array<entity> spawns = GetEntArrayByClass_Expensive( "info_spawnpoint_human" ) //info_spawnpoint_human_start
-        for(int i = 0; i<NumChest;i++) {
+        for(int i = 0; i < GetConVarInt("BR_MinNumChest"); i++) {
             do {
                 spawnPositionChoice = RandomInt(spawns.len())
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
@@ -207,7 +193,7 @@ void function BRIntroStartThreaded() {
         }
         spawnPositionAlreadyChoice = []
     } else {
-        for(int i = 0; i<NumChest;i++) {
+        for(int i = 0; i < GetConVarInt("BR_MinNumChest"); i++) {
             do {
                 spawnPositionChoice = RandomInt(GetSpawnPointForChest().len())
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
@@ -220,7 +206,7 @@ void function BRIntroStartThreaded() {
         }
     }
 
-	wait BRIntroLength
+	wait GetConVarFloat("BR_IntroLength")
 
 	ClassicMP_OnIntroFinished()
 
@@ -229,7 +215,7 @@ void function BRIntroStartThreaded() {
 void function BRStartPlaying() {
     printt( "Start Playing" )
     NumAlivePlayer = GetPlayerArray().len()
-    if(GetPlayerArray().len() < minPlayer) {
+    if(GetPlayerArray().len() < GetConVarInt("TBR_min_players") ) {
         GameRules_ChangeMap(LobbyMaps[RandomInt(LobbyMaps.len())], GAMEMODE_BR_LOBBY)
     }
     foreach ( entity player in GetPlayerArray() ) {
@@ -328,13 +314,15 @@ void function GiveStartWeapon(entity player)
     foreach ( entity weapon in player.GetMainWeapons() )
         player.TakeWeaponNow( weapon.GetWeaponClassName() )
 
-    if(spawnWithMainWeapon) {
+    printt(GetConVarBool("BR_SpawnWithSecondaryWeapon"))
+
+    if(GetConVarBool("BR_SpawnWithMainWeapon")) {
         player.GiveWeapon( spawnMainWeapon )
     }
-    if(spawnWithSecondaryWeapon) {
+    if(GetConVarBool("BR_SpawnWithSecondaryWeapon")) {
         player.GiveWeapon( spawnSecondaryWeapon )
     }
-    if(spawnWithAntiTitanWeapon) {
+    if(GetConVarBool("BR_SpawnWithAntiTitanWeapon")) {
         player.GiveWeapon( spawnAntiTitanWeapon )
     }
 }
@@ -435,7 +423,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
 
 
 
-void function GamemodeBR_Lobby_Init()
+void function GamemodeBR_LOBBY_Init()
 {   
     SetSpawnpointGamemodeOverride( FFA )
 	ClassicMP_ForceDisableEpilogue( true )
@@ -443,18 +431,16 @@ void function GamemodeBR_Lobby_Init()
 	SetWeaponDropsEnabled( true )
 	Riff_ForceTitanAvailability( eTitanAvailability.Never )
 
-    minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
-
     AddCallback_OnClientConnected( BR_LOBBY_OnClientConnect )
 }
 
 void function BR_LOBBY_OnClientConnect( entity player ) {
-    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
+    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
     
     foreach(entity player in GetPlayerArray()) {
-        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
+        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
     }
-    if(GetPlayerArray().len() >= minPlayer) {
+    if(GetPlayerArray().len() >= GetConVarInt("TBR_min_players")) {
         thread EnoughtPlayerToStart()
     }
 }
@@ -476,7 +462,7 @@ void function EnoughtPlayerToStart() {
         wait 1
     }
 
-    GameRules_ChangeMap(BRMaps[GetMapVoteWinner()], GAMEMODE_BR)
+    GameRules_ChangeMap(BRMaps[GetMapVoteWinner()], GAMEMODE_BR_SOLO)
 }
 
 void function CreateMapVotePoll(array<string> options, float time = 30) {
