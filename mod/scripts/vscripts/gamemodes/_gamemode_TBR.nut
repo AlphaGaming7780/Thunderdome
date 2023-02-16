@@ -7,27 +7,27 @@ string spawnSecondaryWeapon = ""
 string spawnAntiTitanWeapon = ""
 
 const array<string> BRMaps = [ "mp_forwardbase_kodai",
-    //"mp_grave",
+    "mp_grave", //
     "mp_homestead",
     "mp_thaw",
-    //"mp_black_water_canal",
-    //"mp_eden",
-    //"mp_drydock",
-    //"mp_crashsite3",
+    "mp_black_water_canal", //
+    "mp_eden", //
+    "mp_drydock", //
+    "mp_crashsite3", //
     "mp_complex3",
     "mp_angel_city",
     "mp_colony02",
-    //"mp_glitch",
-    //"mp_lf_stacks",
+    "mp_glitch", //
+    //"mp_lf_stacks", 
     //"mp_lf_deck",
     //"mp_lf_meadow",
     //"mp_lf_traffic",
     //"mp_lf_township",
     //"mp_lf_uma",
-    //"mp_relic02",
+    "mp_relic02",//
     "mp_wargames",
-    //"mp_rise",
-    //"mp_coliseum",
+    "mp_rise",//
+    // "mp_coliseum",
     //"mp_coliseum_column"
 ]
 
@@ -226,7 +226,7 @@ void function BRStartPlaying() {
         }
         TryGameModeAnnouncement( player )
         
-        NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_PlayerLeftPannelDesc", "BR_PlayerLeftPannelID")
+        NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
 
     }
 }
@@ -249,9 +249,12 @@ void function BROnClientDisconnect( entity player ) {
                 if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
                     Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", NumAlivePlayer )
                 }
-                NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_PlayerLeftPannelDesc", "BR_PlayerLeftPannelID")
+                NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
                 if(NumAlivePlayer <= 1 && IsAlive(player)) {
                     SetWinner(player.GetTeam())
+                }
+                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= NumAlivePlayer) {
+                    Highlight_SetEnemyHighlight( player, "enemy_player" ) 
                 }
             }
         }
@@ -268,8 +271,11 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
             if(IsAlive(player)) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
+                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= NumAlivePlayer) {
+                    Highlight_SetEnemyHighlight( player, "enemy_player" ) 
+                }
             }
-            NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_PlayerLeftPannelDesc", "BR_PlayerLeftPannelID")
+            NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
         }
         if(NumAlivePlayer <= 1) {
             SetWinner(attacker.GetTeam())
@@ -435,10 +441,10 @@ void function GamemodeBR_LOBBY_Init()
 }
 
 void function BR_LOBBY_OnClientConnect( entity player ) {
-    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
+    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_LOBBY_ConnectedPlayerDesc", "BR_LOBBY_ConnectedPlayerID")
     
     foreach(entity player in GetPlayerArray()) {
-        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
+        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_LOBBY_ConnectedPlayerDesc", "BR_LOBBY_ConnectedPlayerID")
     }
     if(GetPlayerArray().len() >= GetConVarInt("TBR_min_players")) {
         thread EnoughtPlayerToStart()
@@ -446,11 +452,29 @@ void function BR_LOBBY_OnClientConnect( entity player ) {
 }
 
 void function EnoughtPlayerToStart() {
-    float WaitingVoteTime = GetCurrentPlaylistVarFloat("WaitingVoteTime", 30.0)
+    float WaitingVoteTime = GetConVarFloat("BR_LOBBY_WaitingVoteTime")
+    array<int> MapVoteAlreadyChoice = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    array<string> MapVote
+    array<string> MapVoteLocalised
     foreach(entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay(player, "Cl_EnoughPlayerToStart", WaitingVoteTime)
     }
-    CreateMapVotePoll(BRMaps, WaitingVoteTime)
+    if(BRMaps.len() > 9) {
+        for(int i = 0; i < 9; i++) {
+            do {
+                MapVoteAlreadyChoice[i] = RandomIntRange(0,BRMaps.len()-1)
+            } while(MapVoteAlreadyChoice.find(MapVoteAlreadyChoice[i]) != i)
+            MapVote.push(BRMaps[MapVoteAlreadyChoice[i]])
+            MapVoteLocalised.push("#"+BRMaps[MapVoteAlreadyChoice[i]])
+        }
+    } else {
+        for(int i = 0; i < BRMaps.len(); i++) {
+            MapVote.push(BRMaps[i])
+            MapVoteLocalised.push("#"+BRMaps[i])
+        }
+    }
+
+    CreateMapVotePoll(MapVoteLocalised, WaitingVoteTime)
     float endTime = Time() + WaitingVoteTime
     while( endTime > Time() ) {
         foreach(entity player in GetPlayerArray()){
@@ -462,7 +486,7 @@ void function EnoughtPlayerToStart() {
         wait 1
     }
 
-    GameRules_ChangeMap(BRMaps[GetMapVoteWinner()], GAMEMODE_BR_SOLO)
+    GameRules_ChangeMap(MapVote[GetMapVoteWinner()], GAMEMODE_BR_SOLO)
 }
 
 void function CreateMapVotePoll(array<string> options, float time = 30) {
@@ -472,7 +496,7 @@ void function CreateMapVotePoll(array<string> options, float time = 30) {
 
 int function GetMapVoteWinner() {
 
-    array<int> MapVoteResult = [0,0,0,0,0,0,0,0,0]
+    array<int> MapVoteResult = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     int IndexWithTheBigestValue = 0
     int TheBigestValue = -1
     foreach(entity player in GetPlayerArray()) {

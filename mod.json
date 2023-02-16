@@ -76,6 +76,11 @@
             "DefaultValue": "30",
             "Flags": "64",
             "HelpString": ""
+        },        {
+            "Name": "BR_SOLO_MinPlayerForHighlight",
+            "DefaultValue": "2",
+            "Flags": "64",
+            "HelpString": "The required player needed to highlight player"
         },
         {
             "Name": "TBR_EnableDevMod",
