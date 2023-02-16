@@ -16,9 +16,13 @@ It is possible to customize the game mode with the ConVars of the mod, see the [
 #### ConVars
 
 If the vars start with `BR_`, it mean that variable are only used for all Battle Royale game mode except the Lobby,
+
 If the vars start with `BR_SOLO_`, it mean that variable are only used for solo Battle Royale game mode,
+
 if the vars start with `BR_SQUAD`, it mean that variable are only used for the squad Battle Royale game mode (Duo/Trio/Squad) (Not implemented yet)
+
 if the vars start with `BR_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
+
 and if they start with nothing before, it mean that variable are used for both game mode.
 
 | ConVars | Accepted Values | Default Value | Description |
