@@ -31,7 +31,7 @@ and if they start with nothing before, it mean that variable are used for both g
 | `BR_canSpawnTitan` | `Bool` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `BR_canUseBoost` | `Bool` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `BR_IntroLength` | `Int` | `10` | Time of the prematch state in seconde |
-| `BR_NumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
+| `BR_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
 | `BR_SpawnWithMainWeapon` | `Bool` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
 | `BR_SpawnWithSecondaryWeapon` | `Bool` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
 | `BR_SpawnWithAntiTitanWeapon` | `Bool` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
