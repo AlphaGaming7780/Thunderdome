@@ -1,7 +1,7 @@
-global function GamemodeTBR_Init
-global function GamemodeTBR_Lobby_Init
+global function GamemodeBR_Init
+global function GamemodeBR_Lobby_Init
 
-float TBRIntroLength = 10
+float BRIntroLength = 10
 bool spawnWithMainWeapon = false
 bool spawnWithSecondaryWeapon = false
 bool spawnWithAntiTitanWeapon = false
@@ -15,7 +15,7 @@ int minPlayer = 2
 const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_grave",
     "mp_homestead",
-    //"mp_thaw",
+    "mp_thaw",
     //"mp_black_water_canal",
     //"mp_eden",
     //"mp_drydock",
@@ -116,14 +116,14 @@ entity chest = null
 entity playerChest = null
 array< array< vector > > spawnChestList = []
 
-void function GamemodeTBR_Init()
+void function GamemodeBR_Init()
 {
     #if SERVER
     ClassicMP_ForceDisableEpilogue( true )
 
     minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
 
-    TBRIntroLength = GetCurrentPlaylistVarFloat("BR_IntroLength", 0)
+    BRIntroLength = GetCurrentPlaylistVarFloat("BR_IntroLength", 0)
     spawnWithMainWeapon =  GetCurrentPlaylistVarInt("BR_SpawnWithMainWeapon", 0) == 1
     spawnWithSecondaryWeapon =  GetCurrentPlaylistVarInt("BR_SpawnWithSecondaryWeapon", 0) == 1
     spawnWithAntiTitanWeapon = GetCurrentPlaylistVarInt("BR_SpawnWithAntiTitanWeapon", 0) == 1
@@ -165,29 +165,29 @@ void function GamemodeTBR_Init()
         spawnAntiTitanWeapon = antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ]
     }
 
-    ClassicMP_SetCustomIntro( TBRIntroSetup, TBRIntroLength )
+    ClassicMP_SetCustomIntro( BRIntroSetup, BRIntroLength )
     #endif
 }
 
-void function TBRIntroSetup()
+void function BRIntroSetup()
 {   
-    AddCallback_GameStateEnter( eGameState.Prematch, TBRIntroStart )
-    AddCallback_GameStateEnter( eGameState.Playing, TBRStartPlaying )
-    AddCallback_OnClientConnected( TBROnClientConnect )
-    AddCallback_OnClientDisconnected( TBROnClientDisconnect )
+    AddCallback_GameStateEnter( eGameState.Prematch, BRIntroStart )
+    AddCallback_GameStateEnter( eGameState.Playing, BRStartPlaying )
+    AddCallback_OnClientConnected( BROnClientConnect )
+    AddCallback_OnClientDisconnected( BROnClientDisconnect )
     AddCallback_OnPlayerKilled( OnPlayerKilled )
 }
 
-void function TBRIntroStart() {
+void function BRIntroStart() {
 
     printt( "Prematch Start" )
-    thread TBRIntroStartThreaded()
+    thread BRIntroStartThreaded()
     foreach ( entity player in GetPlayerArray() ) {
-        TBROnClientConnect( player )
+        BROnClientConnect( player )
     }
 }
 
-void function TBRIntroStartThreaded() {
+void function BRIntroStartThreaded() {
 
 	ClassicMP_OnIntroStarted()
 	
@@ -220,17 +220,17 @@ void function TBRIntroStartThreaded() {
         }
     }
 
-	wait TBRIntroLength
+	wait BRIntroLength
 
 	ClassicMP_OnIntroFinished()
 
 }
 
-void function TBRStartPlaying() {
+void function BRStartPlaying() {
     printt( "Start Playing" )
     NumAlivePlayer = GetPlayerArray().len()
     if(GetPlayerArray().len() < minPlayer) {
-        GameRules_ChangeMap(LobbyMaps[RandomInt(LobbyMaps.len())], GAMEMODE_TBR_LOBBY)
+        GameRules_ChangeMap(LobbyMaps[RandomInt(LobbyMaps.len())], GAMEMODE_BR_LOBBY)
     }
     foreach ( entity player in GetPlayerArray() ) {
         if ( !IsPrivateMatchSpectator( player ) )
@@ -240,22 +240,22 @@ void function TBRStartPlaying() {
         }
         TryGameModeAnnouncement( player )
         
-        NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
+        NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_PlayerLeftPannelDesc", "BR_PlayerLeftPannelID")
 
     }
 }
 
 
-void function TBROnClientConnect( entity player ) {
+void function BROnClientConnect( entity player ) {
     if( GetGameState() == eGameState.Prematch ) {
         if(!IsPrivateMatchSpectator(player)) {
-            thread TBR_Spawn_Player_Threaded( player )
+            thread BR_Spawn_Player_Threaded( player )
         }
     }
 	
 }
 
-void function TBROnClientDisconnect( entity player ) {
+void function BROnClientDisconnect( entity player ) {
     if( GetGameState() == eGameState.Playing ) {
         if(IsAlive(player)) {
             NumAlivePlayer--
@@ -263,7 +263,7 @@ void function TBROnClientDisconnect( entity player ) {
                 if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
                     Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", NumAlivePlayer )
                 }
-                NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
+                NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_PlayerLeftPannelDesc", "BR_PlayerLeftPannelID")
                 if(NumAlivePlayer <= 1 && IsAlive(player)) {
                     SetWinner(player.GetTeam())
                 }
@@ -283,7 +283,7 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
             }
-            NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#TBR_PlayerLeftPannelDesc", "TBR_PlayerLeftPannelID")
+            NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_PlayerLeftPannelDesc", "BR_PlayerLeftPannelID")
         }
         if(NumAlivePlayer <= 1) {
             SetWinner(attacker.GetTeam())
@@ -291,7 +291,7 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
     }
 }
 
-void function TBR_Spawn_Player_Threaded( entity player )
+void function BR_Spawn_Player_Threaded( entity player )
 {   
     if(IsAlive(player)) {
         player.Die()
@@ -435,7 +435,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
 
 
 
-void function GamemodeTBR_Lobby_Init()
+void function GamemodeBR_Lobby_Init()
 {   
     SetSpawnpointGamemodeOverride( FFA )
 	ClassicMP_ForceDisableEpilogue( true )
@@ -445,14 +445,14 @@ void function GamemodeTBR_Lobby_Init()
 
     minPlayer = GetCurrentPlaylistVarInt("min_players", 2)
 
-    AddCallback_OnClientConnected( TBR_LOBBY_OnClientConnect )
+    AddCallback_OnClientConnected( BR_LOBBY_OnClientConnect )
 }
 
-void function TBR_LOBBY_OnClientConnect( entity player ) {
-    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#TBR_ConnectedPlayerDesc", "TBR_ConnectedPlayerID")
+void function BR_LOBBY_OnClientConnect( entity player ) {
+    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
     
     foreach(entity player in GetPlayerArray()) {
-        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#TBR_ConnectedPlayerDesc", "TBR_ConnectedPlayerID")
+        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+minPlayer+"]","#BR_ConnectedPlayerDesc", "BR_ConnectedPlayerID")
     }
     if(GetPlayerArray().len() >= minPlayer) {
         thread EnoughtPlayerToStart()
@@ -476,12 +476,12 @@ void function EnoughtPlayerToStart() {
         wait 1
     }
 
-    GameRules_ChangeMap(BRMaps[GetMapVoteWinner()], GAMEMODE_TBR)
+    GameRules_ChangeMap(BRMaps[GetMapVoteWinner()], GAMEMODE_BR)
 }
 
 void function CreateMapVotePoll(array<string> options, float time = 30) {
     foreach(entity player in GetPlayerArray())
-        NSCreatePollOnPlayer(player, "#TBR_MapVoteTitle", options, time)
+        NSCreatePollOnPlayer(player, "#BR_MapVoteTitle", options, time)
 }
 
 int function GetMapVoteWinner() {

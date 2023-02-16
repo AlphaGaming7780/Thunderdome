@@ -17,10 +17,10 @@
         "Path": "gamemodes/sh_gamemode_TBR.nut",
         "RunOn": "(CLIENT || SERVER) && MP",
         "ClientCallback": {
-            "Before": "TBR_init"
+            "Before": "BR_init"
         },
         "ServerCallback": {
-            "Before": "TBR_init"
+            "Before": "BR_init"
         }
     },
     {

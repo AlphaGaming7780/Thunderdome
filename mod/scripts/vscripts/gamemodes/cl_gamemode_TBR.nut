@@ -1,5 +1,5 @@
-global function ClGamemodeTBR_Init
-global function ClGamemodeTBR_Lobby_Init
+global function ClGamemodeBR_Init
+global function ClGamemodeBR_Lobby_Init
 global function GameNumPlayerLeftAnnouncement
 global function Cl_OnWaitingVote
 global function Cl_EnoughPlayerToStart
@@ -8,7 +8,7 @@ global function Cl_TEST
 
 entity light
 
-void function ClGamemodeTBR_Init()
+void function ClGamemodeBR_Init()
 {
     ClGameState_RegisterGameStateAsset( $"ui/gamestate_info_ffa.rpak" )
 
@@ -34,16 +34,16 @@ void function ClGamemodeTBR_Init()
 }
 
 void function Cl_OnWaitingVote(float TimeToWait) {
-    Chat_GameWriteLine("\x1b[113m" + Localize("#TBR_WaitingVoteTimeLeft", TimeToWait ))
+    Chat_GameWriteLine("\x1b[113m" + Localize("#BR_WaitingVoteTimeLeft", TimeToWait ))
 }
 
 void function Cl_EnoughPlayerToStart(float TimeBeforeStart) {
-    Chat_GameWriteLine("\x1b[113m" + Localize("#TBR_GameStartChatAnnouncement", TimeBeforeStart ))
+    Chat_GameWriteLine("\x1b[113m" + Localize("#BR_GameStartChatAnnouncement", TimeBeforeStart ))
 }
 
 void function GameNumPlayerLeftAnnouncement(int NumPlayer)
 {   
-    AnnouncementData announcement = Announcement_Create(Localize ("#TBR_GameNumPlayerLeftAnnouncement", NumPlayer ))
+    AnnouncementData announcement = Announcement_Create(Localize ("#BR_GameNumPlayerLeftAnnouncement", NumPlayer ))
     Announcement_SetTitleColor( announcement, <1,0,0> )
     Announcement_SetPurge( announcement, true )
     Announcement_SetPriority( announcement, 200 ) //Be higher priority than Titanfall ready indicator etc
@@ -52,7 +52,7 @@ void function GameNumPlayerLeftAnnouncement(int NumPlayer)
     AnnouncementFromClass( GetLocalViewPlayer(), announcement )
 }
 
-void function ClGamemodeTBR_Lobby_Init()
+void function ClGamemodeBR_Lobby_Init()
 {
     ClGameState_RegisterGameStateAsset( $"ui/gamestate_info_ffa.rpak" )
 

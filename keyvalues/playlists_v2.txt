@@ -2,16 +2,16 @@ playlists
 {
 	Gamemodes
 	{
-		TBR
+		BR
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_TBR
-				lobbytitle #PL_TBR
-				description #PL_TBR_desc
-				hint #PL_TBR_hint
-				abbreviation #PL_TBR_abbr
+				name #PL_BR
+				lobbytitle #PL_BR
+				description #PL_BR_desc
+				hint #PL_BR_hint
+				abbreviation #PL_BR_abbr
 
 				max_players 20
 				max_teams 20
@@ -39,16 +39,16 @@ playlists
 			}
 		}
 
-		TBR_LOBBY
+		BR_LOBBY
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_TBR_LOBBY
-				lobbytitle #PL_TBR_LOBBY
-				description #PL_TBR_LOBBY_desc
-				hint #PL_TBR_LOBBY_hint
-				abbreviation #PL_TBR_LOBBY_abbr
+				name #PL_BR_LOBBY
+				lobbytitle #PL_BR_LOBBY
+				description #PL_BR_LOBBY_desc
+				hint #PL_BR_LOBBY_hint
+				abbreviation #PL_BR_LOBBY_abbr
 				max_players 20
 				max_teams 20
 				classic_mp 1
@@ -62,15 +62,15 @@ playlists
 	}
 	Playlists
 	{
-		TBR
+		BR
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_TBR
-				lobbytitle #PL_TBR
-				description #PL_TBR_desc
-				abbreviation #PL_TBR_abbr
+				name #PL_BR
+				lobbytitle #PL_BR
+				description #PL_BR_desc
+				abbreviation #PL_BR_abbr
 				image ffa
 				//mixtape_slot 7
 				mixtape_timeout 120
@@ -78,14 +78,14 @@ playlists
 			}
 			gamemodes
 			{
-				TBR
+				BR
 				{
 					maps
 					{
 						mp_forwardbase_kodai 1
 						mp_grave 0
 						mp_homestead 1
-						mp_thaw 0
+						mp_thaw 1
 						mp_black_water_canal 0
 						mp_eden 0
 						mp_drydock 0
@@ -110,15 +110,15 @@ playlists
 			}
 		}
 
-		TBR_LOBBY
+		BR_LOBBY
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_TBR_LOBBY
-				lobbytitle #PL_TBR_LOBBY
-				description #PL_TBR_LOBBY_desc
-				abbreviation #PL_TBR_LOBBY_abbr
+				name #PL_BR_LOBBY
+				lobbytitle #PL_BR_LOBBY
+				description #PL_BR_LOBBY_desc
+				abbreviation #PL_BR_LOBBY_abbr
 				image ffa
 				//mixtape_slot 7
 				mixtape_timeout 120
@@ -126,7 +126,7 @@ playlists
 			}
 			gamemodes
 			{
-				TBR_LOBBY
+				BR_LOBBY
 				{
 					maps
 					{
