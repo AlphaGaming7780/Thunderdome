@@ -11,7 +11,7 @@ The mod has great [customization](https://github.com/AlphaGaming7780/Titanfall_L
 
 
 ## Documentation
-It is possible to customize the game mode in the ConVars of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars)
+It is possible to customize the game mode with the ConVars of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars)
 
 #### ConVars
 
