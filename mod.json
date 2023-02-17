@@ -8,84 +8,70 @@
         {
             "Name": "TBR_min_players",
             "DefaultValue": "2",
-            "Flags": "64",
             "HelpString": "The Minimum required Player"
         },
         {
             "Name": "BR_canSpawnTitan",
             "DefaultValue": "0",
-            "Flags": "64",
             "HelpString": "Allow Titan Drop"
         },
         {
             "Name": "BR_canUseBoost",
             "DefaultValue": "0",
-            "Flags": "64",
             "HelpString": "Allow Boost Usage"
         },
         {
             "Name": "BR_IntroLength",
             "DefaultValue": "10",
-            "Flags": "64",
             "HelpString": "Intro Length"
         },
         {
             "Name": "BR_MinNumChest",
             "DefaultValue": "20",
-            "Flags": "64",
             "HelpString": "The Minimum Number of Chests"
         },
         {
             "Name": "BR_SpawnWithMainWeapon",
             "DefaultValue": "0",
-            "Flags": "64",
             "HelpString": "Spawn with Primary Weapon"
         },
         {
             "Name": "BR_SpawnWithSecondaryWeapon",
             "DefaultValue": "1",
-            "Flags": "64",
             "HelpString": "Spawn with Secondary Weapon"
         },
         {
             "Name": "BR_SpawnWithAntiTitanWeapon",
             "DefaultValue": "0",
-            "Flags": "64",
             "HelpString": "Spawn with Anti-Titan Weapon"
         },
         {
             "Name": "BR_SpawnMainWeapon",
             "DefaultValue": "",
-            "Flags": "64",
             "HelpString": "Primary Spawn Weapon"
         },
         {
             "Name": "BR_SpawnSecondaryWeapon",
             "DefaultValue": "mp_weapon_semipistol",
-            "Flags": "64",
             "HelpString": "Secondary Spawn Weapon"
         },
         {
             "Name": "BR_SpawnAntiTitanWeapon",
             "DefaultValue": "",
-            "Flags": "64",
             "HelpString": "Anti-Titan Spawn Weapon"
         },
         {
             "Name": "BR_LOBBY_WaitingVoteTime",
             "DefaultValue": "30",
-            "Flags": "64",
             "HelpString": ""
         },        {
             "Name": "BR_SOLO_MinPlayerForHighlight",
             "DefaultValue": "2",
-            "Flags": "64",
             "HelpString": "The required player needed to highlight player"
         },
         {
             "Name": "TBR_EnableDevMod",
             "DefaultValue": "0",
-            "Flags": "64",
             "HelpString": "Enable Developer Mode"
         }
     ],

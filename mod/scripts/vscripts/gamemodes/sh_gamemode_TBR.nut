@@ -14,8 +14,8 @@ void function CreateGamemodeBR_SOLO()
     GameMode_Create( GAMEMODE_BR_SOLO)
     GameMode_SetName( GAMEMODE_BR_SOLO, "#PL_BR_SOLO" )
     GameMode_SetDesc( GAMEMODE_BR_SOLO, "#PL_BR_SOLO_desc" )
-    GameMode_SetIcon( GAMEMODE_BR_SOLO, $"vgui/burncards/burncard_group_icon_weapons" ) //FFA_MODE_ICON
-    GameMode_SetGameModeAnnouncement( GAMEMODE_BR_SOLO, "ffa_modeDesc" )
+    GameMode_SetIcon( GAMEMODE_BR_SOLO, FFA_MODE_ICON ) //FFA_MODE_ICON //$"ui/menu/playlist/tdm" //$"vgui/burncards/burncard_group_icon_weapons"
+    GameMode_SetGameModeAnnouncement( GAMEMODE_BR_SOLO, "ffa_modeDesc" ) //ffa_modeDesc
     GameMode_SetDefaultTimeLimits( GAMEMODE_BR_SOLO, 100, 0.0 )
     GameMode_AddScoreboardColumnData( GAMEMODE_BR_SOLO, "#SCOREBOARD_SCORE", PGS_ASSAULT_SCORE, 2 )
     GameMode_AddScoreboardColumnData( GAMEMODE_BR_SOLO, "#SCOREBOARD_PILOT_KILLS", PGS_PILOT_KILLS, 2 )
