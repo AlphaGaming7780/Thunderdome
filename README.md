@@ -62,4 +62,4 @@ and if they start with nothing before, it mean that variable are used for both g
 | Portuguese| Dartzinho_V#8820 |
 | Russian | spoon#0407 |
 | Spanish |  |
-| Traditional Chinese |  |
+| Traditional Chinese | zxcPandora#1581 |
