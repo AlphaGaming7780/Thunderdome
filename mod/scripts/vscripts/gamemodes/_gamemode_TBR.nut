@@ -100,8 +100,7 @@ const vector chestMainWeaponAngle = <0, 30, 90>
 
 bool ForceEndGame = false
 bool BlockMessageFromDeathPlayer = true
-int AtStartNumAlivePlayer = 0
-int NumAlivePlayer = 0
+// int GetPlayerArray_Alive().len() = 0
 int spawnPositionChoice = 0
 array<int> spawnPositionAlreadyChoice = []
 array<vector> ChestSpawnPoint
@@ -214,8 +213,7 @@ void function BRIntroStartThreaded() {
 
 void function BRStartPlaying() {
     printt( "Start Playing" )
-    NumAlivePlayer = GetPlayerArray().len()
-    if(GetPlayerArray().len() < GetConVarInt("TBR_min_players") ) {
+    if(GetPlayerArray_Alive().len() < GetConVarInt("TBR_min_players") ) {
         GameRules_ChangeMap(LobbyMaps[RandomInt(LobbyMaps.len())], GAMEMODE_BR_LOBBY)
     }
     foreach ( entity player in GetPlayerArray() ) {
@@ -223,11 +221,11 @@ void function BRStartPlaying() {
         RemoveCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
         TryGameModeAnnouncement( player )
 
-        if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= NumAlivePlayer) {
+        if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= GetPlayerArray_Alive().len()) {
             Highlight_SetEnemyHighlight( player, "battery_thief" ) //enemy_sonar | enemy_player | sp_enemy_pilot | battery_thief
         }
         
-        NSCreateStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
+        NSCreateStatusMessageOnPlayer(player,GetPlayerArray_Alive().len().tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
 
     }
 }
@@ -243,16 +241,16 @@ void function BROnClientConnect( entity player ) {
 void function BROnClientDisconnect( entity player ) {
     if( GetGameState() == eGameState.Playing ) {
         if(IsAlive(player)) {
-            NumAlivePlayer--
+            //GetPlayerArray_Alive().len()--
             foreach(entity player in GetPlayerArray()) {
-                if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
-                    Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", NumAlivePlayer )
+                if(GetPlayerArray_Alive().len() <= 3 && GetPlayerArray_Alive().len() > 1) {
+                    Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", GetPlayerArray_Alive().len() )
                 }
-                NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
-                if(NumAlivePlayer <= 1 && IsAlive(player)) {
+                NSEditStatusMessageOnPlayer(player,GetPlayerArray_Alive().len().tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
+                if(GetPlayerArray_Alive().len() <= 1 && IsAlive(player)) {
                     SetWinner(player.GetTeam())
                 }
-                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= NumAlivePlayer) {
+                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= GetPlayerArray_Alive().len()) {
                     Highlight_SetEnemyHighlight( player, "battery_thief" ) 
                 }
             }
@@ -262,23 +260,27 @@ void function BROnClientDisconnect( entity player ) {
 
 void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
     if(GetGameState() == eGameState.Playing) {
-        NumAlivePlayer--
+        //GetPlayerArray_Alive().len()--
         foreach(entity player in GetPlayerArray()) {
-            if(NumAlivePlayer <= 3 && NumAlivePlayer > 1) {
-                Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", NumAlivePlayer )
+            if(GetPlayerArray_Alive().len() <= 3 && GetPlayerArray_Alive().len() > 1) {
+                Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", GetPlayerArray_Alive().len() )
             }
             if(IsAlive(player)) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
-                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= NumAlivePlayer) {
+                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= GetPlayerArray_Alive().len()) {
                     Highlight_SetEnemyHighlight( player, "battery_thief" ) 
                 }
             }
-            NSEditStatusMessageOnPlayer(player,NumAlivePlayer.tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
+            NSEditStatusMessageOnPlayer(player,GetPlayerArray_Alive().len().tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
         }
-        if(NumAlivePlayer <= 1) {
+
+        if(GetPlayerArray_Alive().len() <= 1) {
             SetWinner(attacker.GetTeam())
+        } else {
+            // thread TurnPlayerToSpectator( victim )
         }
+
     }
 }
 
@@ -419,6 +421,8 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
         }
     } else if( message.message.find("!cltest") != null) {
         Remote_CallFunction_NonReplay( message.player ,"Cl_TEST")
+    } else if( message.message.find("!gpt") != null) {
+        Chat_ServerBroadcast( message.player + " Team :" + message.player.GetTeam().tostring())
     }
 
     return message
