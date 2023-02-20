@@ -10,10 +10,10 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     "mp_grave",
     "mp_homestead",
     "mp_thaw",
-    // "mp_black_water_canal", //
-    // "mp_eden", //
-    // "mp_drydock", //
-    // "mp_crashsite3", //
+    //"mp_black_water_canal", //
+    //"mp_eden", //
+    //"mp_drydock", //
+    //"mp_crashsite3", //
     "mp_complex3",
     "mp_angel_city",
     "mp_colony02",
@@ -24,10 +24,10 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     //"mp_lf_traffic",
     //"mp_lf_township",
     //"mp_lf_uma",
-    // "mp_relic02",//
+    //"mp_relic02",//
     "mp_wargames",
-    // "mp_rise",//
-    // "mp_coliseum",
+    //"mp_rise",//
+    //"mp_coliseum",
     //"mp_coliseum_column"
 ]
 
