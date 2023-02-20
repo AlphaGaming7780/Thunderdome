@@ -29,7 +29,9 @@ and if they start with nothing before, it mean that variable are used for both g
 | `TBR_min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
 |`TBR_EnableDevMod` | `Bool (Int)` | `0` | Enable the DEV mode |
 
-### PlayListsvar
+### PlaylistVar
+| PlaylistVar | Accepted Values | Default Value | Description |
+| ----------------- | --------------- | ------------- | ----------- |
 | `BR_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `BR_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `BR_IntroLength` | `Int` | `10` | Time of the prematch state in seconde |
