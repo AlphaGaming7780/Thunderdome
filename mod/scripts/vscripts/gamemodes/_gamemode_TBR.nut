@@ -7,7 +7,7 @@ string spawnSecondaryWeapon = ""
 string spawnAntiTitanWeapon = ""
 
 const array<string> BRMaps = [ "mp_forwardbase_kodai",
-    // "mp_grave", //
+    "mp_grave",
     "mp_homestead",
     "mp_thaw",
     // "mp_black_water_canal", //
