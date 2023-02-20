@@ -13,11 +13,24 @@
         "PL_BR_LOBBY_desc" "Wo Sie auf andere Spieler warten, bevor Sie eine Battle Royale-Partie starten."
         "PL_BR_LOBBY_hint" "Warten Sie und stimmen Sie für die Karte ab, auf der Sie spielen möchten, wenn genug Spieler beigetreten sind."
         "PL_BR_LOBBY_abbr" "BRL"
+        
         "BR_SOLO_GameNumPlayerLeftAnnouncement" "Nur noch %s1 Spieler übrig!"
         "BR_SOLO_PlayerLeftPannelDesc" "verbleibende Spieler."
         "BR_LOBBY_ConnectedPlayerDesc" "verbundener Spieler."
         "BR_LOBBY_WaitingVoteTimeLeft" "%s1 Sekunden verbleibend."
         "BR_LOBBY_GameStartChatAnnouncement" "Es gibt genug Spieler, um das Spiel zu starten, es wird in %s1 Sekunden beginnen. Stimmen Sie für die Karte ab, auf der Sie spielen möchten."
         "BR_MapVoteTitle" "Wähle die Karte aus, auf der du spielen möchtest!"
+
+        "BR_EnableDevMod" "Entwicklermodus"
+        "BR_canSpawnTitan" "Titan-Absprung erlauben"
+        "BR_canUseBoost" "Boost-Nutzung erlauben"
+        "BR_IntroLength" "Introlänge"
+        "BR_NumChest" "Anzahl an Truhen"
+        "BR_SpawnWithMainWeapon" "Mit primärer Waffe spawnen"
+        "BR_SpawnWithSecondaryWeapon" "Mit sekundärer Waffe spawnen"
+        "BR_SpawnWithAntiTitanWeapon" "Mit Anti-Titan-Waffe spawnen"
+        "BR_SpawnMainWeapon" "Primäre Spawn-Waffe"
+        "BR_SpawnSecondaryWeapon" "Sekundäre Spawn-Waffe"
+        "BR_SpawnAntiTitanWeapon" "Anti-Titan-Spawn-Waffe"
     }
 }

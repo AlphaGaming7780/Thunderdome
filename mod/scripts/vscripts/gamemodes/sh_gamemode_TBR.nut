@@ -22,24 +22,24 @@ void function CreateGamemodeBR_SOLO()
     GameMode_SetColor( GAMEMODE_BR_SOLO, [147, 204, 57, 255] )
 
     AddPrivateMatchMode( GAMEMODE_BR_SOLO)
-    /*
-    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "min_players", GetCurrentPlaylistVarInt("min_players", 2).tostring())
 
-    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_EnableDevMod", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_EnableDevMod", 0).tostring())
+    //AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "min_players", GetCurrentPlaylistVarInt("min_players", 2).tostring())
+
+    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "TBR_EnableDevMod", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TBR_EnableDevMod", 0).tostring())
     AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_canSpawnTitan", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_canSpawnTitan", 0).tostring())
-    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SOLO_canUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SOLO_canUseBoost", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_canUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_canUseBoost", 0).tostring())
 
-    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SOLO_IntroLength", GetCurrentPlaylistVarInt("BR_SOLO_IntroLength", 0).tostring())
-    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SOLO_NumChest", GetCurrentPlaylistVarInt("BR_SOLO_NumChest", 0).tostring())
+    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_IntroLength", GetCurrentPlaylistVarInt("BR_IntroLength", 0).tostring())
+    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_MinNumChest", GetCurrentPlaylistVarInt("BR_MinNumChest", 0).tostring())
 
-    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SOLO_SpawnWithMainWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SOLO_SpawnWithMainWeapon", 0).tostring())
-    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SOLO_SpawnWithSecondaryWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SOLO_SpawnWithSecondaryWeapon", 0).tostring())
-    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SOLO_SpawnWithAntiTitanWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SOLO_SpawnWithAntiTitanWeapon", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SpawnWithMainWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SpawnWithMainWeapon", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SpawnWithSecondaryWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SpawnWithSecondaryWeapon", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_BR_SOLO", "BR_SpawnWithAntiTitanWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("BR_SpawnWithAntiTitanWeapon", 0).tostring())
 
-    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SOLO_SpawnMainWeapon", GetCurrentPlaylistVarString("BR_SOLO_SpawnMainWeapon", ""))
-    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SOLO_SpawnSecondaryWeapon", GetCurrentPlaylistVarString("BR_SOLO_SpawnSecondaryWeapon", ""))
-    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SOLO_SpawnAntiTitanWeapon", GetCurrentPlaylistVarString("BR_SOLO_SpawnAntiTitanWeapon", ""))
-    */
+    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SpawnMainWeapon", GetCurrentPlaylistVarString("BR_SpawnMainWeapon", ""))
+    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SpawnSecondaryWeapon", GetCurrentPlaylistVarString("BR_SpawnSecondaryWeapon", ""))
+    AddPrivateMatchModeSettingArbitrary("#PL_BR_SOLO", "BR_SpawnAntiTitanWeapon", GetCurrentPlaylistVarString("BR_SpawnAntiTitanWeapon", ""))
+
     GameMode_SetDefaultScoreLimits( GAMEMODE_BR_SOLO, 1000, 0 )
 
     #if SERVER

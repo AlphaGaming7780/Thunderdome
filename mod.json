@@ -11,65 +11,6 @@
             "HelpString": "The Minimum required Player"
         },
         {
-            "Name": "BR_canSpawnTitan",
-            "DefaultValue": "0",
-            "HelpString": "Allow Titan Drop"
-        },
-        {
-            "Name": "BR_canUseBoost",
-            "DefaultValue": "0",
-            "HelpString": "Allow Boost Usage"
-        },
-        {
-            "Name": "BR_IntroLength",
-            "DefaultValue": "10",
-            "HelpString": "Intro Length"
-        },
-        {
-            "Name": "BR_MinNumChest",
-            "DefaultValue": "20",
-            "HelpString": "The Minimum Number of Chests"
-        },
-        {
-            "Name": "BR_SpawnWithMainWeapon",
-            "DefaultValue": "0",
-            "HelpString": "Spawn with Primary Weapon"
-        },
-        {
-            "Name": "BR_SpawnWithSecondaryWeapon",
-            "DefaultValue": "1",
-            "HelpString": "Spawn with Secondary Weapon"
-        },
-        {
-            "Name": "BR_SpawnWithAntiTitanWeapon",
-            "DefaultValue": "0",
-            "HelpString": "Spawn with Anti-Titan Weapon"
-        },
-        {
-            "Name": "BR_SpawnMainWeapon",
-            "DefaultValue": "",
-            "HelpString": "Primary Spawn Weapon"
-        },
-        {
-            "Name": "BR_SpawnSecondaryWeapon",
-            "DefaultValue": "mp_weapon_semipistol",
-            "HelpString": "Secondary Spawn Weapon"
-        },
-        {
-            "Name": "BR_SpawnAntiTitanWeapon",
-            "DefaultValue": "",
-            "HelpString": "Anti-Titan Spawn Weapon"
-        },
-        {
-            "Name": "BR_LOBBY_WaitingVoteTime",
-            "DefaultValue": "30",
-            "HelpString": ""
-        },        {
-            "Name": "BR_SOLO_MinPlayerForHighlight",
-            "DefaultValue": "2",
-            "HelpString": "The required player needed to highlight player"
-        },
-        {
             "Name": "TBR_EnableDevMod",
             "DefaultValue": "0",
             "HelpString": "Enable Developer Mode"

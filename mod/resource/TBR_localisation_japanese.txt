@@ -13,11 +13,24 @@
         "PL_BR_LOBBY_desc" "バトルロイヤルマッチを開始する前に他のプレイヤーを待つ場所。"
         "PL_BR_LOBBY_hint" "待って、十分なプレーヤーが参加したら、あなたがプレイしたいマップに投票してください。"
         "PL_BR_LOBBY_abbr" "BRL"
+        
         "BR_SOLO_GameNumPlayerLeftAnnouncement" "残り%s1人のプレイヤー！"
         "BR_SOLO_PlayerLeftPannelDesc" "プレイヤーが残っています。"
         "BR_LOBBY_ConnectedPlayerDesc" "接続プレイヤー。"
         "BR_LOBBY_WaitingVoteTimeLeft" "%s1秒残ります。"
         "BR_LOBBY_GameStartChatAnnouncement" "ゲームを開始するために十分なプレイヤーがいます、%s1秒で開始されます。プレイしたいマップに投票してください。"
         "BR_MapVoteTitle" "あなたがプレイしたいマップを選んで投票してください！"
+
+        "BR_EnableDevMod" "開発者モード"
+        "BR_canSpawnTitan" "タイタンドロップを許可"
+        "BR_canUseBoost" "ブーストの使用を許可"
+        "BR_IntroLength" "イントロの長さ"
+        "BR_NumChest" "チェストの数"
+        "BR_SpawnWithMainWeapon" "主武器でスポーン"
+        "BR_SpawnWithSecondaryWeapon" "副武器でスポーン"
+        "BR_SpawnWithAntiTitanWeapon" "アンチタイタン武器でスポーン"
+        "BR_SpawnMainWeapon" "主要なスポーン武器"
+        "BR_SpawnSecondaryWeapon" "副次のスポーン武器"
+        "BR_SpawnAntiTitanWeapon" "アンチタイタンスポーン武器"
     }
 }

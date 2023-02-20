@@ -11,9 +11,7 @@ The mod has great [customization](https://github.com/AlphaGaming7780/Titanfall_L
 
 
 ## Documentation
-It is possible to customize the game mode with the ConVars of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars)
-
-### ConVars
+It is possible to customize the game mode with the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars) and [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server)
 
 If the vars start with `BR_`, it mean that variable are only used for all Battle Royale game mode except the Lobby,
 
@@ -25,16 +23,20 @@ if the vars start with `BR_LOBBY_`, it mean that variable are only used for the 
 
 and if they start with nothing before, it mean that variable are used for both game mode.
 
+### ConVars
 | ConVars | Accepted Values | Default Value | Description |
 | ----------------- | --------------- | ------------- | ----------- |
 | `TBR_min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
-| `BR_canSpawnTitan` | `Bool` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
-| `BR_canUseBoost` | `Bool` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
+|`TBR_EnableDevMod` | `Bool (Int)` | `0` | Enable the DEV mode |
+
+### PlayListsvar
+| `BR_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
+| `BR_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `BR_IntroLength` | `Int` | `10` | Time of the prematch state in seconde |
 | `BR_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
-| `BR_SpawnWithMainWeapon` | `Bool` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
-| `BR_SpawnWithSecondaryWeapon` | `Bool` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
-| `BR_SpawnWithAntiTitanWeapon` | `Bool` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
+| `BR_SpawnWithMainWeapon` | `Bool  (Int)` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
+| `BR_SpawnWithSecondaryWeapon` | `Bool  (Int)` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
+| `BR_SpawnWithAntiTitanWeapon` | `Bool  (Int)` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
 | `BR_SpawnMainWeapon` | `String` | `empty string ("")` | The main weapon the player will spawn with, `empty string ("")` = random weapon |
 | `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `empty string ("")` = random weapon |
 | `BR_SpawnAntiTitanWeapon` | `String` | `empty string ("")` | The anti titan weapon the player will spawn whit, `empty string ("")` = random weapon |

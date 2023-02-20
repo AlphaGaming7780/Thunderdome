@@ -124,33 +124,33 @@ void function GamemodeBR_SOLO_Init()
     if ( GetConVarBool( "TBR_EnableDevMod" ) ) {
         AddCallback_OnReceivedSayTextMessage(DevChatCommande)
     }
-    if( !GetConVarBool( "BR_canSpawnTitan" ) ) {
+    if( GetCurrentPlaylistVarInt("BR_canSpawnTitan", 0) == 0 ) { //!GetConVarBool( "BR_canSpawnTitan" )
         Riff_ForceTitanAvailability( eTitanAvailability.Never )
     }
-    if( !GetConVarBool( "BR_canUseBoost" ) ) {
+    if( GetCurrentPlaylistVarInt("BR_canUseBoost", 0) == 0 ) { //!GetConVarBool( "BR_canUseBoost" )
         Riff_ForceBoostAvailability( eBoostAvailability.Disabled )
     }
 
     PrecacheModel( ChestModelClose )
     PrecacheModel( ChestModelOpen )
 
-    if(GetConVarString("BR_SpawnMainWeapon") == "") {
+    if( GetCurrentPlaylistVarString("BR_SpawnMainWeapon", "empty" ) == "empty" ) { //GetConVarString("BR_SpawnMainWeapon")
         spawnMainWeapon = mainWeapons[ RandomInt( mainWeapons.len() ) ]
     } else {
-        spawnMainWeapon = GetConVarString("BR_SpawnMainWeapon")
+        spawnMainWeapon = GetCurrentPlaylistVarString("BR_SpawnMainWeapon", "mp_weapon_car" ) //GetConVarString("BR_SpawnMainWeapon")
     }
-    if(GetConVarString("BR_SpawnSecondaryWeapon") == "") {
+    if( GetCurrentPlaylistVarString("BR_SpawnSecondaryWeapon", "empty" ) == "empty" ) { //GetConVarString("BR_SpawnSecondaryWeapon") == ""
         spawnSecondaryWeapon = secondaryWeapons[ RandomInt( secondaryWeapons.len() ) ]
     } else {
-        spawnSecondaryWeapon = GetConVarString("BR_SpawnSecondaryWeapon")
+        spawnSecondaryWeapon = GetCurrentPlaylistVarString("BR_SpawnSecondaryWeapon", "mp_weapon_wingman" )  //GetConVarString("BR_SpawnSecondaryWeapon")
     }
-    if(GetConVarString("BR_SpawnAntiTitanWeapon") == "") {
+    if(GetCurrentPlaylistVarString("BR_SpawnAntiTitanWeapon", "empty" ) == "empty") { //GetConVarString("BR_SpawnAntiTitanWeapon") == ""
         spawnAntiTitanWeapon = antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ]
     } else {
-        spawnAntiTitanWeapon =  GetConVarString("BR_SpawnAntiTitanWeapon")
+        spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("BR_SpawnAntiTitanWeapon", "mp_weapon_rocket_launcher" ) //GetConVarString("BR_SpawnAntiTitanWeapon")
     }
 
-    ClassicMP_SetCustomIntro( BRIntroSetup, GetConVarFloat("BR_IntroLength") )
+    ClassicMP_SetCustomIntro( BRIntroSetup, GetCurrentPlaylistVarFloat("BR_IntroLength", 10) ) //GetConVarInt("BR_IntroLength")
     #endif
 }
 
@@ -176,11 +176,11 @@ void function BRIntroStartThreaded() {
 
 	ClassicMP_OnIntroStarted()
 	
-    if(GetSpawnPointForChest().len() <= GetConVarInt("BR_MinNumChest")) {
+    if(GetSpawnPointForChest().len() <= GetCurrentPlaylistVarInt("BR_MinNumChest", 20)) { //GetConVarInt("BR_MinNumChest")
         //throw "Map not compatible, using player spawn point for chest spawn point !!!!"
         Chat_ServerBroadcast("Map : "+ GetMapName() +" not compatible, using player spawn point for chest spawn point !!!!")
         array<entity> spawns = GetEntArrayByClass_Expensive( "info_spawnpoint_human" ) //info_spawnpoint_human_start
-        for(int i = 0; i < GetConVarInt("BR_MinNumChest"); i++) {
+        for(int i = 0; i < GetCurrentPlaylistVarInt("BR_MinNumChest", 20); i++) { //GetConVarInt("BR_MinNumChest")
             do {
                 spawnPositionChoice = RandomInt(spawns.len())
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
@@ -192,7 +192,7 @@ void function BRIntroStartThreaded() {
         }
         spawnPositionAlreadyChoice = []
     } else {
-        for(int i = 0; i < GetConVarInt("BR_MinNumChest"); i++) {
+        for(int i = 0; i < GetCurrentPlaylistVarInt("BR_MinNumChest", 20); i++) { //GetConVarInt("BR_MinNumChest")s
             do {
                 spawnPositionChoice = RandomInt(GetSpawnPointForChest().len())
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
@@ -205,7 +205,7 @@ void function BRIntroStartThreaded() {
         }
     }
 
-	wait GetConVarFloat("BR_IntroLength")
+	wait GetCurrentPlaylistVarFloat("BR_IntroLength", 10) //GetConVarFloat("BR_IntroLength")
 
 	ClassicMP_OnIntroFinished()
 
@@ -221,7 +221,7 @@ void function BRStartPlaying() {
         RemoveCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
         TryGameModeAnnouncement( player )
 
-        if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= GetPlayerArray_Alive().len()) {
+        if( GetCurrentPlaylistVarInt("BR_SOLO_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_SOLO_MinPlayerForHighlight")
             Highlight_SetEnemyHighlight( player, "battery_thief" ) //enemy_sonar | enemy_player | sp_enemy_pilot | battery_thief
         }
         
@@ -250,7 +250,7 @@ void function BROnClientDisconnect( entity player ) {
                 if(GetPlayerArray_Alive().len() <= 1 && IsAlive(player)) {
                     SetWinner(player.GetTeam())
                 }
-                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= GetPlayerArray_Alive().len()) {
+                if( GetCurrentPlaylistVarInt("BR_SOLO_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_SOLO_MinPlayerForHighlight")
                     Highlight_SetEnemyHighlight( player, "battery_thief" ) 
                 }
             }
@@ -268,7 +268,7 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
             if(IsAlive(player)) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
-                if(GetConVarInt("BR_SOLO_MinPlayerForHighlight") >= GetPlayerArray_Alive().len()) {
+                if( GetCurrentPlaylistVarInt("BR_SOLO_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_SOLO_MinPlayerForHighlight")
                     Highlight_SetEnemyHighlight( player, "battery_thief" ) 
                 }
             }
