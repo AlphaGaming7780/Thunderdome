@@ -39,9 +39,9 @@ and if they start with nothing before, it mean that variable are used for both g
 | `BR_SpawnWithMainWeapon` | `Bool  (Int)` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
 | `BR_SpawnWithSecondaryWeapon` | `Bool  (Int)` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
 | `BR_SpawnWithAntiTitanWeapon` | `Bool  (Int)` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
-| `BR_SpawnMainWeapon` | `String` | `empty string ("")` | The main weapon the player will spawn with, `""` or `"empty"` = random weapon |
-| `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `""` or `"empty"` = random weapon |
-| `BR_SpawnAntiTitanWeapon` | `String` | `empty string ("")` | The anti titan weapon the player will spawn whit, `""` or `"empty"` = random weapon |
+| `BR_SpawnMainWeapon` | `String` | `empty string ("")` | The main weapon the player will spawn with, `"empty"` = random weapon |
+| `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `"empty"` = random weapon |
+| `BR_SpawnAntiTitanWeapon` | `String` | `empty string ("")` | The anti titan weapon the player will spawn whit, `"empty"` = random weapon |
 | `BR_LOBBY_WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
 
 ## Special Thanks
