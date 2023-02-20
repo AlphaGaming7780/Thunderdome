@@ -17,7 +17,7 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     "mp_complex3",
     "mp_angel_city",
     "mp_colony02",
-    // "mp_glitch", //
+    //"mp_glitch", //
     //"mp_lf_stacks", 
     //"mp_lf_deck",
     //"mp_lf_meadow",
