@@ -1,7 +1,7 @@
 
-# Titanfall Legends
+# Thunderdome
 
-Titanfall Legends is a mod for Northstar (Titanfall 2), this mod add a new game mode: Battle Royale.
+Thunderdome is a mod for Northstar (Titanfall 2), this mod add a new game mode: Battle Royale.
 
 Players will join a lobby and once the minimum required number of players has been reached, a vote for the map (of the Battle Royale) will take place. Once this vote has ended, the Battle Royale game will begin. The lobby is a classic FFA mod.
 
