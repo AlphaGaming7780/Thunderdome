@@ -25,7 +25,7 @@
         "BR_canSpawnTitan" "Consenti l'abbattimento del Titano"
         "BR_canUseBoost" "Consenti l'uso del boost"
         "BR_IntroLength" "Lunghezza introduzione"
-        "BR_NumChest" "Numero di casse"
+        "BR_MinNumChest" "Numero di casse"
         "BR_SpawnWithMainWeapon" "Spawn con arma principale"
         "BR_SpawnWithSecondaryWeapon" "Spawn con arma secondaria"
         "BR_SpawnWithAntiTitanWeapon" "Spawn con arma anti-titano"

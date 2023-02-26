@@ -6,7 +6,8 @@ global function Cl_EnoughPlayerToStart
 global function Cl_CreateLight
 global function Cl_TEST
 
-entity light
+array<entity> light = [null, null, null]
+int lightIndex = 0
 
 void function ClGamemodeBR_SOLO_Init()
 {
@@ -81,12 +82,19 @@ void function Cl_CreateLight( float x = 0, float y = 0, float z = 0) {
     
     vector origin = <x,y,z+5>
 
-    if(light == null) {
-        light = CreateClientSideDynamicLight( origin, <0,0,0>, <1,1,1>, 50.0 )
+    if(light[lightIndex] == null) {
+        light[lightIndex] = CreateClientSideDynamicLight( origin, <0,0,0>, <1,1,1>, 50.0 )
     } else { 
-        light.SetOrigin(origin)
+        light[lightIndex].SetOrigin(origin)
     }
 
+    /*if (lightIndex+ >= 3) {
+        lightIndex = 0
+    } else {
+        lightIndex++
+    }*/
+
+    lightIndex = (lightIndex + 1) >= 3 ? 0 : (lightIndex + 1)
 }
 
 void function Cl_TEST() {

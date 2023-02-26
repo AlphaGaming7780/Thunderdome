@@ -25,6 +25,10 @@ playlists
 				BR_IntroLength 10
 
 				BR_MinNumChest 20
+				BR_NumWeaponInChest 3
+				BR_SpawnMainWeaponInChest 1
+				BR_SpawnSecondaryWeaponInChest 1
+				BR_SpawnAntiTitanWeaponInChest 0
 
 				BR_SpawnWithMainWeapon 0
 				BR_SpawnWithSecondaryWeapon 1

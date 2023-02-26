@@ -95,8 +95,8 @@ const array<string> antiTitanWeapons = ["mp_weapon_rocket_launcher","mp_weapon_a
 const array<string> boostObject = ["melee_pilot_arena", "mp_weapon_hard_cover","mp_weapon_deployable_cover","mp_weapon_satchel","mp_weapon_frag_drone","mp_weapon_frag_grenade","mp_weapon_grenade_electric_smoke","mp_weapon_grenade_emp","mp_weapon_grenade_gravity","mp_weapon_grenade_sonar"]
 const asset ChestModelClose = $"models/containers/pelican_case_large_imc.mdl" //pelican_case_large_imc OR pelican_case_large
 const asset ChestModelOpen = $"models/containers/pelican_case_imc_open.mdl" // pelican_case_imc_open OR pelican_case_large_open
-const vector chestMainWeaponOffset = <(-3), -3, 35>
-const vector chestMainWeaponAngle = <0, 30, 90>
+const array<vector> chestMainWeaponOffset = [<(25), 25, 30>, <(-0), -0, 30>, <(-25), -25, 30>] // x == y !!!!
+const vector chestMainWeaponAngle = <0, -30, 90> //<0, 30, 90> 
 
 bool ForceEndGame = false
 bool BlockMessageFromDeathPlayer = true
@@ -308,11 +308,31 @@ var function OnChestUsed(var ent, var player) {
     }
     if(ent.GetModelName() == ChestModelClose) {
         ent.SetModel(ChestModelOpen)
-        entity weapon = CreateWeaponEntityByNameWithPhysics( mainWeapons[ RandomInt( mainWeapons.len() ) ], ent.GetOrigin()+chestMainWeaponOffset, ent.GetAngles()+chestMainWeaponAngle )
-        weapon.SetVelocity( <0,0,0> )
-        Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
+        entity weapon
+        for(int i = 0; i < GetCurrentPlaylistVarInt("BR_NumWeaponInChest", 2); i++) {
+            int weapontype = RandomInt(3)
+            if(weapontype == 0 && GetCurrentPlaylistVarInt("BR_SpawnMainWeaponInChest", 1) == 1 ) {
+                weapon = CreateWeaponEntityByNameWithPhysics( mainWeapons[ RandomInt( mainWeapons.len() ) ], ent.GetOrigin()+<chestMainWeaponOffset[i].x * deg_cos(ent.GetAngles().y) -10 * deg_sin(ent.GetAngles().y), chestMainWeaponOffset[i].y * deg_sin(ent.GetAngles().y) +10 * deg_cos(ent.GetAngles().y), chestMainWeaponOffset[i].z>, ent.GetAngles()+chestMainWeaponAngle ) //
+
+            } else if ( weapontype == 1 && GetCurrentPlaylistVarInt("BR_SpawnSecondaryWeaponInChest", 1) == 1 ) {
+                weapon = CreateWeaponEntityByNameWithPhysics( secondaryWeapons[ RandomInt( secondaryWeapons.len() ) ], ent.GetOrigin()+<chestMainWeaponOffset[i].x * deg_cos(ent.GetAngles().y) -10 * deg_sin(ent.GetAngles().y), chestMainWeaponOffset[i].y * deg_sin(ent.GetAngles().y) +10 * deg_cos(ent.GetAngles().y), chestMainWeaponOffset[i].z>, ent.GetAngles()+chestMainWeaponAngle ) //+chestMainWeaponOffset[i]
+
+            } else if( weapontype == 2 && GetCurrentPlaylistVarInt("BR_SpawnAntiTitanWeaponInChest", 0) == 1) {
+                weapon = CreateWeaponEntityByNameWithPhysics( antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ], ent.GetOrigin()+<chestMainWeaponOffset[i].x * deg_cos(ent.GetAngles().y) -10 * deg_sin(ent.GetAngles().y), chestMainWeaponOffset[i].y * deg_sin(ent.GetAngles().y) +10 * deg_cos(ent.GetAngles().y), chestMainWeaponOffset[i].z>, ent.GetAngles()+chestMainWeaponAngle ) //+chestMainWeaponOffset[i]
+            } else {
+                i--
+                continue
+            }
+            weapon.SetVelocity( <0,0,0> )
+            weapon.SetParent(ent)
+
+            Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
+        }
+        //Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
     } else if(ent.GetModelName() == ChestModelOpen) {
-        Remote_CallFunction_NonReplay( player, "Cl_CreateLight", (ent.GetOrigin()+chestMainWeaponOffset).x, (ent.GetOrigin()+chestMainWeaponOffset).y, (ent.GetOrigin()+chestMainWeaponOffset).z)
+        for(int i = 0; i < GetCurrentPlaylistVarInt("BR_NumWeaponInChest", 2); i++) {
+            Remote_CallFunction_NonReplay( player, "Cl_CreateLight", ent.GetOrigin().x+chestMainWeaponOffset[i].x * deg_cos(ent.GetAngles().y) -10 * deg_sin(ent.GetAngles().y), ent.GetOrigin().y + chestMainWeaponOffset[i].y * deg_sin(ent.GetAngles().y) +10 * deg_cos(ent.GetAngles().y), ent.GetOrigin().z + chestMainWeaponOffset[i].z)
+        }
     }
 }
 
@@ -321,15 +341,13 @@ void function GiveStartWeapon(entity player)
     foreach ( entity weapon in player.GetMainWeapons() )
         player.TakeWeaponNow( weapon.GetWeaponClassName() )
 
-    printt(GetConVarBool("BR_SpawnWithSecondaryWeapon"))
-
-    if(GetConVarBool("BR_SpawnWithMainWeapon")) {
+    if(GetCurrentPlaylistVarInt("BR_SpawnWithMainWeapon", 0) == 1) {
         player.GiveWeapon( spawnMainWeapon )
     }
-    if(GetConVarBool("BR_SpawnWithSecondaryWeapon")) {
+    if(GetCurrentPlaylistVarInt("BR_SpawnWithSecondaryWeapon", 1) == 1) {
         player.GiveWeapon( spawnSecondaryWeapon )
     }
-    if(GetConVarBool("BR_SpawnWithAntiTitanWeapon")) {
+    if(GetCurrentPlaylistVarInt("BR_SpawnWithAntiTitanWeapon", 0) == 1) {
         player.GiveWeapon( spawnAntiTitanWeapon )
     }
 }

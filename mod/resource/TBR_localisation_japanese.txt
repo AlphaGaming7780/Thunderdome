@@ -25,7 +25,7 @@
         "BR_canSpawnTitan" "タイタンドロップを許可"
         "BR_canUseBoost" "ブーストの使用を許可"
         "BR_IntroLength" "イントロの長さ"
-        "BR_NumChest" "チェストの数"
+        "BR_MinNumChest" "チェストの数"
         "BR_SpawnWithMainWeapon" "主武器でスポーン"
         "BR_SpawnWithSecondaryWeapon" "副武器でスポーン"
         "BR_SpawnWithAntiTitanWeapon" "アンチタイタン武器でスポーン"
