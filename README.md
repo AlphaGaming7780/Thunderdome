@@ -13,13 +13,11 @@ The mod has great [customization](https://github.com/AlphaGaming7780/Thunderdome
 ## Documentation
 It is possible to customize the game mode with the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars) and [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server)
 
-If the vars start with `BR_`, it mean that variable are only used for all Battle Royale game mode except the Lobby,
+if the ConVars start with `TBR_`, it mean that variable are used in both lobby and Battle Royale game mode.
 
-If the vars start with `BR_SOLO_`, it mean that variable are only used for solo Battle Royale game mode,
+If the PlaylistVar start with `BR_`, it mean that variable are only used for the Battle Royale game mode except the Lobby,
 
-if the vars start with `BR_SQUAD`, it mean that variable are only used for the squad Battle Royale game mode (Duo/Trio/Squad) (Not implemented yet)
-
-if the vars start with `BR_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
+if the PlaylistVar start with `BR_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
 
 and if they start with nothing before, it mean that variable are used for both game mode.
 
@@ -47,7 +45,7 @@ and if they start with nothing before, it mean that variable are used for both g
 | `BR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `"empty"` = random weapon |
 | `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `"empty"` = random weapon |
 | `BR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `"empty"` = random weapon |
-| `BR_SOLO_MinPlayerForHighlight` | `Int` | `2` | The minimum number of players alive to high light the remaining players |
+| `BR_MinPlayerForHighlight` | `Int` | `2` | The minimum number of players alive to high light the remaining players |
 | `BR_LOBBY_WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
 
 ## Special Thanks

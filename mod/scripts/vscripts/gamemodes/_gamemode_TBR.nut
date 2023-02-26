@@ -221,7 +221,7 @@ void function BRStartPlaying() {
         RemoveCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
         TryGameModeAnnouncement( player )
 
-        if( GetCurrentPlaylistVarInt("BR_SOLO_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_SOLO_MinPlayerForHighlight")
+        if( GetCurrentPlaylistVarInt("BR_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_MinPlayerForHighlight")
             Highlight_SetEnemyHighlight( player, "battery_thief" ) //enemy_sonar | enemy_player | sp_enemy_pilot | battery_thief
         }
         
@@ -250,7 +250,7 @@ void function BROnClientDisconnect( entity player ) {
                 if(GetPlayerArray_Alive().len() <= 1 && IsAlive(player)) {
                     SetWinner(player.GetTeam())
                 }
-                if( GetCurrentPlaylistVarInt("BR_SOLO_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_SOLO_MinPlayerForHighlight")
+                if( GetCurrentPlaylistVarInt("BR_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_MinPlayerForHighlight")
                     Highlight_SetEnemyHighlight( player, "battery_thief" ) 
                 }
             }
@@ -268,7 +268,7 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
             if(IsAlive(player)) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
-                if( GetCurrentPlaylistVarInt("BR_SOLO_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_SOLO_MinPlayerForHighlight")
+                if( GetCurrentPlaylistVarInt("BR_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_MinPlayerForHighlight")
                     Highlight_SetEnemyHighlight( player, "battery_thief" ) 
                 }
             }

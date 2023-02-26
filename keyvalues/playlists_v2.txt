@@ -18,7 +18,7 @@ playlists
 
 				classic_mp 1
 
-				BR_SOLO_MinPlayerForHighlight 2
+				BR_MinPlayerForHighlight 2
 
 				BR_canSpawnTitan 0
 				BR_canUseBoost 0
