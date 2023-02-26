@@ -34,7 +34,7 @@ and if they start with nothing before, it mean that variable are used for both g
 | ----------------- | --------------- | ------------- | ----------- |
 | `BR_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `BR_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
-| `BR_IntroLength` | `Int` | `10` | Time of the prematch state in seconde |
+| `BR_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |
 | `BR_ChestMultPlayer` | `Int` | `2` | ```(BR_ChestMultPlayer * NumPlayer) > BR_MinNumChest ? BR_ChestMultPlayer * NumPlayer : BR_MinNumChest``` |
 | `BR_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
 | `BR_NumWeaponInChest` | `Int` | `3` | The numbres of weapon that spawn in the chest |
@@ -47,6 +47,7 @@ and if they start with nothing before, it mean that variable are used for both g
 | `BR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `"empty"` = random weapon |
 | `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `"empty"` = random weapon |
 | `BR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `"empty"` = random weapon |
+| `BR_SOLO_MinPlayerForHighlight` | `Int` | `2` | The minimum number of players alive to high light the remaining players |
 | `BR_LOBBY_WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
 
 ## Special Thanks
