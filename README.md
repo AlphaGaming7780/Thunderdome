@@ -7,6 +7,8 @@ Players will join a lobby and once the minimum required number of players has be
 
 The mod has great [customization](https://github.com/AlphaGaming7780/Thunderdome#documentation) possibilities by modifying the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#documentation) and the [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the game mode, for example, you can disable chest spawn, enable random weapon donation at spawn and end up with a FFADM (Free For All Death Match).
 
+You can see the changelog [here](https://github.com/AlphaGaming7780/Thunderdome/blob/main/Changelog.md)
+
 ### **This mod is required on both the client and server sides.**
 
 
