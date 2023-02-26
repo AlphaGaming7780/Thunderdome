@@ -24,6 +24,7 @@ playlists
 				BR_canUseBoost 0
 				BR_IntroLength 10
 
+				BR_ChestMultPlayer 2
 				BR_MinNumChest 20
 				BR_NumWeaponInChest 3
 				BR_SpawnMainWeaponInChest 1

@@ -88,12 +88,6 @@ void function Cl_CreateLight( float x = 0, float y = 0, float z = 0) {
         light[lightIndex].SetOrigin(origin)
     }
 
-    /*if (lightIndex+ >= 3) {
-        lightIndex = 0
-    } else {
-        lightIndex++
-    }*/
-
     lightIndex = (lightIndex + 1) >= 3 ? 0 : (lightIndex + 1)
 }
 

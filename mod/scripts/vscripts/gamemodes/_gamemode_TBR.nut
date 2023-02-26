@@ -175,7 +175,9 @@ void function BRIntroStart() {
 void function BRIntroStartThreaded() {
 
 	ClassicMP_OnIntroStarted()
-	
+
+	wait GetCurrentPlaylistVarFloat("BR_IntroLength", 10) //GetConVarFloat("BR_IntroLength")
+
     if(GetSpawnPointForChest().len() <= GetCurrentPlaylistVarInt("BR_MinNumChest", 20)) { //GetConVarInt("BR_MinNumChest")
         //throw "Map not compatible, using player spawn point for chest spawn point !!!!"
         Chat_ServerBroadcast("Map : "+ GetMapName() +" not compatible, using player spawn point for chest spawn point !!!!")
@@ -192,7 +194,7 @@ void function BRIntroStartThreaded() {
         }
         spawnPositionAlreadyChoice = []
     } else {
-        for(int i = 0; i < GetCurrentPlaylistVarInt("BR_MinNumChest", 20); i++) { //GetConVarInt("BR_MinNumChest")s
+        for(int i = 0; i < ( (GetPlayerArray().len() * GetCurrentPlaylistVarInt("BR_ChestMultPlayer", 2) > GetCurrentPlaylistVarInt("BR_MinNumChest", 20) ? GetPlayerArray().len() * GetCurrentPlaylistVarInt("BR_ChestMultPlayer", 2) : GetCurrentPlaylistVarInt("BR_MinNumChest", 20)) > GetSpawnPointForChest().len() ? GetSpawnPointForChest().len() : (GetPlayerArray().len() * GetCurrentPlaylistVarInt("BR_ChestMultPlayer", 2) > GetCurrentPlaylistVarInt("BR_MinNumChest", 20) ? GetPlayerArray().len() * GetCurrentPlaylistVarInt("BR_ChestMultPlayer", 2) : GetCurrentPlaylistVarInt("BR_MinNumChest", 20)) ); i++) { //GetConVarInt("BR_MinNumChest")s
             do {
                 spawnPositionChoice = RandomInt(GetSpawnPointForChest().len())
             } while(spawnPositionAlreadyChoice.find(spawnPositionChoice) != -1)
@@ -204,8 +206,6 @@ void function BRIntroStartThreaded() {
             AddCallback_OnUseEntity(chest, OnChestUsed)
         }
     }
-
-	wait GetCurrentPlaylistVarFloat("BR_IntroLength", 10) //GetConVarFloat("BR_IntroLength")
 
 	ClassicMP_OnIntroFinished()
 
