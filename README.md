@@ -5,7 +5,7 @@ Thunderdome is a mod for Northstar (Titanfall 2), this mod add a new game mode: 
 
 Players will join a lobby and once the minimum required number of players has been reached, a vote for the map (of the Battle Royale) will take place. Once this vote has ended, the Battle Royale game will begin. The lobby is a classic FFA mod.
 
-The mod has great [customization](https://github.com/AlphaGaming7780/Thunderdome#documentation) possibilities by modifying the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#documentation) and the [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the game mode, for example, you can disable chest spawn, enable random weapon donation at spawn and end up with a FFADM (Free For All Death Match).
+The mod has great [customization](https://github.com/AlphaGaming7780/Thunderdome#documentation) possibilities by modifying the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars) and the [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the game mode, for example, you can disable chest spawn, enable random weapon donation at spawn and end up with a FFADM (Free For All Death Match).
 
 You can see the changelog [here](https://github.com/AlphaGaming7780/Thunderdome/blob/main/Changelog.md)
 
@@ -30,8 +30,16 @@ and if they start with nothing before, it mean that variable are used for both g
 |`TBR_EnableDevMod` | `Bool (Int)` | `0` | Enable the DEV mode |
 
 ### PlaylistVar
+
+You can use the following command line as startup arguments to edit the PlaylistVar or direclly edit [PlayLits_v2.txt](https://github.com/AlphaGaming7780/Thunderdome/blob/main/keyvalues/playlists_v2.txt) file.
+```
++setplaylistvaroverrides "max_players 10 max_teams 10 BR_MinNumChest 40 TBR_SpawnWithMainWeapon 1 TBR_SpawnMainWeapon mp_weapon_car"
+```
+
 | PlaylistVar | Accepted Values | Default Value | Description |
 | ----------------- | --------------- | ------------- | ----------- |
+| `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server, **need to be the same value for both game mode.** |
+| `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
 | `BR_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `BR_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `BR_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |

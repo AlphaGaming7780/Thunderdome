@@ -1,5 +1,9 @@
 # Thunderdome Changelog
 
+## V1.1.0
+> Add/rework the spectator mode. \
+> Update the README
+
 ## V1.0.2
 > Fixed the waiting time in the lobby when enough player are connected \
 > tiny optimisation \
