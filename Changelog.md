@@ -1,6 +1,6 @@
 # Thunderdome Changelog
 
-## V1.1.0
+## V1.1.0 (Not released)
 > Add/rework the spectator mode. \
 > Update the README
 
