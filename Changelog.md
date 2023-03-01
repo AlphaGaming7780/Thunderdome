@@ -1,6 +1,6 @@
 # Thunderdome Changelog
 
-## V1.0.2 (Not released)
+## V1.0.2
 > Fixed the waiting time in the lobby when enough player are connected \
 > tiny optimisation \
 > Add compatiblity for mp_black_water_canal map \
