@@ -10,7 +10,7 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     "mp_grave",
     "mp_homestead",
     "mp_thaw",
-    //"mp_black_water_canal", //
+    "mp_black_water_canal",
     //"mp_eden", //
     //"mp_drydock", //
     //"mp_crashsite3", //
@@ -260,10 +260,12 @@ void function BROnClientDisconnect( entity player ) {
 
 void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
     if(GetGameState() == eGameState.Playing) {
-        foreach(entity player in GetPlayerArray()) {
-            if(GetPlayerArray_Alive().len() <= 3 && GetPlayerArray_Alive().len() > 1) {
+        if(GetPlayerArray_Alive().len() <= 3 && GetPlayerArray_Alive().len() > 1) {
+            foreach(entity player in GetPlayerArray()) {
                 Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", GetPlayerArray_Alive().len() )
             }
+        }
+        foreach(entity player in GetPlayerArray_Alive()) {
             if(IsAlive(player)) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
