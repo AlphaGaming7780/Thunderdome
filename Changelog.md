@@ -4,7 +4,8 @@
 > Fixed the waiting time in the lobby when enough player are connected \
 > tiny optimisation \
 > Add compatiblity for mp_black_water_canal map \
-> Add a link to this file in the README (The changlog)
+> Add a link to this file in the README (The changlog) \
+> Enable mp_grave in the Playlists_v2.txt file
 
 ## V1.0.1
 > Change the PlaylistVar `BR_SOLO_MinPlayerForHighlight` to `BR_MinPlayerForHighlight` \
