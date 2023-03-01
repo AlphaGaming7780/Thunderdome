@@ -241,7 +241,7 @@ void function BRPostmatch_Threaded() {
     WaitFrame()
     foreach (entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", true)
-        Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
+        //Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
     }
     
 }
@@ -250,7 +250,7 @@ void function BROnClientConnect( entity player ) {
 
     SavePlayerTeam(player)
 
-    Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
+    //Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
 
     if( GetGameState() != eGameState.Postmatch ) {
         Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", false)
