@@ -13,7 +13,7 @@ You can see the changelog [here](https://github.com/AlphaGaming7780/Thunderdome/
 
 
 ## Documentation
-It is possible to customize the game mode with the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars) and [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server)
+It is possible to customize the game mode with the [ConVars](https://github.com/AlphaGaming7780/Thunderdome#convars) and [PlaylitsVars](https://github.com/AlphaGaming7780/Thunderdome#playlistvar) of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server)
 
 if the ConVars start with `TBR_`, it mean that variable are used in both lobby and Battle Royale game mode.
 
