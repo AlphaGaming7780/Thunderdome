@@ -260,7 +260,6 @@ void function BROnClientDisconnect( entity player ) {
 
 void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
     if(GetGameState() == eGameState.Playing) {
-        //GetPlayerArray_Alive().len()--
         foreach(entity player in GetPlayerArray()) {
             if(GetPlayerArray_Alive().len() <= 3 && GetPlayerArray_Alive().len() > 1) {
                 Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", GetPlayerArray_Alive().len() )
@@ -277,8 +276,6 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
 
         if(GetPlayerArray_Alive().len() <= 1) {
             SetWinner(attacker.GetTeam())
-        } else {
-            // thread TurnPlayerToSpectator( victim )
         }
 
     }
@@ -473,7 +470,7 @@ void function BR_LOBBY_OnClientConnect( entity player ) {
 }
 
 void function EnoughtPlayerToStart() {
-    float WaitingVoteTime = GetConVarFloat("BR_LOBBY_WaitingVoteTime")
+    float WaitingVoteTime = GetCurrentPlaylistVarFloat("BR_LOBBY_WaitingVoteTime", 30)
     array<int> MapVoteAlreadyChoice = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     array<string> MapVote
     array<string> MapVoteLocalised
