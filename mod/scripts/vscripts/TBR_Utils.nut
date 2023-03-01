@@ -1,4 +1,25 @@
+global function TBR_Utils_INIT
 global function GetSpawnPointForChest
+global function SavePlayerTeam
+global function ResetAllPlayerTeam
+
+array < entity > PlayerTeamIndex
+
+void function TBR_Utils_INIT () {
+    PlayerTeamIndex.resize(GetCurrentPlaylistVarInt("max_players", 20), null)
+}
+
+void function SavePlayerTeam( entity player ) {
+    PlayerTeamIndex.insert(player.GetTeam(), player)
+}
+
+void function ResetAllPlayerTeam() {
+    foreach(entity player in GetPlayerArray()) {
+        if( !IsAlive(player) && PlayerTeamIndex.find(player) != -1) {
+            SetTeam(player, PlayerTeamIndex.find(player))
+        }
+    }
+}
 
 /*
 mp_forwardbase_kodai

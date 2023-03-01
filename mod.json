@@ -37,7 +37,10 @@
         },
         {
             "Path": "TBR_Utils.nut",
-            "RunOn": "SERVER && MP"
+            "RunOn": "SERVER && MP",
+            "ServerCallback": {
+                "Before": "TBR_Utils_INIT"
+            }
         }
     ],
 

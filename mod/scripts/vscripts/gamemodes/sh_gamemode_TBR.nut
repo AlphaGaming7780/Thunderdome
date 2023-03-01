@@ -96,6 +96,7 @@ void function BRRegisterNetworkVars()
     if ( GAMETYPE == GAMEMODE_BR_SOLO) {
         Remote_RegisterFunction( "GameNumPlayerLeftAnnouncement" )
         Remote_RegisterFunction( "Cl_CreateLight" )
+        Remote_RegisterFunction( "SetAllowToShowScoreboard" )
     }
     else if (GAMETYPE == GAMEMODE_BR_LOBBY) {
         Remote_RegisterFunction( "Cl_OnWaitingVote" )

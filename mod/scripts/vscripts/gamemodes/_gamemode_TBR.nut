@@ -158,6 +158,7 @@ void function BRIntroSetup()
 {   
     AddCallback_GameStateEnter( eGameState.Prematch, BRIntroStart )
     AddCallback_GameStateEnter( eGameState.Playing, BRStartPlaying )
+    AddCallback_GameStateEnter( eGameState.Postmatch, BRPostmatch )
     AddCallback_OnClientConnected( BROnClientConnect )
     AddCallback_OnClientDisconnected( BROnClientDisconnect )
     AddCallback_OnPlayerKilled( OnPlayerKilled )
@@ -230,8 +231,31 @@ void function BRStartPlaying() {
     }
 }
 
+void function BRPostmatch() {
+    ResetAllPlayerTeam()
+    thread BRPostmatch_Threaded()
+}
+
+void function BRPostmatch_Threaded() {
+    WaitFrame()
+    WaitFrame()
+    foreach (entity player in GetPlayerArray()) {
+        Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", true)
+        Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
+    }
+    
+}
 
 void function BROnClientConnect( entity player ) {
+
+    SavePlayerTeam(player)
+
+    Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
+
+    if( GetGameState() != eGameState.Postmatch ) {
+        Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", false)
+    }
+
     if( GetGameState() == eGameState.Prematch ) {
         thread BR_Spawn_Player_Threaded( player )
     }
