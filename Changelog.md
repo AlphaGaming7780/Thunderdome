@@ -1,7 +1,7 @@
 # Thunderdome Changelog
 
 ## V1.1.0
-> Add/rework the spectator mode, you can now watch other player. \
+> Add/rework the spectator mode, you can now watch other player, when you are dead. \
 > Update the README
 
 ## V1.0.2
