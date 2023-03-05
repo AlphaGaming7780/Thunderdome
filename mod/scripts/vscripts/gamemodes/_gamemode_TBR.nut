@@ -237,11 +237,9 @@ void function BRPostmatch() {
 }
 
 void function BRPostmatch_Threaded() {
-    WaitFrame()
-    WaitFrame()
+    wait 0.1
     foreach (entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", true)
-        //Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
     }
     
 }
@@ -289,7 +287,7 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
                 Remote_CallFunction_NonReplay( player, "GameNumPlayerLeftAnnouncement", GetPlayerArray_Alive().len() )
             }
         }
-        foreach(entity player in GetPlayerArray_Alive()) {
+        foreach(entity player in GetPlayerArray()) {
             if(IsAlive(player)) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
