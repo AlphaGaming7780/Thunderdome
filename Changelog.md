@@ -1,6 +1,6 @@
 # Thunderdome Changelog
 
-## V1.1.0 (Not released)
+## V1.1.0
 > Add/rework the spectator mode, you can now watch other player. \
 > Update the README
 
