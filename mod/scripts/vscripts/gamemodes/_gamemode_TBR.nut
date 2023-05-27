@@ -307,13 +307,16 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
     }
 }
 void function BR_OnPlayerInventoryChanged( entity player ) {
-    if( !IsAlive( player ) || !IsValid( player )){
+    Chat_ServerBroadcast("Okay", true)
+    /*if( !IsAlive( player ) || !IsValid( player )){
         return
-    }
+    }*/
 
-    if ( player.GetMainWeapons().len() >= GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)){
-        printt("Active weapon = " + GetActiveWeapon(player))
-        printt("Last primary weapon = " + GetLatestPrimaryWeapon(player))
+    Chat_ServerBroadcast("Okay 2", true)
+
+    if ( player.GetMainWeapons().len() > GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)){
+        Chat_ServerBroadcast("Active weapon = " + player.GetActiveWeapon(), true)
+        Chat_ServerBroadcast("Last primary weapon = " + player.GetLatestPrimaryWeapon(), true)
         //player.TakeWeaponNow(GetActiveWeapon(player).GetWeaponClassName())
         //player.GiveWeapon(player.GetMainWeapons()[GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)].GetWeaponClassName())
         //player.TakeWeaponNow(player.GetMainWeapons()[GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)].GetWeaponClassName())
@@ -337,10 +340,7 @@ void function BR_Spawn_Player_Threaded( entity player )
     player.FreezeControlsOnServer()
 }
 
-/*
-var function ...
-*/
-void function OnChestUsed(var ent, var player) {
+var function OnChestUsed(var ent, var player) {
     expect entity( ent )
     expect entity( player )
     if(GetCurrentPlaylistVarInt( "BR_EnableDevMod", 0 ) == 1) {
