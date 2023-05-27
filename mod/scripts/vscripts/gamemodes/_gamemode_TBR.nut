@@ -18,7 +18,7 @@ const array<string> BRMaps = [ "mp_forwardbase_kodai",
     "mp_angel_city",
     "mp_colony02",
     //"mp_glitch", //
-    //"mp_lf_stacks", 
+    //"mp_lf_stacks",
     //"mp_lf_deck",
     //"mp_lf_meadow",
     //"mp_lf_traffic",
@@ -96,7 +96,7 @@ const array<string> boostObject = ["melee_pilot_arena", "mp_weapon_hard_cover","
 const asset ChestModelClose = $"models/containers/pelican_case_large_imc.mdl" //pelican_case_large_imc OR pelican_case_large
 const asset ChestModelOpen = $"models/containers/pelican_case_imc_open.mdl" // pelican_case_imc_open OR pelican_case_large_open
 const array<vector> chestMainWeaponOffset = [<(25), 25, 30>, <(-0), -0, 30>, <(-25), -25, 30>] // x == y !!!!
-const vector chestMainWeaponAngle = <0, -30, 90> //<0, 30, 90> 
+const vector chestMainWeaponAngle = <0, -30, 90> //<0, 30, 90>
 
 bool ForceEndGame = false
 bool BlockMessageFromDeathPlayer = true
@@ -155,7 +155,7 @@ void function GamemodeBR_SOLO_Init()
 }
 
 void function BRIntroSetup()
-{   
+{
     AddCallback_GameStateEnter( eGameState.Prematch, BRIntroStart )
     AddCallback_GameStateEnter( eGameState.Playing, BRStartPlaying )
     AddCallback_GameStateEnter( eGameState.Postmatch, BRPostmatch )
@@ -225,7 +225,7 @@ void function BRStartPlaying() {
         if( GetCurrentPlaylistVarInt("BR_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_MinPlayerForHighlight")
             Highlight_SetEnemyHighlight( player, "battery_thief" ) //enemy_sonar | enemy_player | sp_enemy_pilot | battery_thief
         }
-        
+
         NSCreateStatusMessageOnPlayer(player,GetPlayerArray_Alive().len().tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
 
     }
@@ -241,7 +241,7 @@ void function BRPostmatch_Threaded() {
     foreach (entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", true)
     }
-    
+
 }
 
 void function BROnClientConnect( entity player ) {
@@ -257,7 +257,7 @@ void function BROnClientConnect( entity player ) {
     if( GetGameState() == eGameState.Prematch ) {
         thread BR_Spawn_Player_Threaded( player )
     }
-	
+
 }
 
 void function BROnClientDisconnect( entity player ) {
@@ -273,7 +273,7 @@ void function BROnClientDisconnect( entity player ) {
                     SetWinner(player.GetTeam())
                 }
                 if( GetCurrentPlaylistVarInt("BR_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_MinPlayerForHighlight")
-                    Highlight_SetEnemyHighlight( player, "battery_thief" ) 
+                    Highlight_SetEnemyHighlight( player, "battery_thief" )
                 }
             }
         }
@@ -292,7 +292,7 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
                 AddTeamScore( player.GetTeam(), 1 )
                 player.AddToPlayerGameStat( PGS_ASSAULT_SCORE, 1 )
                 if( GetCurrentPlaylistVarInt("BR_MinPlayerForHighlight", 2) >= GetPlayerArray_Alive().len()) { //GetConVarInt("BR_MinPlayerForHighlight")
-                    Highlight_SetEnemyHighlight( player, "battery_thief" ) 
+                    Highlight_SetEnemyHighlight( player, "battery_thief" )
                 }
             }
             NSEditStatusMessageOnPlayer(player,GetPlayerArray_Alive().len().tostring(),"#BR_SOLO_PlayerLeftPannelDesc", "BR_SOLO_PlayerLeftPannelID")
@@ -306,14 +306,14 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
 }
 
 void function BR_Spawn_Player_Threaded( entity player )
-{   
+{
     if(IsAlive(player)) {
         player.Die()
     }
 
     AddCinematicFlag( player, CE_FLAG_CLASSIC_MP_SPAWNING )
 	ScreenFadeFromBlack( player, 0.5, 0.5 )
-	
+
 	if ( !IsValid( player ) ) // if player leaves during the intro sequence
 		return
     RespawnAsPilot(player)
@@ -388,7 +388,7 @@ ClServer_MessageStruct function ChatMessageFilter(ClServer_MessageStruct message
 
 // void Chat_ServerPrivateMessage(entity toPlayer, string text, bool whisper, bool withServerTag = true)
 ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
-{   
+{
     if (message.message.find("!feg") != null) {
         Chat_ServerBroadcast("Force End Game.")
         SetWinner(GetPlayerArray()[0].GetTeam())
@@ -396,7 +396,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
     } else if(message.message.find("!ppos") != null) {
         Chat_ServerPrivateMessage(message.player, "Player Position : " + message.player.GetOrigin(), true, true)
         Chat_ServerPrivateMessage(message.player, "Player Angle : " + message.player.GetAngles()+<0,-90,0>, true, true)
-    
+
     } else if(message.message.find("!spc") != null) {
         if(playerChest != null) {
             playerChest.Destroy()
@@ -405,7 +405,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
         Chat_ServerPrivateMessage(message.player, "Player Position : " + message.player.GetOrigin(), true, true)
         Chat_ServerPrivateMessage(message.player, "Player Angle : " + (message.player.GetAngles()+<0,-90,0>), true, true)
         Chat_ServerPrivateMessage(message.player, "Code line : [" + playerChest.GetOrigin() + ", "+playerChest.GetAngles()+"],", true, true)
-    
+
     } else if(message.message.find("!vpc") != null) {
         if(spawnChestList == []) {
             spawnChestList = GetSpawnPointForChest()
@@ -413,7 +413,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
         spawnChestList.push([playerChest.GetOrigin(),playerChest.GetAngles()])
         print(spawnChestList)
 
-    
+
     } else if(message.message.find("!cfs") != null) {
         for(int i = 0; i < GetSpawnPointForChest().len(); i++){
             if(spawnPositionAlreadyChoice.find(i) == -1) {
@@ -425,7 +425,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
                 AddCallback_OnUseEntity(chest, OnChestUsed)
             }
         }
-    
+
     } else if(message.message.find("!spawn") != null) {
         if(message.message.find("weapon")) {
             if(message.message.find("*") != null) {
@@ -472,7 +472,7 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
 
 
 void function GamemodeBR_LOBBY_Init()
-{   
+{
     SetSpawnpointGamemodeOverride( FFA )
 	ClassicMP_ForceDisableEpilogue( true )
 	SetLoadoutGracePeriodEnabled( true )
@@ -484,7 +484,7 @@ void function GamemodeBR_LOBBY_Init()
 
 void function BR_LOBBY_OnClientConnect( entity player ) {
     NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_LOBBY_ConnectedPlayerDesc", "BR_LOBBY_ConnectedPlayerID")
-    
+
     foreach(entity player in GetPlayerArray()) {
         NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TBR_min_players")+"]","#BR_LOBBY_ConnectedPlayerDesc", "BR_LOBBY_ConnectedPlayerID")
     }
@@ -494,6 +494,11 @@ void function BR_LOBBY_OnClientConnect( entity player ) {
 }
 
 void function EnoughtPlayerToStart() {
+
+    while (GetGameState() != eGameState.Playing){
+        wait 1
+    }
+
     float WaitingVoteTime = GetCurrentPlaylistVarFloat("BR_LOBBY_WaitingVoteTime", 30)
     array<int> MapVoteAlreadyChoice = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     array<string> MapVote
