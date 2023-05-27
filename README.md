@@ -42,6 +42,7 @@ You can use the following command line as startup arguments to edit the Playlist
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
 | `BR_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `BR_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
+| `BR_MaxWeapon` | `Int` | `2` | Max number of weapon a player can take |
 | `BR_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |
 | `BR_ChestMultPlayer` | `Int` | `2` | ```(BR_ChestMultPlayer * NumPlayer) > BR_MinNumChest ? BR_ChestMultPlayer * NumPlayer : BR_MinNumChest``` |
 | `BR_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |

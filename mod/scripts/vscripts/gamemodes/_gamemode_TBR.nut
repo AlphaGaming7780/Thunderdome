@@ -1,3 +1,4 @@
+
 global function GamemodeBR_SOLO_Init
 global function GamemodeBR_LOBBY_Init
 
@@ -162,6 +163,7 @@ void function BRIntroSetup()
     AddCallback_OnClientConnected( BROnClientConnect )
     AddCallback_OnClientDisconnected( BROnClientDisconnect )
     AddCallback_OnPlayerKilled( OnPlayerKilled )
+    AddCallback_OnPlayerInventoryChanged( BR_OnPlayerInventoryChanged )
 }
 
 void function BRIntroStart() {
@@ -304,6 +306,20 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
 
     }
 }
+void function BR_OnPlayerInventoryChanged( entity player ) {
+    if( !IsAlive( player ) || !IsValid( player )){
+        return
+    }
+
+    if ( player.GetMainWeapons().len() >= GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)){
+        printt("Active weapon = " + GetActiveWeapon(player))
+        printt("Last primary weapon = " + GetLatestPrimaryWeapon(player))
+        //player.TakeWeaponNow(GetActiveWeapon(player).GetWeaponClassName())
+        //player.GiveWeapon(player.GetMainWeapons()[GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)].GetWeaponClassName())
+        //player.TakeWeaponNow(player.GetMainWeapons()[GetCurrentPlaylistVarInt("BR_MaxWeapon", 2)].GetWeaponClassName())
+    }
+
+}
 
 void function BR_Spawn_Player_Threaded( entity player )
 {
@@ -321,7 +337,10 @@ void function BR_Spawn_Player_Threaded( entity player )
     player.FreezeControlsOnServer()
 }
 
-var function OnChestUsed(var ent, var player) {
+/*
+var function ...
+*/
+void function OnChestUsed(var ent, var player) {
     expect entity( ent )
     expect entity( player )
     if(GetCurrentPlaylistVarInt( "BR_EnableDevMod", 0 ) == 1) {

@@ -22,6 +22,7 @@ playlists
 
 				BR_canSpawnTitan 0
 				BR_canUseBoost 0
+				BR_MaxWeapon 2
 				BR_IntroLength 10
 
 				BR_ChestMultPlayer 2
