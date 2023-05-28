@@ -3,9 +3,9 @@
 
 Thunderdome is a mod for Northstar (Titanfall 2), this mod add a new game mode: Battle Royale.
 
-Players will join a lobby and once the minimum required number of players has been reached, a vote for the map (of the Battle Royale) will take place. Once this vote has ended, the Battle Royale game will begin. The lobby is a classic FFA mod.
+Players will join a lobby and once the minimum required number of players has been reached, a vote for the map (of the Battle Royale or the game mode you create) will take place. Once this vote has ended, the Battle Royale game (or the game mode you create) will begin. The lobby is a classic FFA mod.
 
-The mod has great [customization](https://github.com/AlphaGaming7780/Thunderdome#documentation) possibilities by modifying the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars) and the [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the game mode, for example, you can disable chest spawn, enable random weapon donation at spawn and end up with a FFADM (Free For All Death Match).
+The mod has great [customization](https://github.com/AlphaGaming7780/Thunderdome#documentation) possibilities by modifying the [ConVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#convars) and the [PlaylitsVars](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server#playlist-overrides) of the game mode, for example, you can disable chest spawn, enable random weapon donation at spawn and end up with a FFADM (Free For All Death Match don't know how to call this).
 
 You can see the changelog [here](https://github.com/AlphaGaming7780/Thunderdome/blob/main/Changelog.md)
 
@@ -15,11 +15,11 @@ You can see the changelog [here](https://github.com/AlphaGaming7780/Thunderdome/
 ## Documentation
 It is possible to customize the game mode with the [ConVars](https://github.com/AlphaGaming7780/Thunderdome#convars) and [PlaylitsVars](https://github.com/AlphaGaming7780/Thunderdome#playlistvar) of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server)
 
-if the ConVars start with `TD_`, it mean that variable are used in both lobby and Battle Royale game mode.
+if the **ConVars** start with `TD_`, it mean that variable are used in both lobby and Battle Royale game mode.
 
-If the PlaylistVar start with `TD_`, it mean that variable are only used for the Battle Royale game mode except the Lobby,
+If the **PlaylistVar** start with `TD_`, it mean that variable are only used for the Battle Royale game mode except the Lobby,
 
-if the PlaylistVar start with `TD_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
+if the **PlaylistVar** start with `TD_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
 
 and if they start with nothing before, it mean that variable are used for both game mode.
 
