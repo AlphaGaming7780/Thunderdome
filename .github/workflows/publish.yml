@@ -40,7 +40,7 @@ jobs:
           # Package version to publish
           version: ${{ github.ref_name }} # This is the tag that was created in the release
           # Description of the mod
-          description: This mod add a Battle Royale game mode to Titanfall 2, this mod is required on both the client and server sides. # <----------- UPDATE THIS
+          description: This mod adds a customizable game mode to Titanfall 2. By default, it is a Battle Royale. This mod is required on both the client and server sides. # <----------- UPDATE THIS
           # Thunderstore API token
           token: ${{ secrets.TS_KEY }} 
           # Directory to wrap the contents of the repo in
