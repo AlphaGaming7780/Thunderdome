@@ -19,14 +19,15 @@ playlists
 				classic_mp 1
 
 				TD_MinPlayerForHighlight 2
+				TD_EnableSpectating 1
 
 				TD_CanSpawnTitan 0
 				TD_CanUseBoost 0
-				TD_ReplaceWeapon 0
+				TD_ReplaceWeapon 1
 				TD_MaxWeapon 2
 				TD_IntroLength 10
 
-				TD_SpawnChest 0
+				TD_SpawnChest 1
 				TD_ChestMultPlayer 2
 				TD_MinNumChest 20
 				TD_NumWeaponInChest 3

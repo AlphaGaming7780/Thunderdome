@@ -40,6 +40,7 @@ You can use the following command line as startup arguments to edit the Playlist
 | ----------------- | --------------- | ------------- | ----------- |
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server, **need to be the same value for both game mode.** |
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
+| `TD_EnableSpectating` | `Bool (Int)` | `1` | Allowed death player to spectate other player, `0` : False, `1` : True |
 | `TD_CanSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `TD_CanUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `TD_ReplaceWeapon` | `Bool (Int)` | `1` | Replace player weapons at the start of the game, `0` : False, `1` : True |
@@ -75,12 +76,12 @@ You can use the following command line as startup arguments to edit the Playlist
 ### For translations
 | Languag | Contributor |
 | ------- | ----------- |
-| English |  |
+| English | ChatGPT |
 | French | ᚖ 𝔸𝕝𝕡𝕙𝕒 𝔾𝕒𝕞𝕚𝕟𝕘 ᚖ#5720 (ME) |
-| German |  |
-| Italian |  |
-| Japanese |  |
+| German | ChatGPT |
+| Italian | ChatGPT |
+| Japanese | ChatGPT |
 | Portuguese| Dartzinho_V#8820 |
 | Russian | spoon#0407 |
-| Spanish |  |
+| Spanish | ChatGPT |
 | Traditional Chinese | zxcPandora#1581 |

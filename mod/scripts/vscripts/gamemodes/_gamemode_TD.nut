@@ -165,7 +165,7 @@ void function TDIntroSetup()
 {
     AddCallback_GameStateEnter( eGameState.Prematch, TDIntroStart )
     AddCallback_GameStateEnter( eGameState.Playing, TDStartPlaying )
-    AddCallback_GameStateEnter( eGameState.Postmatch, TDPostmatch )
+    AddCallback_GameStateEnter( eGameState.WinnerDetermined, TDWinnerDetermined )
     AddCallback_OnClientConnected( TDOnClientConnect )
     AddCallback_OnClientDisconnected( TDOnClientDisconnect )
     AddCallback_OnPlayerKilled( OnPlayerKilled )
@@ -240,12 +240,14 @@ void function TDStartPlaying() {
     }
 }
 
-void function TDPostmatch() {
-    ResetAllPlayerTeam()
-    thread TDPostmatch_Threaded()
+void function TDWinnerDetermined() {
+    if(GetCurrentPlaylistVarInt("TD_EnableSpectating", 1) == 1) {
+        ResetAllPlayerTeam()
+        thread TDWinnerDetermined_Threaded()
+    }
 }
 
-void function TDPostmatch_Threaded() {
+void function TDWinnerDetermined_Threaded() {
     wait 0.1
     foreach (entity player in GetPlayerArray()) {
         Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", true)
@@ -259,7 +261,7 @@ void function TDOnClientConnect( entity player ) {
 
     //Chat_ServerPrivateMessage(player, player.GetTeam().tostring(), true, true)
 
-    if( GetGameState() != eGameState.Postmatch ) {
+    if( GetGameState() != eGameState.Postmatch && GetCurrentPlaylistVarInt("TD_EnableSpectating", 1) == 1 ) {
         Remote_CallFunction_NonReplay( player, "SetAllowToShowScoreboard", false)
     }
 

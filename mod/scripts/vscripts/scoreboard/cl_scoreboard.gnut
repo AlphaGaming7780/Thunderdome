@@ -100,7 +100,6 @@ void function ClientCodeCallback_ScoreboardInput( int input )
 void function SetAllowToShowScoreboard( bool isallowed ) {
 	if(isallowed) {
 		IsAllowToShowScoreBoard = isallowed
-		thread ShowScoreboard()
 	} else {
 		IsAllowToShowScoreBoard = isallowed
 		thread HideScoreboard()

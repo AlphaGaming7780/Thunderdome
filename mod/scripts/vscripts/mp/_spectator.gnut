@@ -168,7 +168,9 @@ void function SpectatorFunc_Default( entity player )
 			{		
 				try
 				{	
-					SetTeam(player, target.GetTeam())
+					if(GetCurrentPlaylistVarInt("TD_EnableSpectating", 1) == 1) {
+						SetTeam(player, target.GetTeam())
+					}
 					player.SetObserverTarget( target )
 					player.StartObserverMode( OBS_MODE_CHASE )
 				}
