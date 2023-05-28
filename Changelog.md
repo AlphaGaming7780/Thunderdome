@@ -3,10 +3,11 @@
 ## V2.0.0
 > Add settings to the mod using mod settings \
 > Replace every `BR` to `TD` \
-> Add new PlaylistVar \
->>> `TD_ReplaceWeapon` \
->>> `TD_SpawnChest` \
-> Update mod desc. \
+> Add new PlaylistVar 
+>>> `TD_ReplaceWeapon` 
+>>> `TD_SpawnChest` 
+
+> Update mod desc. 
 
 ## V1.1.0
 > Add/rework the spectator mode, you can now watch other player, when you are dead. \
