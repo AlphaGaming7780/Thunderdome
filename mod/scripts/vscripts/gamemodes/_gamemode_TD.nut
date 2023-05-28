@@ -122,7 +122,7 @@ void function GamemodeTD_SOLO_Init()
 
     AddCallback_OnReceivedSayTextMessage(ChatMessageFilter)
 
-    if ( GetConVarBool( "TTD_EnableDevMod" ) ) {
+    if ( GetConVarBool( "TD_EnableDevMod" ) ) {
         AddCallback_OnReceivedSayTextMessage(DevChatCommande)
     }
     if( GetCurrentPlaylistVarInt("TD_canSpawnTitan", 0) == 0 ) { //!GetConVarBool( "TD_canSpawnTitan" )
@@ -218,7 +218,7 @@ void function TDIntroStartThreaded() {
 
 void function TDStartPlaying() {
     printt( "Start Playing" )
-    if(GetPlayerArray_Alive().len() < GetConVarInt("TTD_min_players") ) {
+    if(GetPlayerArray_Alive().len() < GetConVarInt("TD_min_players") ) {
         GameRules_ChangeMap(LobbyMaps[RandomInt(LobbyMaps.len())], GAMEMODE_TD_LOBBY)
     }
     foreach ( entity player in GetPlayerArray() ) {
@@ -504,12 +504,12 @@ void function GamemodeTD_LOBBY_Init()
 }
 
 void function TD_LOBBY_OnClientConnect( entity player ) {
-    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TTD_min_players")+"]","#TD_LOBBY_ConnectedPlayerDesc", "TD_LOBBY_ConnectedPlayerID")
+    NSCreateStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TD_min_players")+"]","#TD_LOBBY_ConnectedPlayerDesc", "TD_LOBBY_ConnectedPlayerID")
 
     foreach(entity player in GetPlayerArray()) {
-        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TTD_min_players")+"]","#TD_LOBBY_ConnectedPlayerDesc", "TD_LOBBY_ConnectedPlayerID")
+        NSEditStatusMessageOnPlayer(player,"["+GetPlayerArray().len().tostring()+"/"+GetConVarInt("TD_min_players")+"]","#TD_LOBBY_ConnectedPlayerDesc", "TD_LOBBY_ConnectedPlayerID")
     }
-    if(GetPlayerArray().len() >= GetConVarInt("TTD_min_players")) {
+    if(GetPlayerArray().len() >= GetConVarInt("TD_min_players")) {
         thread EnoughtPlayerToStart()
     }
 }

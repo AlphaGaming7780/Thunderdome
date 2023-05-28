@@ -45,6 +45,6 @@
     ],
 
     "Localisation": [
-        "resource/TTD_localisation_%language%.txt"
+        "resource/TD_localisation_%language%.txt"
     ]
 }
