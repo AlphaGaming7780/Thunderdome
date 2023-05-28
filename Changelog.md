@@ -4,8 +4,8 @@
 > Add settings to the mod using mod settings \
 > Replace every `BR` to `TD` \
 > Add new PlaylistVar 
->>> `TD_ReplaceWeapon` 
->>> `TD_SpawnChest` 
+>>> `TD_ReplaceWeapon` \ 
+>>> `TD_SpawnChest` \
 
 > Update mod desc. 
 
