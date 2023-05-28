@@ -1,8 +1,8 @@
 # Thunderdome Changelog
 
 ## V2.0.0
-> Add settings to the mod using mod settings
-> Replace every `BR` to `TD`
+> Add settings to the mod using mod settings \
+> Replace every `BR` to `TD` \
 > Add new PlaylistVar \
 >>> `TD_ReplaceWeapon` \
 >>> `TD_SpawnChest` \
