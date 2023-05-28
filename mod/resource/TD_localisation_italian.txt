@@ -1,0 +1,36 @@
+"lang"
+{
+    "Language" "italian"
+    "Tokens"
+    {       
+        "PL_TD_SOLO" "Thunderdome"
+        "GAMEMODE_TD_SOLO" "Battle Royal"
+        "PL_TD_SOLO_desc" "Sei stato lasciato cadere in un'arena, devi trovare armi per combattere contro altri giocatori e essere l'ultimo sopravvissuto."
+        "PL_TD_SOLO_hint" "Trova le casse degli armamenti e combatti gli altri giocatori!"
+        "PL_TD_SOLO_abbr" "TD"
+        "PL_TD_LOBBY" "Lobby Thunderdome"
+        "GAMEMODE_TD_LOBBY" "Lobby Thunderdome"
+        "PL_TD_LOBBY_desc" "Dove aspetti altri giocatori prima di iniziare una partita di Thunderdome."
+        "PL_TD_LOBBY_hint" "Aspetta e vota per la mappa su cui vuoi giocare quando abbastanza giocatori hanno aderito."
+        "PL_TD_LOBBY_abbr" "LTD"
+        
+        "TD_SOLO_GameNumPlayerLeftAnnouncement" "Solo %s1 giocatori rimasti!"
+        "TD_SOLO_PlayerLeftPannelDesc" "giocatori rimanenti."
+        "TD_LOBBY_ConnectedPlayerDesc" "giocatore connesso."
+        "TD_LOBBY_WaitingVoteTimeLeft" "%s1 secondi rimanenti."
+        "TD_LOBBY_GameStartChatAnnouncement" "Ci sono abbastanza giocatori per iniziare la partita, inizierà in %s1 secondi. Vota per la mappa sulla quale vuoi giocare."
+        "TD_MapVoteTitle" "Vota per la mappa sulla quale vuoi giocare!"
+
+        "TD_EnableDevMod" "Modalità sviluppatore"
+        "TD_canSpawnTitan" "Consenti l'abbattimento del Titano"
+        "TD_canUseBoost" "Consenti l'uso del boost"
+        "TD_IntroLength" "Lunghezza introduzione"
+        "TD_MinNumChest" "Numero di casse"
+        "TD_SpawnWithMainWeapon" "Spawn con arma principale"
+        "TD_SpawnWithSecondaryWeapon" "Spawn con arma secondaria"
+        "TD_SpawnWithAntiTitanWeapon" "Spawn con arma anti-titano"
+        "TD_SpawnMainWeapon" "Arma di spawn principale"
+        "TD_SpawnSecondaryWeapon" "Arma di spawn secondaria"
+        "TD_SpawnAntiTitanWeapon" "Arma di spawn anti-titano"
+    }
+}

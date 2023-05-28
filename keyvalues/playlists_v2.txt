@@ -2,63 +2,64 @@ playlists
 {
 	Gamemodes
 	{
-		BR_SOLO
+		TD_SOLO
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_BR_SOLO
-				lobbytitle #PL_BR_SOLO
-				description #PL_BR_SOLO_desc
-				hint #PL_BR_SOLO_hint
-				abbreviation #PL_BR_SOLO_abbr
+				name #PL_TD_SOLO
+				lobbytitle #PL_TD_SOLO
+				description #PL_TD_SOLO_desc
+				hint #PL_TD_SOLO_hint
+				abbreviation #PL_TD_SOLO_abbr
 
 				max_players 20
 				max_teams 20
 
 				classic_mp 1
 
-				BR_MinPlayerForHighlight 2
+				TD_MinPlayerForHighlight 2
 
-				BR_canSpawnTitan 0
-				BR_canUseBoost 0
-				BR_MaxWeapon 2
-				BR_IntroLength 10
+				TD_canSpawnTitan 0
+				TD_canUseBoost 0
+				TD_MaxWeapon 2
+				TD_IntroLength 10
 
-				BR_ChestMultPlayer 2
-				BR_MinNumChest 20
-				BR_NumWeaponInChest 3
-				BR_SpawnMainWeaponInChest 1
-				BR_SpawnSecondaryWeaponInChest 1
-				BR_SpawnAntiTitanWeaponInChest 0
+				TD_SpawnChest 1
+				TD_ChestMultPlayer 2
+				TD_MinNumChest 20
+				TD_NumWeaponInChest 3
+				TD_SpawnMainWeaponInChest 1
+				TD_SpawnSecondaryWeaponInChest 1
+				TD_SpawnAntiTitanWeaponInChest 0
 
-				BR_SpawnWithMainWeapon 0
-				BR_SpawnWithSecondaryWeapon 1
-				BR_SpawnWithAntiTitanWeapon 0
+				TD_SpawnWithMainWeapon 0
+				TD_SpawnWithSecondaryWeapon 1
+				TD_SpawnWithAntiTitanWeapon 0
 
-				BR_SpawnMainWeapon empty
-				BR_SpawnSecondaryWeapon mp_weapon_semipistol
-				BR_SpawnAntiTitanWeapon empty
+				TD_SpawnMainWeapon empty
+				TD_SpawnSecondaryWeapon mp_weapon_semipistol
+				TD_SpawnAntiTitanWeapon empty
 
 				gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
 			}
 		}
 
-		BR_LOBBY
+		TD_LOBBY
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_BR_LOBBY
-				lobbytitle #PL_BR_LOBBY
-				description #PL_BR_LOBBY_desc
-				hint #PL_BR_LOBBY_hint
-				abbreviation #PL_BR_LOBBY_abbr
+				name #PL_TD_LOBBY
+				lobbytitle #PL_TD_LOBBY
+				description #PL_TD_LOBBY_desc
+				hint #PL_TD_LOBBY_hint
+				abbreviation #PL_TD_LOBBY_abbr
 				max_players 20
 				max_teams 20
 				classic_mp 1
 
-				BR_LOBBY_WaitingVoteTime 30
+				TD_LOBBY_WaitingVoteTime 30
 
 				gamemode_score_hint #GAMEMODE_SCORE_HINT_FFA
 			}
@@ -66,15 +67,15 @@ playlists
 	}
 	Playlists
 	{
-		BR_SOLO
+		TD_SOLO
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_BR_SOLO
-				lobbytitle #PL_BR_SOLO
-				description #PL_BR_SOLO_desc
-				abbreviation #PL_BR_SOLO_abbr
+				name #PL_TD_SOLO
+				lobbytitle #PL_TD_SOLO
+				description #PL_TD_SOLO_desc
+				abbreviation #PL_TD_SOLO_abbr
 				image ffa
 				//mixtape_slot 7
 				mixtape_timeout 120
@@ -82,7 +83,7 @@ playlists
 			}
 			gamemodes
 			{
-				BR_SOLO
+				TD_SOLO
 				{
 					maps
 					{
@@ -114,15 +115,15 @@ playlists
 			}
 		}
 
-		BR_LOBBY
+		TD_LOBBY
 		{
 			inherit defaults
 			vars
 			{
-				name #PL_BR_LOBBY
-				lobbytitle #PL_BR_LOBBY
-				description #PL_BR_LOBBY_desc
-				abbreviation #PL_BR_LOBBY_abbr
+				name #PL_TD_LOBBY
+				lobbytitle #PL_TD_LOBBY
+				description #PL_TD_LOBBY_desc
+				abbreviation #PL_TD_LOBBY_abbr
 				image ffa
 				//mixtape_slot 7
 				mixtape_timeout 120
@@ -130,7 +131,7 @@ playlists
 			}
 			gamemodes
 			{
-				BR_LOBBY
+				TD_LOBBY
 				{
 					maps
 					{

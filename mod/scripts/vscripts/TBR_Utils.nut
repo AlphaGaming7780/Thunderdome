@@ -1,11 +1,11 @@
-global function TBR_Utils_INIT
+global function TTD_Utils_INIT
 global function GetSpawnPointForChest
 global function SavePlayerTeam
 global function ResetAllPlayerTeam
 
 array < entity > PlayerTeamIndex
 
-void function TBR_Utils_INIT () {
+void function TTD_Utils_INIT () {
     PlayerTeamIndex.resize(GetCurrentPlaylistVarInt("max_players", 20), null)
 }
 

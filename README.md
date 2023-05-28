@@ -15,49 +15,50 @@ You can see the changelog [here](https://github.com/AlphaGaming7780/Thunderdome/
 ## Documentation
 It is possible to customize the game mode with the [ConVars](https://github.com/AlphaGaming7780/Thunderdome#convars) and [PlaylitsVars](https://github.com/AlphaGaming7780/Thunderdome#playlistvar) of the mod, see the [Northstar documentation](https://r2northstar.gitbook.io/r2northstar-wiki/hosting-a-server-with-northstar/dedicated-server)
 
-if the ConVars start with `TBR_`, it mean that variable are used in both lobby and Battle Royale game mode.
+if the ConVars start with `TD_`, it mean that variable are used in both lobby and Battle Royale game mode.
 
-If the PlaylistVar start with `BR_`, it mean that variable are only used for the Battle Royale game mode except the Lobby,
+If the PlaylistVar start with `TD_`, it mean that variable are only used for the Battle Royale game mode except the Lobby,
 
-if the PlaylistVar start with `BR_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
+if the PlaylistVar start with `TD_LOBBY_`, it mean that variable are only used for the Lobby Battle Royale game mode,
 
 and if they start with nothing before, it mean that variable are used for both game mode.
 
 ### ConVars
 | ConVars | Accepted Values | Default Value | Description |
 | ----------------- | --------------- | ------------- | ----------- |
-| `TBR_min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
-|`TBR_EnableDevMod` | `Bool (Int)` | `0` | Enable the DEV mode |
+| `TD_min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
+|`TD_EnableDevMod` | `Bool (Int)` | `0` | Enable the DEV mode |
 
 ### PlaylistVar
 
 You can use the following command line as startup arguments to edit the PlaylistVar or direclly edit [PlayLits_v2.txt](https://github.com/AlphaGaming7780/Thunderdome/blob/main/keyvalues/playlists_v2.txt) file.
 ```
-+setplaylistvaroverrides "max_players 10 max_teams 10 BR_MinNumChest 40 TBR_SpawnWithMainWeapon 1 TBR_SpawnMainWeapon mp_weapon_car"
++setplaylistvaroverrides "max_players 10 max_teams 10 TD_MinNumChest 40 TTD_SpawnWithMainWeapon 1 TTD_SpawnMainWeapon mp_weapon_car"
 ```
 
 | PlaylistVar | Accepted Values | Default Value | Description |
 | ----------------- | --------------- | ------------- | ----------- |
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server, **need to be the same value for both game mode.** |
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
-| `BR_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
-| `BR_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
-| `BR_MaxWeapon` | `Int` | `2` | Max number of weapon a player can take |
-| `BR_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |
-| `BR_ChestMultPlayer` | `Int` | `2` | ```(BR_ChestMultPlayer * NumPlayer) > BR_MinNumChest ? BR_ChestMultPlayer * NumPlayer : BR_MinNumChest``` |
-| `BR_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
-| `BR_NumWeaponInChest` | `Int` | `3` | The numbres of weapon that spawn in the chest |
-| `BR_SpawnMainWeaponInChest` | `Bool  (Int)` | `1` | Can main weapon spawn in chest |
-| `BR_SpawnSecondaryWeaponInChest` | `Bool  (Int)` | `1` | Can secondary weapon spawn in chest |
-| `BR_SpawnAntiTitanWeaponInChest` | `Bool  (Int)` | `0` | Can anti titan weapon spawn in chest |
-| `BR_SpawnWithMainWeapon` | `Bool  (Int)` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
-| `BR_SpawnWithSecondaryWeapon` | `Bool  (Int)` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
-| `BR_SpawnWithAntiTitanWeapon` | `Bool  (Int)` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
-| `BR_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `"empty"` = random weapon |
-| `BR_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `"empty"` = random weapon |
-| `BR_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `"empty"` = random weapon |
-| `BR_MinPlayerForHighlight` | `Int` | `2` | The minimum number of players alive to high light the remaining players |
-| `BR_LOBBY_WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
+| `TD_canSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
+| `TD_canUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
+| `TD_MaxWeapon` | `Int` | `2` | Max number of weapon a player can take |
+| `TD_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |
+| `TD_SpawnChest` | `Bool  (Int)` | `1` | Spawn chest arround the map, `0` : False, `1` : True |
+| `TD_ChestMultPlayer` | `Int` | `2` | ```(TD_ChestMultPlayer * NumPlayer) > TD_MinNumChest ? TD_ChestMultPlayer * NumPlayer : TD_MinNumChest``` |
+| `TD_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
+| `TD_NumWeaponInChest` | `Int` | `3` | The numbres of weapon that spawn in the chest |
+| `TD_SpawnMainWeaponInChest` | `Bool  (Int)` | `1` | Can main weapon spawn in chest |
+| `TD_SpawnSecondaryWeaponInChest` | `Bool  (Int)` | `1` | Can secondary weapon spawn in chest |
+| `TD_SpawnAntiTitanWeaponInChest` | `Bool  (Int)` | `0` | Can anti titan weapon spawn in chest |
+| `TD_SpawnWithMainWeapon` | `Bool  (Int)` | `0` | If the player spawn with a main weapon, `0` : False, `1` : True |
+| `TD_SpawnWithSecondaryWeapon` | `Bool  (Int)` | `1` | If the player spawn with a secondary weapon, `0` : False, `1` : True |
+| `TD_SpawnWithAntiTitanWeapon` | `Bool  (Int)` | `0` | If the player spawn with a anti titan weapon, `0` : False, `1` : True |
+| `TD_SpawnMainWeapon` | `String` | `empty` | The main weapon the player will spawn with, `"empty"` = random weapon |
+| `TD_SpawnSecondaryWeapon` | `String` | `mp_weapon_semipistol` | The secondary weapon the player will spawn whit, `"empty"` = random weapon |
+| `TD_SpawnAntiTitanWeapon` | `String` | `empty` | The anti titan weapon the player will spawn whit, `"empty"` = random weapon |
+| `TD_MinPlayerForHighlight` | `Int` | `2` | The minimum number of players alive to high light the remaining players |
+| `TD_LOBBY_WaitingVoteTime` | `Float` | `30` | The time the server wait for player to vote for the next map, before it load the map the player vote. |
 
 ## Special Thanks
 

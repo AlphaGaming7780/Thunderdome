@@ -1,0 +1,36 @@
+"lang"
+{
+    "Language" "japanese"
+    "Tokens"
+    {       
+        "PL_TD_SOLO" "バトルロワイアル"
+        "GAMEMODE_TD_SOLO" "バトルロワイアル"
+        "PL_TD_SOLO_desc" "アリーナに落とされ、他のプレイヤーと戦い、最後の生存者になるための武器を見つけなければなりません。"
+        "PL_TD_SOLO_hint" "武器のチェストを見つけて他のプレイヤーと戦いましょう！"
+        "PL_TD_SOLO_abbr" "TD"
+        "PL_TD_LOBBY" "バトルロイヤルロビー"
+        "GAMEMODE_TD_LOBBY" "バトルロイヤルロビー"
+        "PL_TD_LOBBY_desc" "バトルロイヤルマッチを開始する前に他のプレイヤーを待つ場所。"
+        "PL_TD_LOBBY_hint" "待って、十分なプレーヤーが参加したら、あなたがプレイしたいマップに投票してください。"
+        "PL_TD_LOBBY_abbr" "TDL"
+        
+        "TD_SOLO_GameNumPlayerLeftAnnouncement" "残り%s1人のプレイヤー！"
+        "TD_SOLO_PlayerLeftPannelDesc" "プレイヤーが残っています。"
+        "TD_LOBBY_ConnectedPlayerDesc" "接続プレイヤー。"
+        "TD_LOBBY_WaitingVoteTimeLeft" "%s1秒残ります。"
+        "TD_LOBBY_GameStartChatAnnouncement" "ゲームを開始するために十分なプレイヤーがいます、%s1秒で開始されます。プレイしたいマップに投票してください。"
+        "TD_MapVoteTitle" "あなたがプレイしたいマップを選んで投票してください！"
+
+        "TD_EnableDevMod" "開発者モード"
+        "TD_canSpawnTitan" "タイタンドロップを許可"
+        "TD_canUseBoost" "ブーストの使用を許可"
+        "TD_IntroLength" "イントロの長さ"
+        "TD_MinNumChest" "チェストの数"
+        "TD_SpawnWithMainWeapon" "主武器でスポーン"
+        "TD_SpawnWithSecondaryWeapon" "副武器でスポーン"
+        "TD_SpawnWithAntiTitanWeapon" "アンチタイタン武器でスポーン"
+        "TD_SpawnMainWeapon" "主要なスポーン武器"
+        "TD_SpawnSecondaryWeapon" "副次のスポーン武器"
+        "TD_SpawnAntiTitanWeapon" "アンチタイタンスポーン武器"
+    }
+}

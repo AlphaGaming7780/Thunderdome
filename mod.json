@@ -2,49 +2,49 @@
     "Name" : "Thunderdome",
     "Description" : "Add a Battle Royale gamemode to Titanfall 2.",
     "RequiredOnClient": true,
-    "Version": "1.2.0",
+    "Version": "2.0.0",
     "LoadPriority": 1,
     "ConVars": [
         {
-            "Name": "TBR_min_players",
+            "Name": "TD_min_players",
             "DefaultValue": "2",
             "HelpString": "The Minimum required Player"
         },
         {
-            "Name": "TBR_EnableDevMod",
+            "Name": "TD_EnableDevMod",
             "DefaultValue": "0",
             "HelpString": "Enable Developer Mode"
         }
     ],
     "Scripts": [
         {
-            "Path": "gamemodes/_gamemode_TBR.nut",
+            "Path": "gamemodes/_gamemode_TD.nut",
             "RunOn": "SERVER && MP"
         },
         {
-            "Path": "gamemodes/cl_gamemode_TBR.nut",
+            "Path": "gamemodes/cl_gamemode_TD.nut",
             "RunOn": "CLIENT && MP"
         },
         {
-            "Path": "gamemodes/sh_gamemode_TBR.nut",
+            "Path": "gamemodes/sh_gamemode_TD.nut",
             "RunOn": "(CLIENT || SERVER) && MP",
             "ClientCallback": {
-                "Before": "TBR_init"
+                "Before": "TD_init"
             },
             "ServerCallback": {
-                "Before": "TBR_init"
+                "Before": "TD_init"
             }
         },
         {
-            "Path": "TBR_Utils.nut",
+            "Path": "TD_Utils.nut",
             "RunOn": "SERVER && MP",
             "ServerCallback": {
-                "Before": "TBR_Utils_INIT"
+                "Before": "TD_Utils_INIT"
             }
         }
     ],
 
     "Localisation": [
-        "resource/TBR_localisation_%language%.txt"
+        "resource/TTD_localisation_%language%.txt"
     ]
 }
