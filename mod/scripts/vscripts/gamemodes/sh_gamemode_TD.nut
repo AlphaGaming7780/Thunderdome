@@ -1,8 +1,8 @@
-global function TTD_init
+global function TD_init
 global const string GAMEMODE_TD_SOLO = "TD_SOLO"
 global const string GAMEMODE_TD_LOBBY = "TD_LOBBY"
 
-void function TTD_init()
+void function TD_init()
 {   
     AddCallback_OnCustomGamemodesInit( CreateGamemodeTD_LOBBY )
     AddCallback_OnCustomGamemodesInit( CreateGamemodeTD_SOLO )
