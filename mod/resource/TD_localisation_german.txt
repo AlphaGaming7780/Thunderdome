@@ -9,18 +9,21 @@
         "PL_TD_SOLO_desc" "Du wirst in eine Arena fallen gelassen, du musst Waffen finden, um gegen andere Spieler zu kämpfen und der letzte Überlebende zu sein."
         "PL_TD_SOLO_hint" "Finde Waffentruhen und kämpfe gegen andere Spieler!"
         "PL_TD_SOLO_abbr" "TD"
+
         "PL_TD_LOBBY" "Thunderdome Lobby"
         "GAMEMODE_TD_LOBBY" "Thunderdome Lobby"
         "PL_TD_LOBBY_desc" "Wo Sie auf andere Spieler warten, bevor Sie eine Thunderdome-Partie starten."
         "PL_TD_LOBBY_hint" "Warten Sie und stimmen Sie für die Karte ab, auf der Sie spielen möchten, wenn genug Spieler beigetreten sind."
         "PL_TD_LOBBY_abbr" "TDL"
         
+
         "TD_SOLO_GameNumPlayerLeftAnnouncement" "Nur noch %s1 Spieler übrig!"
         "TD_SOLO_PlayerLeftPannelDesc" "verbleibende Spieler."
         "TD_LOBBY_ConnectedPlayerDesc" "verbundener Spieler."
         "TD_LOBBY_WaitingVoteTimeLeft" "%s1 Sekunden verbleibend."
         "TD_LOBBY_GameStartChatAnnouncement" "Es gibt genug Spieler, um das Spiel zu starten, es wird in %s1 Sekunden beginnen. Stimmen Sie für die Karte ab, auf der Sie spielen möchten."
         "TD_MapVoteTitle" "Wähle die Karte aus, auf der du spielen möchtest!"
+
 
         "TD_EnableDevMod" "Entwicklermodus"
         "TD_canSpawnTitan" "Titan-Absprung erlauben"
@@ -33,5 +36,10 @@
         "TD_SpawnMainWeapon" "Primäre Spawn-Waffe"
         "TD_SpawnSecondaryWeapon" "Sekundäre Spawn-Waffe"
         "TD_SpawnAntiTitanWeapon" "Anti-Titan-Spawn-Waffe"
+
+
+        "TD_Dev_settings" "Entwicklungseinstellungen"
+        "TD_Enabled" "Aktiviert"
+        "TD_Disabled" "Deaktiviert"
     }
 }
