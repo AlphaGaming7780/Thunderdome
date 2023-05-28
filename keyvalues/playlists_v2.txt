@@ -20,8 +20,9 @@ playlists
 
 				TD_MinPlayerForHighlight 2
 
-				TD_canSpawnTitan 0
-				TD_canUseBoost 0
+				TD_CanSpawnTitan 0
+				TD_CanUseBoost 0
+				TD_ReplaceWeapon 1
 				TD_MaxWeapon 2
 				TD_IntroLength 10
 

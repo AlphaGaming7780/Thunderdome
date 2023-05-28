@@ -118,40 +118,40 @@ void function GamemodeTD_SOLO_Init()
     SetSpawnpointGamemodeOverride( FFA )
     SetLoadoutGracePeriodEnabled( false )
     SetWeaponDropsEnabled( true )
-    SetRespawnsEnabled( false )
+    SetRespawnsEnabled( true )
 
     AddCallback_OnReceivedSayTextMessage(ChatMessageFilter)
 
     if ( GetConVarBool( "TD_EnableDevMod" ) ) {
         AddCallback_OnReceivedSayTextMessage(DevChatCommande)
     }
-    if( GetCurrentPlaylistVarInt("TD_canSpawnTitan", 0) == 0 ) { //!GetConVarBool( "TD_canSpawnTitan" )
+    if( GetCurrentPlaylistVarInt("TD_CanSpawnTitan", 0) == 0 ) {
         Riff_ForceTitanAvailability( eTitanAvailability.Never )
     }
-    if( GetCurrentPlaylistVarInt("TD_canUseBoost", 0) == 0 ) { //!GetConVarBool( "TD_canUseBoost" )
+    if( GetCurrentPlaylistVarInt("TD_CanUseBoost", 0) == 0 ) {
         Riff_ForceBoostAvailability( eBoostAvailability.Disabled )
     }
 
     PrecacheModel( ChestModelClose )
     PrecacheModel( ChestModelOpen )
 
-    if( GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "empty" ) == "empty" ) { //GetConVarString("TD_SpawnMainWeapon")
+    if( GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "empty" ) == "empty" ) {
         spawnMainWeapon = mainWeapons[ RandomInt( mainWeapons.len() ) ]
     } else {
-        spawnMainWeapon = GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "mp_weapon_car" ) //GetConVarString("TD_SpawnMainWeapon")
+        spawnMainWeapon = GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "mp_weapon_car" )
     }
-    if( GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "empty" ) == "empty" ) { //GetConVarString("TD_SpawnSecondaryWeapon") == ""
+    if( GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "empty" ) == "empty" ) {
         spawnSecondaryWeapon = secondaryWeapons[ RandomInt( secondaryWeapons.len() ) ]
     } else {
-        spawnSecondaryWeapon = GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "mp_weapon_wingman" )  //GetConVarString("TD_SpawnSecondaryWeapon")
+        spawnSecondaryWeapon = GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "mp_weapon_wingman" )
     }
-    if(GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "empty" ) == "empty") { //GetConVarString("TD_SpawnAntiTitanWeapon") == ""
+    if(GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "empty" ) == "empty") {
         spawnAntiTitanWeapon = antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ]
     } else {
-        spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "mp_weapon_rocket_launcher" ) //GetConVarString("TD_SpawnAntiTitanWeapon")
+        spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "mp_weapon_rocket_launcher" )
     }
 
-    ClassicMP_SetCustomIntro( TDIntroSetup, GetCurrentPlaylistVarFloat("TD_IntroLength", 10) ) //GetConVarInt("TD_IntroLength")
+    ClassicMP_SetCustomIntro( TDIntroSetup, GetCurrentPlaylistVarFloat("TD_IntroLength", 10) )
     #endif
 }
 
