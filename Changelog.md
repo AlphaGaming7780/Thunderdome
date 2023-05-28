@@ -6,7 +6,6 @@
 > Add new PlaylistVar 
 >>> `TD_ReplaceWeapon` \ 
 >>> `TD_SpawnChest` \
-
 > Update mod desc. 
 
 ## V1.1.0
