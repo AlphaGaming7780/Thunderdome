@@ -118,7 +118,7 @@ void function GamemodeTD_SOLO_Init()
     SetSpawnpointGamemodeOverride( FFA )
     SetLoadoutGracePeriodEnabled( false )
     SetWeaponDropsEnabled( true )
-    SetRespawnsEnabled( true )
+    SetRespawnsEnabled( false )
 
     AddCallback_OnReceivedSayTextMessage(ChatMessageFilter)
 
@@ -132,23 +132,29 @@ void function GamemodeTD_SOLO_Init()
         Riff_ForceBoostAvailability( eBoostAvailability.Disabled )
     }
 
-    PrecacheModel( ChestModelClose )
-    PrecacheModel( ChestModelOpen )
 
-    if( GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "empty" ) == "empty" ) {
-        spawnMainWeapon = mainWeapons[ RandomInt( mainWeapons.len() ) ]
-    } else {
-        spawnMainWeapon = GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "mp_weapon_car" )
+    if(GetCurrentPlaylistVarInt("TD_SpawnChest", 1) == 1) {
+        PrecacheModel( ChestModelClose )
+        PrecacheModel( ChestModelOpen )
     }
-    if( GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "empty" ) == "empty" ) {
-        spawnSecondaryWeapon = secondaryWeapons[ RandomInt( secondaryWeapons.len() ) ]
-    } else {
-        spawnSecondaryWeapon = GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "mp_weapon_wingman" )
-    }
-    if(GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "empty" ) == "empty") {
-        spawnAntiTitanWeapon = antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ]
-    } else {
-        spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "mp_weapon_rocket_launcher" )
+
+    if(GetCurrentPlaylistVarInt("TD_ReplaceWeapon", 1) == 1) {
+
+        if( GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "empty" ) == "empty" ) {
+            spawnMainWeapon = mainWeapons[ RandomInt( mainWeapons.len() ) ]
+        } else {
+            spawnMainWeapon = GetCurrentPlaylistVarString("TD_SpawnMainWeapon", "mp_weapon_car" )
+        }
+        if( GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "empty" ) == "empty" ) {
+            spawnSecondaryWeapon = secondaryWeapons[ RandomInt( secondaryWeapons.len() ) ]
+        } else {
+            spawnSecondaryWeapon = GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", "mp_weapon_wingman" )
+        }
+        if(GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "empty" ) == "empty") {
+            spawnAntiTitanWeapon = antiTitanWeapons[ RandomInt( antiTitanWeapons.len() ) ]
+        } else {
+            spawnAntiTitanWeapon =  GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", "mp_weapon_rocket_launcher" )
+        }
     }
 
     ClassicMP_SetCustomIntro( TDIntroSetup, GetCurrentPlaylistVarFloat("TD_IntroLength", 10) )
@@ -163,7 +169,6 @@ void function TDIntroSetup()
     AddCallback_OnClientConnected( TDOnClientConnect )
     AddCallback_OnClientDisconnected( TDOnClientDisconnect )
     AddCallback_OnPlayerKilled( OnPlayerKilled )
-    AddCallback_OnPlayerInventoryChanged( TD_OnPlayerInventoryChanged )
 }
 
 void function TDIntroStart() {
@@ -308,23 +313,6 @@ void function OnPlayerKilled(entity victim, entity attacker, var damageInfo) {
 
     }
 }
-void function TD_OnPlayerInventoryChanged( entity player ) {
-    Chat_ServerBroadcast("Okay", true)
-    /*if( !IsAlive( player ) || !IsValid( player )){
-        return
-    }*/
-
-    Chat_ServerBroadcast("Okay 2", true)
-
-    if ( player.GetMainWeapons().len() > GetCurrentPlaylistVarInt("TD_MaxWeapon", 2)){
-        Chat_ServerBroadcast("Active weapon = " + player.GetActiveWeapon(), true)
-        Chat_ServerBroadcast("Last primary weapon = " + player.GetLatestPrimaryWeapon(), true)
-        //player.TakeWeaponNow(GetActiveWeapon(player).GetWeaponClassName())
-        //player.GiveWeapon(player.GetMainWeapons()[GetCurrentPlaylistVarInt("TD_MaxWeapon", 2)].GetWeaponClassName())
-        //player.TakeWeaponNow(player.GetMainWeapons()[GetCurrentPlaylistVarInt("TD_MaxWeapon", 2)].GetWeaponClassName())
-    }
-
-}
 
 void function TD_Spawn_Player_Threaded( entity player )
 {
@@ -338,7 +326,9 @@ void function TD_Spawn_Player_Threaded( entity player )
 	if ( !IsValid( player ) ) // if player leaves during the intro sequence
 		return
     RespawnAsPilot(player)
-    GiveStartWeapon( player )
+    if(GetCurrentPlaylistVarInt("TD_ReplaceWeapon", 1) == 1) {
+        GiveStartWeapon( player )
+    }
     player.FreezeControlsOnServer()
 }
 
@@ -368,6 +358,7 @@ var function OnChestUsed(var ent, var player) {
             weapon.SetVelocity( <0,0,0> )
             weapon.SetParent(ent)
 
+            //AddCallback_OnUseEntity(weapon, OnWeaponUsed)
             Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
         }
         //Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
@@ -377,6 +368,20 @@ var function OnChestUsed(var ent, var player) {
         }
     }
 }
+
+/*var function OnWeaponUsed(var weapon, var player) {
+    expect entity( weapon )
+    expect entity( player )
+    Chat_ServerBroadcast("Okay")
+
+    if ( player.GetMainWeapons().len() > GetCurrentPlaylistVarInt("TD_MaxWeapon", 2)){
+        Chat_ServerBroadcast("Active weapon = " + player.GetActiveWeapon(), true)
+        Chat_ServerBroadcast("Last primary weapon = " + player.GetLatestPrimaryWeapon(), true)
+        //player.TakeWeaponNow(GetActiveWeapon(player).GetWeaponClassName())
+        //player.GiveWeapon(player.GetMainWeapons()[GetCurrentPlaylistVarInt("TD_MaxWeapon", 2)].GetWeaponClassName())
+        //player.TakeWeaponNow(player.GetMainWeapons()[GetCurrentPlaylistVarInt("TD_MaxWeapon", 2)].GetWeaponClassName())
+    }
+}*/
 
 void function GiveStartWeapon(entity player)
 {

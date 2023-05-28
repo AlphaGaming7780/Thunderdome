@@ -2,7 +2,8 @@
 {
     "Language" "italian"
     "Tokens"
-    {       
+    {   
+        "MOD_TITLE" "Thunderdome"    
         "PL_TD_SOLO" "Thunderdome"
         "GAMEMODE_TD_SOLO" "Battle Royal"
         "PL_TD_SOLO_desc" "Sei stato lasciato cadere in un'arena, devi trovare armi per combattere contro altri giocatori e essere l'ultimo sopravvissuto."

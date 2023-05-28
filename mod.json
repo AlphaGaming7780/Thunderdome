@@ -41,10 +41,21 @@
             "ServerCallback": {
                 "Before": "TD_Utils_INIT"
             }
+        },
+        {
+            "Path": "ui/TD_UI.nut",
+            "RunOn": "UI",
+            "UICallback": {
+                "Before": "TD_UI"
+            }
         }
     ],
 
     "Localisation": [
         "resource/TD_localisation_%language%.txt"
-    ]
+    ],
+
+    "Dependencies": {
+        "PLAYER_HAS_MOD_SETTINGS": "Mod Settings"
+    }
 }

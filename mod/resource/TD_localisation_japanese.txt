@@ -2,7 +2,8 @@
 {
     "Language" "japanese"
     "Tokens"
-    {       
+    {   
+        "MOD_TITLE" "Thunderdome"    
         "PL_TD_SOLO" "バトルロワイアル"
         "GAMEMODE_TD_SOLO" "バトルロワイアル"
         "PL_TD_SOLO_desc" "アリーナに落とされ、他のプレイヤーと戦い、最後の生存者になるための武器を見つけなければなりません。"

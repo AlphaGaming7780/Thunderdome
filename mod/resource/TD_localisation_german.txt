@@ -2,7 +2,8 @@
 {
     "Language" "german"
     "Tokens"
-    {       
+    {   
+        "MOD_TITLE" "Thunderdome"    
         "PL_TD_SOLO" "Thunderdome"
         "GAMEMODE_TD_SOLO" "Thunderdome"
         "PL_TD_SOLO_desc" "Du wirst in eine Arena fallen gelassen, du musst Waffen finden, um gegen andere Spieler zu kämpfen und der letzte Überlebende zu sein."
