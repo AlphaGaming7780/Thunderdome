@@ -45,5 +45,7 @@ jobs:
           token: ${{ secrets.TS_KEY }} 
           # Directory to wrap the contents of the repo in
           wrap: mods/${{ github.repository_owner }}.${{ env.name }} # This will wrap your Author.ModName folder in a mods/ folder before publishing
-          #deps: "northstar-Northstar@1.9.3" # <------------- Uncomment this line to add dependencies to your mod, each sparated by a space
-          categories: "Mods Client-side Server-side"  # <----------------------------- Add more categories as needed, separated by spaces
+          # dependencies of the mod, each sparated by a space
+          deps: "northstar-Northstar@1.14.2 EladNLG-ModSettings@2.1.0" 
+          # categories of the mod, separated by spaces
+          categories: "Mods Client-side Server-side" 

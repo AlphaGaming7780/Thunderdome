@@ -343,7 +343,7 @@ var function OnChestUsed(var ent, var player) {
     if(ent.GetModelName() == ChestModelClose) {
         ent.SetModel(ChestModelOpen)
         entity weapon
-        for(int i = 0; i < GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 2); i++) {
+        for(int i = 0; i < (GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 2) > chestMainWeaponOffset.len() ? chestMainWeaponOffset.len() : GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 2)) ; i++) {
             int weapontype = RandomInt(3)
             if(weapontype == 0 && GetCurrentPlaylistVarInt("TD_SpawnMainWeaponInChest", 1) == 1 ) {
                 weapon = CreateWeaponEntityByNameWithPhysics( mainWeapons[ RandomInt( mainWeapons.len() ) ], ent.GetOrigin()+<chestMainWeaponOffset[i].x * deg_cos(ent.GetAngles().y) -10 * deg_sin(ent.GetAngles().y), chestMainWeaponOffset[i].y * deg_sin(ent.GetAngles().y) +10 * deg_cos(ent.GetAngles().y), chestMainWeaponOffset[i].z>, ent.GetAngles()+chestMainWeaponAngle ) //
@@ -365,7 +365,7 @@ var function OnChestUsed(var ent, var player) {
         }
         //Remote_CallFunction_NonReplay( player, "Cl_CreateLight", weapon.GetOrigin().x, weapon.GetOrigin().y, weapon.GetOrigin().z)
     } else if(ent.GetModelName() == ChestModelOpen) {
-        for(int i = 0; i < GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 2); i++) {
+        for(int i = 0; i < (GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 2) > chestMainWeaponOffset.len() ? chestMainWeaponOffset.len() : GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 2)); i++) {
             Remote_CallFunction_NonReplay( player, "Cl_CreateLight", ent.GetOrigin().x+chestMainWeaponOffset[i].x * deg_cos(ent.GetAngles().y) -10 * deg_sin(ent.GetAngles().y), ent.GetOrigin().y + chestMainWeaponOffset[i].y * deg_sin(ent.GetAngles().y) +10 * deg_cos(ent.GetAngles().y), ent.GetOrigin().z + chestMainWeaponOffset[i].z)
         }
     }
@@ -490,6 +490,8 @@ ClServer_MessageStruct function DevChatCommande(ClServer_MessageStruct message)
         Remote_CallFunction_NonReplay( message.player ,"Cl_TEST")
     } else if( message.message.find("!gpt") != null) {
         Chat_ServerBroadcast( message.player + " Team :" + message.player.GetTeam().tostring())
+    } else if( message.message.find("!wtf") != null) {
+        message.player.SetModel($"models/robots/marvin/marvin.mdl")
     }
 
     return message

@@ -13,7 +13,7 @@ void function TD_UI() {
     AddModTitle( "#MOD_TITLE" )
 
     AddModCategory( "#TD_Dev_settings" )
-    AddConVarSettingEnum( "TD_EnableDevMod", "#TD_EnableDevMod", [ "#TD_Disabled", "#TD_Enabled" ] )
+    AddConVarSettingEnum( "TD_EnableDevMod", "#TD_EnableDevMod", [ "#SETTING_DISABLED", "#SETTING_ENABLED" ] )
 #endif
 
 }

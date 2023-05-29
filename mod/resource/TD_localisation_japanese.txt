@@ -39,7 +39,5 @@
 
 
         "TD_Dev_settings" "開発設定"
-        "TD_Enabled" "有効"
-        "TD_Disabled" "無効"
     }
 }

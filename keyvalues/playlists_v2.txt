@@ -18,8 +18,9 @@ playlists
 
 				classic_mp 1
 
-				TD_MinPlayerForHighlight 2
 				TD_EnableSpectating 1
+				TD_BlockMessageFromDeathPlayer 1
+				TD_MinPlayerForHighlight 2
 
 				TD_CanSpawnTitan 0
 				TD_CanUseBoost 0

@@ -23,14 +23,23 @@ void function CreateGamemodeTD_SOLO()
 
     AddPrivateMatchMode( GAMEMODE_TD_SOLO)
 
-    //AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "min_players", GetCurrentPlaylistVarInt("min_players", 2).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_EnableSpectating", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_EnableSpectating", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_BlockMessageFromDeathPlayer", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_BlockMessageFromDeathPlayer", 0).tostring())
+	AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_MinPlayerForHighlight", GetCurrentPlaylistVarInt("TD_MinPlayerForHighlight", 0).tostring())
 
-    //AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TTD_EnableDevMod", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TTD_EnableDevMod", 0).tostring())
-    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_canSpawnTitan", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_canSpawnTitan", 0).tostring())
-    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_canUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_canUseBoost", 0).tostring())
-
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_CanSpawnTitan", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_canSpawnTitan", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_CanUseBoost", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_canUseBoost", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_ReplaceWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_ReplaceWeapon", 0).tostring())
+    // AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_MaxWeapon", GetCurrentPlaylistVarInt("TD_MaxWeapon", 0).tostring())
     AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_IntroLength", GetCurrentPlaylistVarInt("TD_IntroLength", 0).tostring())
+
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_SpawnChest", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_SpawnChest", 0).tostring())
+    AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_ChestMultPlayer", GetCurrentPlaylistVarInt("TD_ChestMultPlayer", 0).tostring())
     AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_MinNumChest", GetCurrentPlaylistVarInt("TD_MinNumChest", 0).tostring())
+    AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_NumWeaponInChest", GetCurrentPlaylistVarInt("TD_NumWeaponInChest", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_SpawnMainWeaponInChest", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_SpawnMainWeaponInChest", 0).tostring())
+	AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_SpawnSecondaryWeaponInChest", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_SpawnSecondaryWeaponInChest", 0).tostring())
+    AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_SpawnAntiTitanWeaponInChest", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_SpawnAntiTitanWeaponInChest", 0).tostring())
 
     AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_SpawnWithMainWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_SpawnWithMainWeapon", 0).tostring())
     AddPrivateMatchModeSettingEnum("#PL_TD_SOLO", "TD_SpawnWithSecondaryWeapon", ["#SETTING_DISABLED", "#SETTING_ENABLED"], GetCurrentPlaylistVarInt("TD_SpawnWithSecondaryWeapon", 0).tostring())
@@ -39,6 +48,8 @@ void function CreateGamemodeTD_SOLO()
     AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_SpawnMainWeapon", GetCurrentPlaylistVarString("TD_SpawnMainWeapon", ""))
     AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_SpawnSecondaryWeapon", GetCurrentPlaylistVarString("TD_SpawnSecondaryWeapon", ""))
     AddPrivateMatchModeSettingArbitrary("#PL_TD_SOLO", "TD_SpawnAntiTitanWeapon", GetCurrentPlaylistVarString("TD_SpawnAntiTitanWeapon", ""))
+
+
 
     GameMode_SetDefaultScoreLimits( GAMEMODE_TD_SOLO, 1000, 0 )
 
@@ -71,6 +82,8 @@ void function CreateGamemodeTD_LOBBY()
     GameMode_SetColor( GAMEMODE_TD_LOBBY, [147, 204, 57, 255] ) // dont fuck with it
 
     AddPrivateMatchMode( GAMEMODE_TD_LOBBY )
+    
+    AddPrivateMatchModeSettingArbitrary("#PL_TD_LOBBY", "TD_LOBBY_WaitingVoteTime", GetCurrentPlaylistVarInt("TD_LOBBY_WaitingVoteTime", 0).tostring())
 
     GameMode_SetDefaultScoreLimits( GAMEMODE_TD_LOBBY, 1000, 0 )
 

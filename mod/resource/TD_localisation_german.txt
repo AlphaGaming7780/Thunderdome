@@ -39,7 +39,5 @@
 
 
         "TD_Dev_settings" "Entwicklungseinstellungen"
-        "TD_Enabled" "Aktiviert"
-        "TD_Disabled" "Deaktiviert"
     }
 }

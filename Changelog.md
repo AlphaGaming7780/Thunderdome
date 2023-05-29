@@ -4,7 +4,7 @@
 > Add settings to the mod using mod settings \
 > Update localisation
 > Replace every `BR` to `TD` \
-> Add new PlaylistVar `TD_ReplaceWeapon`, `TD_SpawnChest` and `TD_EnableSpectating` \
+> Add new PlaylistVar `TD_ReplaceWeapon`, `TD_SpawnChest`, `TD_EnableSpectating` and `TD_BlockMessageFromDeathPlayer` \
 > Update mod desc.
 
 ## V1.1.0

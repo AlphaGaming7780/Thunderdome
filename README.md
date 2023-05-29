@@ -26,7 +26,7 @@ and if they start with nothing before, it mean that variable are used for both g
 ### ConVars
 | ConVars | Accepted Values | Default Value | Description |
 | ----------------- | --------------- | ------------- | ----------- |
-| `TD_min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in Batlle Royale game mode the min player needed to stop the game and return the player to the lobby. |
+| `TD_min_players` | `Int` | `2` | In Lobby game mode is the minimum player needed to start a game, in the main game mode, is the min player needed to stop the game and return the player to the lobby. |
 |`TD_EnableDevMod` | `Bool (Int)` | `0` | Enable the DEV mode |
 
 ### PlaylistVar
@@ -41,15 +41,16 @@ You can use the following command line as startup arguments to edit the Playlist
 | `max_players`     | `Int`           | `20`          | Determine the amount of player max on the server, **need to be the same value for both game mode.** |
 | `max_teams`       | `Int` | `20` | Need to be the **same** as `max_players`, you can have 20 team max, game limite, so 20 player max, **need to be the same value for both game mode.**|
 | `TD_EnableSpectating` | `Bool (Int)` | `1` | Allowed death player to spectate other player, `0` : False, `1` : True |
+| `TD_BlockMessageFromDeathPlayer` | `Bool (Int)` | `1` | Messages from dead players are hidden from live players, but other dead players can still view them, `0` : False, `1` : True |
 | `TD_CanSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `TD_CanUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `TD_ReplaceWeapon` | `Bool (Int)` | `1` | Replace player weapons at the start of the game, `0` : False, `1` : True |
-| `TD_MaxWeapon` | `Int` | `2` | Max number of weapon a player can take |
+<!-- | `TD_MaxWeapon` | `Int` | `2` | Max number of weapon a player can take | -->
 | `TD_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |
 | `TD_SpawnChest` | `Bool  (Int)` | `1` | Spawn chest arround the map, `0` : False, `1` : True |
 | `TD_ChestMultPlayer` | `Int` | `2` | ```(TD_ChestMultPlayer * NumPlayer) > TD_MinNumChest ? TD_ChestMultPlayer * NumPlayer : TD_MinNumChest``` |
 | `TD_MinNumChest` | `Int` | `20` | The numbres of chest that spawn in the map |
-| `TD_NumWeaponInChest` | `Int` | `3` | The numbres of weapon that spawn in the chest |
+| `TD_NumWeaponInChest` | `Int` | `3` | The numbres of weapon that spawn in the chest, **max 3** |
 | `TD_SpawnMainWeaponInChest` | `Bool  (Int)` | `1` | Can main weapon spawn in chest |
 | `TD_SpawnSecondaryWeaponInChest` | `Bool  (Int)` | `1` | Can secondary weapon spawn in chest |
 | `TD_SpawnAntiTitanWeaponInChest` | `Bool  (Int)` | `0` | Can anti titan weapon spawn in chest |
