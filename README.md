@@ -45,7 +45,6 @@ You can use the following command line as startup arguments to edit the Playlist
 | `TD_CanSpawnTitan` | `Bool (Int)` | `0` | Allowed player to summon their titan, `0` : False, `1` : True |
 | `TD_CanUseBoost` | `Bool (Int)` | `0` | Allowed player to use their boost, `0` : False, `1` : True |
 | `TD_ReplaceWeapon` | `Bool (Int)` | `1` | Replace player weapons at the start of the game, `0` : False, `1` : True |
-<!-- | `TD_MaxWeapon` | `Int` | `2` | Max number of weapon a player can take | -->
 | `TD_IntroLength` | `Float` | `10` | Time of the prematch state in seconde |
 | `TD_SpawnChest` | `Bool  (Int)` | `1` | Spawn chest arround the map, `0` : False, `1` : True |
 | `TD_ChestMultPlayer` | `Int` | `2` | ```(TD_ChestMultPlayer * NumPlayer) > TD_MinNumChest ? TD_ChestMultPlayer * NumPlayer : TD_MinNumChest``` |
